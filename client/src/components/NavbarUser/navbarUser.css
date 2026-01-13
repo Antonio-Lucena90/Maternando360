@@ -1,0 +1,13 @@
+.nav-simbol{
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  background-color: brown;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline-end: .5rem;
+  cursor: pointer;
+}

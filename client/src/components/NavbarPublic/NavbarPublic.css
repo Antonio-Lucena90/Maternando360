@@ -1,0 +1,10 @@
+.navbar{
+  background-color:#E8CFC7 ;
+
+  .my-btn{
+    background-color: #ae938a; 
+  }
+  .my-btn:hover{
+    background-color: #da9c87;
+  }
+}

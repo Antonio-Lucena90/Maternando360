@@ -1,0 +1,62 @@
+
+.table{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: .5rem;
+ 
+
+  table{
+  width: 50%;
+  table-layout: fixed;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px double #839483;
+  border-radius: 20px;
+  overflow: hidden;
+  
+  th, tr, td{
+    padding: 1rem;
+    background-color: #c5dac5;
+    }
+
+    h3{
+      padding: 1rem;
+    }
+
+    button{
+      background-color: #839483;
+      border-radius: 20px;
+      padding: .8rem;
+      color: white;
+    }
+    button:hover{
+      background-color: #465c46;
+    }
+
+  }
+}
+
+.cita{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  h2{
+    padding: 2rem;
+  }
+}
+.cancelacion{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  h2{
+    padding: 2rem;
+  }
+}

@@ -1,0 +1,33 @@
+main{
+  background-color: #f4bdaa;
+}
+
+
+.main-public{
+  min-height: calc(100vh - 116px);
+}
+.footer-public{
+  height: 60px;
+  background-color: rgb(133, 174, 174);
+}
+
+.error-msg{
+  color:red;
+}
+
+.main-user{
+  background-color: #d29682;
+  min-height: calc(100vh - 116px);
+}
+
+.footer-user{
+  height: 60px;
+  background-color: rgb(133, 174, 174);
+}
+
+  .my-btn{
+    background-color: #ae938a; 
+  }
+  .my-btn:hover{
+    background-color: #da9c87;
+  }

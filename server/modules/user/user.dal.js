@@ -13,7 +13,7 @@ class UserDal{
 
   findUserByEmail = async (values) =>{
     try{
-      let sql = 'SELECT user_id, password FROM user WHERE email = ? AND user_is_deleted = 0'
+      let sql = 'SELECT user_id, password FROM user WHERE email = ? AND is_deleted = 0'
       let result = await executeQuery(sql, values)
       return result;
     }catch(error){
@@ -22,7 +22,7 @@ class UserDal{
   }
   oneUser = async (values) =>{
     try{
-      let sql = 'SELECT user_id, name, last_name, email, phone, birth_date, type FROM user WHERE user_id = ? AND user_is_deleted = 0'
+      let sql = 'SELECT user_id, name, last_name, email, phone, birth_date, type FROM user WHERE user_id = ? AND is_deleted = 0'
       let result = await executeQuery(sql, values)
       return result; 
     }catch(error){
@@ -31,7 +31,7 @@ class UserDal{
   }
   editUser = async(values) =>{
     try{
-      let sql = 'UPDATE user SET name=?, last_name=?, phone=?, birth_date=? WHERE user_id =? AND user_is_deleted = 0'
+      let sql = 'UPDATE user SET name=?, last_name=?, phone=?, birth_date=? WHERE user_id =? AND is_deleted = 0'
       await executeQuery(sql, values)
     }catch(error){
       throw error; 

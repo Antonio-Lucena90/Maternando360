@@ -51,7 +51,7 @@ export const AppRoutes = () => {
 
           <Route element={<PrivateRoutes 
                                 user={user} 
-                                requiredType={1}/>}>
+                                requiredType={2}/>}>
             <Route element={<UserLayout/>}> 
               <Route path='/userPage' element={<AllUsersPage/>}/>
               <Route path='/profile' element={<Profile/>}/>
@@ -60,7 +60,7 @@ export const AppRoutes = () => {
           </Route>
 
             <Route element={<PrivateRoutes 
-                                    user={user} requiredType={2}/>}>
+                                    user={user} requiredType={1}/>}>
               <Route element={<AdminLayout/>}>        
                 <Route path='/admin' element={<AdminDashboard/>}/>
               </Route>

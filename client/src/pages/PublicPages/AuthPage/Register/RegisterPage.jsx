@@ -98,7 +98,6 @@ const RegisterPage = () => {
           <Form.Label>Fecha de Nacimiento</Form.Label>
           <Form.Control
             type="date"
-            placeholder="Introduzca su fecha de Nacimiento"
             onChange={handleChange}
             name="birth_date"
             value={register.birth_date}

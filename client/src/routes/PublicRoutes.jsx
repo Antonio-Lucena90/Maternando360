@@ -8,8 +8,8 @@ export const PublicRoutes = () => {
 
   useEffect(()=>{
     if(user){
-      if(user.type === 1) navigate('/userPage')
-      if(user.type === 2) navigate('/admin')
+      if(user.type === 1) navigate('/admin')
+      if(user.type === 2) navigate('/userPage')
     }
   },[user])
 

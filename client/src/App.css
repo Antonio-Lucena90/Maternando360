@@ -1,5 +1,5 @@
 main{
-  background-color: #f4bdaa;
+  background-color: #FDFBF7;
 }
 
 
@@ -8,25 +8,25 @@ main{
 }
 .footer-public{
   height: 60px;
-  background-color: rgb(133, 174, 174);
+  background-color: #D4896B;
 }
 
 .error-msg{
   color:red;
 }
 
-.main-user{
-  background-color: #d29682;
+.main{
+  background-color: #FDFBF7;
   min-height: calc(100vh - 116px);
 }
 
-.footer-user{
+.footer{
   height: 60px;
-  background-color: rgb(133, 174, 174);
+  background-color: #D4896B;
 }
 
   .my-btn{
-    background-color: #ae938a; 
+    background-color: #D4896B; 
   }
   .my-btn:hover{
     background-color: #da9c87;

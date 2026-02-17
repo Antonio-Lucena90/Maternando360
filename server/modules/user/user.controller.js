@@ -62,5 +62,16 @@ class UserController {
       res.status(500).json(error)
     }
   }
+
+  deleteUserLogic = async (req, res) =>{
+    const {user_id} = req;
+    try {
+      await userDal.deleteUserLogic([user_id]);
+      res.status(200).json({message:'delete ok'}); 
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error);      
+    }
+  }
 }
 export default new UserController(); 

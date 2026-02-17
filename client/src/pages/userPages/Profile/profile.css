@@ -4,3 +4,11 @@
   align-items: center;
   padding: 3rem;
 }
+
+  .my-btn-profile{
+    border: #8FA998;
+    background-color: #8FA998; 
+  }
+  .my-btn-profile:hover{
+    background-color: #6c8174;
+  }

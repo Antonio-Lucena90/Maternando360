@@ -4,11 +4,26 @@ import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import './profile.css';
 import { useNavigate } from 'react-router';
 import { FormCourse } from '../../../components/FormCourse/FormCourse';
+import { DeleteModal } from '../../../components/DeleteModal/DeleteModal';
+import { fetchData } from '../../../helpers/axiosHelper';
 
 const Profile = () => {
-  const [showFormCourse, setShowFormCourse] = useState(false)
+  const [showFormCourse, setShowFormCourse] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
+  const { user, token, logOut } = useContext(AuthContext);
+
+    const deleteProfile = async() => {
+      try {
+        let res = await fetchData('user/deleteUser', 'PUT', null, token);
+        console.log(res);
+        logOut();
+      } catch (error) {
+        console.log(error);        
+      }
+    }
+
+
   return (
     <>
       <Container>
@@ -22,9 +37,10 @@ const Profile = () => {
             <p>Teléfono: {user.phone}</p>
             <p>Fecha de Nacimiento: {user.birth_date.split('-').reverse().join('-')}</p>
             <div className='d-flex gap-2'>
-              <Button className="my-btn" onClick={()=>navigate('/editUser')}>Editar</Button>
-              <Button className="my-btn">Eliminar</Button>
+              <Button className="my-btn-profile" onClick={()=>navigate('/editUser')}>Editar</Button>
+              <Button className="my-btn-profile" onClick={()=>setShowDeleteModal(true)}>Eliminar Cuenta</Button>
             </div>
+            {showDeleteModal &&<DeleteModal setShowDeleteModal={setShowDeleteModal} deleteProfile={deleteProfile}/>}
           </Col>
         </Row>
       </Container>

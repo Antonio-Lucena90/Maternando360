@@ -8,10 +8,10 @@ export const UserLayout = () => {
     <header>
       <NavbarUser/>
     </header>
-    <main className='main-user'>
+    <main className='main'>
       <Outlet/>
     </main>
-    <footer className='footer-user'>
+    <footer className='footer'>
       UserUser
     </footer>
     </>

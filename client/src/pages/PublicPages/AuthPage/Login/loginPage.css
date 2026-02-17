@@ -12,12 +12,17 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  background-color: #E8CFC7; 
-  border: 4px solid #ae938a;
+  background-color: #F5EFE6; 
+  border: 4px solid #D4896B;
   border-radius: 20px;
-  box-shadow: 0 0 20px 30px #da9c87;
+  box-shadow: 0 0 20px 20px #D4896B;
+  color: #4A403A;
 }
 
-.my-btn{
-  background-color: #ae938a;
-}
+  .my-btn{
+    border: #D4896B;
+    background-color: #D4896B; 
+  }
+  .my-btn:hover{
+    background-color: #da9c87;
+  }

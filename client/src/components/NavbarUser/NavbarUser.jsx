@@ -34,7 +34,7 @@ export const NavbarUser = () => {
               {user?.name} {user?.last_name}
             </p>
             <div className="nav-simbol" onClick={() => navigate('/profile')}>
-              {user?.name[0].toUpperCase()}
+              {user?.name[0].toUpperCase()}{user?.last_name[0].toUpperCase()}
             </div>
           </div>
         </div>

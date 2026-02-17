@@ -37,6 +37,15 @@ class UserDal{
       throw error; 
     }
   }
+
+  deleteUserLogic = async (values) => {
+    try{
+      let sql = 'UPDATE user SET is_deleted = 1, type = 0 WHERE user_id = ?'
+      await executeQuery(sql, values); 
+    }catch(error){
+      throw error;
+    }
+  }
 }
 
 export default new UserDal();

@@ -9,10 +9,10 @@ export const AdminLayout = () => {
     <header>
       <NavbarAdmin/>
     </header>
-    <main className='main-user'>
+    <main className='main'>
       <Outlet/>
     </main>
-    <footer>
+    <footer className='footer'>
       AdminFooter
     </footer>
     </>

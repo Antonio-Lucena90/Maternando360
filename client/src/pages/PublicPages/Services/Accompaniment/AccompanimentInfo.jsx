@@ -1,6 +1,6 @@
+import React from 'react'
 
-
-export const RatesInfo = ({currentInfo, children, id}) => {
+export const AccompanimentInfo = ({currentInfo, children, id}) => {
   return (
     <div>
       {currentInfo === id ? <div>{children}</div> : null}

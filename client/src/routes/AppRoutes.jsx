@@ -6,9 +6,10 @@ import { PublicRoutes } from './PublicRoutes';
 import { PublicLayout } from '../layouts/PublicLayout';
 const Home = lazy(()=>import('../pages/PublicPages/Home/Home'))
 const About = lazy(()=>import('../pages/PublicPages/About/AboutPage'))
-const Services = lazy(()=>import('../pages/PublicPages/Services/Services'))
-const Courses = lazy(()=>import('../pages/PublicPages/Courses/Courses'))
-const Workshops = lazy(()=>import('../pages/PublicPages/Workshops/Workshops'))
+const Accompaniment = lazy(()=>import('../pages/PublicPages/Services/Accompaniment/Accompaniment'))
+const Dream = lazy(()=>import('../pages/PublicPages/Services/Dream/Dream'))
+const Courses = lazy(()=>import('../pages/PublicPages/Training/Courses/Courses'))
+const Workshops = lazy(()=>import('../pages/PublicPages/Training/Workshops/Workshops'))
 const Rates = lazy(()=>import('../pages/PublicPages/Rates/Rates'))
 const LoginPage = lazy(()=>import('../pages/PublicPages/AuthPage/Login/LoginPage'))
 const RegisterPage = lazy(()=>import('../pages/PublicPages/AuthPage/Register/RegisterPage'))
@@ -26,6 +27,8 @@ import { AuthContext } from '../contexts/AuthContext/AuthContext';
 
 
 const AdminDashboard = lazy(()=>import('../pages/AdminPages/AdminDashboard/AdminDashboard'))
+const AllUsersRegistered = lazy(()=>import('../pages/AdminPages/AllUsersRegistered/AllUsersRegistered'))
+const CreateWorkshops = lazy(()=>import('../pages/AdminPages/CreateWorkshops/CreateWorkshops'))
 
 export const AppRoutes = () => {
  const {user} = useContext(AuthContext);
@@ -42,7 +45,8 @@ export const AppRoutes = () => {
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
-              <Route path="/services" element={<Services />} />
+              <Route path="/accompaniment" element={<Accompaniment />} />
+              <Route path="/dream" element={<Dream />} />
               <Route path="/courses" element={<Courses />} />
               <Route path="/workshops" element={<Workshops />} />
               <Route path="/rates" element={<Rates currentInfo={currentInfo} setCurrentInfo={setCurrentInfo}/>} />
@@ -63,6 +67,8 @@ export const AppRoutes = () => {
                                     user={user} requiredType={1}/>}>
               <Route element={<AdminLayout/>}>        
                 <Route path='/admin' element={<AdminDashboard/>}/>
+                <Route path='/admin/allUsers' element={<AllUsersRegistered/>}/>
+                <Route path='/admin/createWorkshops' element={<CreateWorkshops/>}/>
               </Route>
             </Route>
 

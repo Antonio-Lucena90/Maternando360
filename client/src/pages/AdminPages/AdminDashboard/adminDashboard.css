@@ -1,0 +1,18 @@
+.dashboard-Card{
+        background-color: #ffffff;
+        border-radius: 1rem;
+        padding: 2.5rem;
+        border: 1px solid #edf2f7;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        margin-block-start: 7rem;
+        text-align: center;
+        cursor: pointer;
+}
+
+.dashboard-Card:hover{
+  background-color: #d4d3d3
+}
+
+.img{
+  width: 2rem;
+}

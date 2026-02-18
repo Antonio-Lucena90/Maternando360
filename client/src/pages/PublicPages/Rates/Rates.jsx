@@ -1,4 +1,4 @@
-import React from 'react'
+
 import './rates.css'
 import { RatesInfo } from './RatesInfo'
 

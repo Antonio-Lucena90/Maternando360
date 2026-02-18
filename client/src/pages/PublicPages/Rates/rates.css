@@ -14,13 +14,18 @@
   text-align: center;
   border-collapse: separate;
   border-spacing: 0;
-  border: 2px double #839483;
-  border-radius: 20px;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  border: 1px solid #edf2f7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-block-start: 7rem;
+  cursor: pointer;
   overflow: hidden;
   
   th, tr, td{
     padding: 1rem;
-    background-color: #c5dac5;
+    background-color: #ffffff;
     }
 
     h3{
@@ -28,13 +33,14 @@
     }
 
     button{
-      background-color: #839483;
+      background-color: #8FA998;
+      border: #8FA998;
       border-radius: 20px;
       padding: .8rem;
       color: white;
     }
     button:hover{
-      background-color: #465c46;
+      background-color: #6c8174;
     }
 
   }

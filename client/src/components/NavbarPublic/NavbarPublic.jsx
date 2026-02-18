@@ -19,9 +19,12 @@ export const NavbarPublic = () => {
           <Nav.Link as={NavLink} to="/about">
             Sobre mí
           </Nav.Link>
-          <Nav.Link as={NavLink} to="/services">
-            Servicios
-          </Nav.Link>
+         <NavDropdown title="Servicios" id="basic-nav-dropdown">
+            <NavDropdown.Item href="/accompaniment">
+              Acompañamiento
+            </NavDropdown.Item>
+            <NavDropdown.Item href="/dream">Regulación y Sueño</NavDropdown.Item>
+          </NavDropdown>
           <NavDropdown title="Formación" id="basic-nav-dropdown">
             <NavDropdown.Item href="/workshops">
               Talleres

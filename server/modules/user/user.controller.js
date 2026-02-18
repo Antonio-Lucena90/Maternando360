@@ -73,5 +73,15 @@ class UserController {
       res.status(500).json(error);      
     }
   }
+
+  newsletter = async (req, res) => {
+    const {email} = req.body;
+    try {
+      await userDal.newsletter([email]);
+      res.status(200).json({message:'ok'})
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  }
 }
 export default new UserController(); 

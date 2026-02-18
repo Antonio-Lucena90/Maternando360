@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link, NavLink, useNavigate } from 'react-router';
 import './NavbarPublic.css';
+import logo from '../../assets/images/logo.png'
 
 export const NavbarPublic = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ export const NavbarPublic = () => {
     <Navbar className="navbar">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          MATERNANDO 360º
+          <img src={logo} alt="" />
         </Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link as={NavLink} to="/">

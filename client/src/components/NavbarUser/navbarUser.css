@@ -16,6 +16,10 @@
   background-color: #D4896B;
   color:#4A403A;
 
+  img{
+    width: 150px;
+  }
+
   .my-btn{
     border: #8FA998;
     background-color: #8FA998; 

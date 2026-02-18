@@ -1,0 +1,43 @@
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-btn{
+  background-color: #8FA998; 
+ }
+.my-btn:hover{
+  background-color: #6c8174;
+}
+
+.modal-header{
+  background-color: #FDFBF7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #4A403A;
+}
+.modal-body{
+  background-color: #FDFBF7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #4A403A;
+}
+.modal-footer{
+  background-color: #FDFBF7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #4A403A;
+}
+
+.input-newsletter {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.input-newsletter:focus {
+  outline: none;
+  border-color: #FDFBF7;
+  box-shadow: 0 0 0 3px rgba(156, 39, 176, 0.2);
+}

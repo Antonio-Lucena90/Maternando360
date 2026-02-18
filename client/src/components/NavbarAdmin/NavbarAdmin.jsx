@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
+import logo from '../../assets/images/logo.png'
 
 export const NavbarAdmin = () => {
   
@@ -11,7 +12,7 @@ export const NavbarAdmin = () => {
     <Navbar className="navbar">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          MATERNANDO 360º
+          <img src={logo} alt="" />
         </Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link as={NavLink} to="/">

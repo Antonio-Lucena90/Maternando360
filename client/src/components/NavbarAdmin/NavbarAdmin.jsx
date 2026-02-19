@@ -5,9 +5,8 @@ import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import logo from '../../assets/images/logo.png'
 
 export const NavbarAdmin = () => {
-  
 
-  const {logOut} = useContext(AuthContext)
+  const {logOut, user} = useContext(AuthContext)
   return (
     <Navbar className="navbar">
       <Container>
@@ -18,9 +17,15 @@ export const NavbarAdmin = () => {
           <Nav.Link as={NavLink} to="/">
             Inicio
           </Nav.Link>
+          <Nav.Link as={NavLink} to="/admin/allWorkshops">
+            Talleres
+          </Nav.Link>
         </Nav>
         <div className="d-flex gap-3">
           <div className="d-flex gap-3">
+            <div className='mt-2'>
+              <p>Administrador: {user.name} {user.last_name}</p>
+            </div>
             <div>
               <Button className='my-btn' onClick={logOut}>LogOut</Button>
             </div>

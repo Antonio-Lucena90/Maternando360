@@ -35,9 +35,6 @@ const RegisterPage = () => {
       //mandar datos al back
       const res = await fetchData('user/register', 'POST', register)
       console.log(res);
-      
-      
-      
       navigate('/login')
     }catch(error){
       if(error instanceof ZodError){

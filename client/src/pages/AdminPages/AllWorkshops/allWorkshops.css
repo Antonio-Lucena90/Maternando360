@@ -1,0 +1,19 @@
+.div-ppal{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.div-map{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid #8FA998;
+  box-shadow: 0 0 15px #8FA998;
+  gap: 0.8rem;
+  padding: 2rem;
+  border-radius: 20px;
+}

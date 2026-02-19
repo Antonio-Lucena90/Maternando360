@@ -6,6 +6,7 @@ import logger from 'morgan';
 import { fileURLToPath } from 'url';
 import userRouter from './modules/user/user.routes.js'
 import adminRouter from './modules/admin/admin.routes.js'
+import workshopRouter from './modules/workshops/workshops.routes.js'
 import cors from 'cors'
 
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/user', userRouter); 
 app.use('/admin', adminRouter); 
+app.use('/workshop', workshopRouter); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

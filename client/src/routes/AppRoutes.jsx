@@ -1,5 +1,6 @@
 import React, { lazy, Suspense, useContext, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router';
+import { AuthContext } from '../contexts/AuthContext/AuthContext';
 
 
 import { PublicRoutes } from './PublicRoutes';
@@ -22,13 +23,13 @@ const AllUsersPage = lazy(()=>import('../pages/userPages/AllUsersPage/AllUsersPa
 const Profile = lazy(()=>import('../pages/userPages/Profile/Profile'))
 const EditUser = lazy(()=>import('../pages/userPages/EditUser/EditUser'))
 
+
+
 import { AdminLayout } from '../layouts/AdminLayout';
-import { AuthContext } from '../contexts/AuthContext/AuthContext';
-
-
 const AdminDashboard = lazy(()=>import('../pages/AdminPages/AdminDashboard/AdminDashboard'))
 const AllUsersRegistered = lazy(()=>import('../pages/AdminPages/AllUsersRegistered/AllUsersRegistered'))
 const CreateWorkshops = lazy(()=>import('../pages/AdminPages/CreateWorkshops/CreateWorkshops'))
+const AllWorkshops = lazy(()=>import('../pages/AdminPages/AllWorkshops/AllWorkshops'))
 
 export const AppRoutes = () => {
  const {user} = useContext(AuthContext);
@@ -69,6 +70,7 @@ export const AppRoutes = () => {
                 <Route path='/admin' element={<AdminDashboard/>}/>
                 <Route path='/admin/allUsers' element={<AllUsersRegistered/>}/>
                 <Route path='/admin/createWorkshops' element={<CreateWorkshops/>}/>
+                <Route path='/admin/allWorkshops' element={<AllWorkshops/>}/>
               </Route>
             </Route>
 

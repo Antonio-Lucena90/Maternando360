@@ -10,6 +10,7 @@ class adminController {
       res.status(500).json(error)      
     }
   }
+
 }
 
 export default new adminController(); 

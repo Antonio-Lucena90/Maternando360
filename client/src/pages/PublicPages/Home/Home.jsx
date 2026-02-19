@@ -48,8 +48,11 @@ const Home = () => {
       </h1>
       <Container>
         <Row>
-          <Col>
-            <h2>Próximos Cursos</h2>
+          <Col className='d-flex justify-content-center align-items-center'>
+            <h2>Próximos Talleres</h2>
+          </Col>
+          <Col className='d-flex justify-content-center align-items-center'>
+            <h2>Contacta con Nosotros</h2>
           </Col>
         </Row>
       </Container>

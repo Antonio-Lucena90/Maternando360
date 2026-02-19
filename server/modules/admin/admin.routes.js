@@ -7,4 +7,5 @@ const router = express.Router();
 
 router.get('/allUsersRegistered', verifyToken, adminController.allUsers );
 
+
 export default router;

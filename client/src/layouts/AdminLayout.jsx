@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router'
 import { NavbarAdmin } from '../components/NavbarAdmin/NavbarAdmin'
+import { Footer } from '../components/Footer/Footer'
 
 export const AdminLayout = () => {
   return (
@@ -13,7 +14,7 @@ export const AdminLayout = () => {
       <Outlet/>
     </main>
     <footer className='footer'>
-      AdminFooter
+      <Footer/>
     </footer>
     </>
 

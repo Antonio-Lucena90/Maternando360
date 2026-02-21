@@ -20,6 +20,15 @@
         throw error;
       }
     }
+
+    editWorkshop = async(values) => {
+      try {
+        let sql = 'UPDATE workshop SET  workshop_name = ?, city = ?, duration = ?, workshop_start_date = ?, workshop_end_date = ?, description = ? WHERE workshop_id = ?'
+        let result = await executeQuery(sql, values); 
+      } catch (error) {
+        throw error;
+      }
+    }
   }
   
  export default new workshopDal();

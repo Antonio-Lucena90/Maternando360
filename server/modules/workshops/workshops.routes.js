@@ -6,6 +6,7 @@ import { verifyToken } from '../../middleware/verifyToken.js';
 const router = express.Router();
 
 router.post('/createWorkshop', verifyToken, workshopsController.createWorkshop );
-router.get('/allWorkshops', verifyToken, workshopsController.allWorkshops );
+router.get('/allWorkshops', workshopsController.allWorkshops );
+router.put('/editWorkshop/:workshop_id', verifyToken, workshopsController.editWorkshop );
 
 export default router;

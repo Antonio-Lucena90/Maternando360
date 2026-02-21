@@ -1,22 +1,21 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { fetchData } from "../../../helpers/axiosHelper";
 import { AuthContext } from "../../../contexts/AuthContext/AuthContext";
-import {Container, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col, Button} from 'react-bootstrap';
 import './allWorkshops.css'
+import { useNavigate } from "react-router";
 
 
 const AllWorkshops = () => {
 
   const [allWorkshops, setAllWorkshops] = useState([]);
-  const {token} = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(()=>{
     const fetchWorkshops = async() =>{
         try {
-          const res = await fetchData('workshop/allWorkshops', 'GET', null, token);
+          const res = await fetchData('workshop/allWorkshops', 'GET');
           setAllWorkshops(res.data.result);
-          console.log(res.data.result);
-          
         } catch (error) {
           console.log(error);
           
@@ -40,6 +39,10 @@ const AllWorkshops = () => {
                     <p>Fecha de inicio: {elem.workshop_start_date}</p>
                     <p>Fecha final: {elem.workshop_end_date}</p>
                     <p>Descripción: {elem.description}</p>
+                    <div className="d-flex gap-4">
+                      <Button className="my-btn" onClick={()=>navigate(`/admin/editWorkshops/${elem.workshop_id}`)}>Editar</Button>
+                      <Button className="my-btn">Eliminar</Button>
+                    </div>
                     </div>
                 )
               })}

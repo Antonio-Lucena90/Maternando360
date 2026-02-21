@@ -17,3 +17,12 @@
   padding: 2rem;
   border-radius: 20px;
 }
+
+
+  .my-btn{
+    background-color: #8FA998; 
+    border: #8FA998;
+  }
+  .my-btn:hover{
+    background-color: #6c8174;
+  }

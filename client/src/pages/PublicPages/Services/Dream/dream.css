@@ -4,8 +4,7 @@
   background-color: #ffffff;
   border-radius: 1rem;
   padding: 1rem;
-  border: 1px solid #edf2f7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 2px solid #8FA998;
   cursor: pointer;
   overflow: hidden;
   margin-inline-start: 4.5rem;
@@ -18,8 +17,7 @@
   background-color: #ffffff;
   border-radius: 1rem;
   padding: 2rem;
-  border: 1px solid #edf2f7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 2px solid #8FA998;;
   margin: 2rem auto;
   color: #4A403A;
   h3,h4{

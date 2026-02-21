@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
-import logo from '../../assets/images/logo.png'
+import logo from '../../assets/images/logonegro.png'
 
 export const NavbarAdmin = () => {
 

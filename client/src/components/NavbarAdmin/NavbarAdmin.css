@@ -1,5 +1,5 @@
 .navbar{
-  background-color: #D4896B;
+  background-color: #8FA998;
   color:#4A403A;
 
   img{
@@ -7,9 +7,11 @@
   }
 
   .my-btn{
-    background-color: #8FA998; 
+    background-color: #D4896B;
+    border: #D4896B; 
   }
   .my-btn:hover{
-    background-color: #6c8174;
+    background-color: #ac6c53;
   }
+  
 }

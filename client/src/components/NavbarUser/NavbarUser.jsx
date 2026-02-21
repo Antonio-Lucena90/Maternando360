@@ -3,7 +3,7 @@ import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import './navbarUser.css';
-import logo from '../../assets/images/logo.png'
+import logo from '../../assets/images/logonegro.png'
 
 export const NavbarUser = () => {
   const navigate = useNavigate();

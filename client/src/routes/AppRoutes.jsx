@@ -26,10 +26,12 @@ const EditUser = lazy(()=>import('../pages/userPages/EditUser/EditUser'))
 
 
 import { AdminLayout } from '../layouts/AdminLayout';
+
 const AdminDashboard = lazy(()=>import('../pages/AdminPages/AdminDashboard/AdminDashboard'))
 const AllUsersRegistered = lazy(()=>import('../pages/AdminPages/AllUsersRegistered/AllUsersRegistered'))
 const CreateWorkshops = lazy(()=>import('../pages/AdminPages/CreateWorkshops/CreateWorkshops'))
 const AllWorkshops = lazy(()=>import('../pages/AdminPages/AllWorkshops/AllWorkshops'))
+const EditWorkshop = lazy(()=>import('../pages/AdminPages/EditWorkshop/EditWorkshop'))
 
 export const AppRoutes = () => {
  const {user} = useContext(AuthContext);
@@ -71,6 +73,7 @@ export const AppRoutes = () => {
                 <Route path='/admin/allUsers' element={<AllUsersRegistered/>}/>
                 <Route path='/admin/createWorkshops' element={<CreateWorkshops/>}/>
                 <Route path='/admin/allWorkshops' element={<AllWorkshops/>}/>
+                <Route path='/admin/editWorkshops/:id' element={<EditWorkshop/>}/>
               </Route>
             </Route>
 

@@ -5,6 +5,8 @@ import { fetchData } from '../../helpers/axiosHelper'
 export const AuthContextProvider = ({children}) => {
  const [user, setUser] = useState()
  const [token, setToken] = useState();
+ const [workshops, setWorkshops] = useState(); 
+
 
   useEffect(()=>{
     const tokenLS = localStorage.getItem('token')
@@ -22,6 +24,19 @@ export const AuthContextProvider = ({children}) => {
     }
   },[])
 
+    useEffect(()=>{
+    const fetchWorkshops = async() =>{
+        try {
+          const res = await fetchData('workshop/allWorkshops', 'GET');
+          setWorkshops(res.data.result);
+        } catch (error) {
+          console.log(error);
+          
+        }
+    }
+    fetchWorkshops();
+  }, [])
+
   const logOut = ()=>{
     setUser();
     setToken();
@@ -34,7 +49,9 @@ export const AuthContextProvider = ({children}) => {
                             setUser, 
                             logOut, 
                             token, 
-                            setToken}}>
+                            setToken,
+                            workshops,
+                            setWorkshops}}>
       {children}
     </AuthContext.Provider>
   )

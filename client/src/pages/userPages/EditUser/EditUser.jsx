@@ -6,7 +6,7 @@ import { fetchData } from '../../../helpers/axiosHelper';
 import { useNavigate } from 'react-router';
 
 const EditUser = () => {
-  const {user, setUser, token} = useContext(AuthContext)
+  const { user, setUser, token} = useContext(AuthContext)
   const [editUser, setEditUser] = useState(user);
 
   const navigate = useNavigate()
@@ -40,7 +40,7 @@ const EditUser = () => {
                   type="text"
                   placeholder="Introduzca nombre"
                   name="name"
-                  value={editUser.name}
+                  value={editUser?.name}
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -50,7 +50,7 @@ const EditUser = () => {
                   type="text"
                   placeholder="Introduzca apellidos"
                   name="last_name"
-                  value={editUser.last_name? editUser.last_name:''}
+                  value={editUser?.last_name? editUser?.last_name:''}
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -60,7 +60,7 @@ const EditUser = () => {
                   type="text"
                   placeholder="Introduzca Teléfono"
                   name="phone"
-                  value={editUser.phone? editUser.phone:''}
+                  value={editUser?.phone? editUser?.phone:''}
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -69,7 +69,7 @@ const EditUser = () => {
                 <Form.Control
                   type="date"
                   name="birth_date"
-                  value={editUser.birth_date? editUser.birth_date:''}
+                  value={editUser?.birth_date? editUser?.birth_date:''}
                   onChange={handleChange}
                 />
               </Form.Group>

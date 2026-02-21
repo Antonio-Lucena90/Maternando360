@@ -1,0 +1,19 @@
+.my-form-workshops{
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.form-my{
+  padding: 2rem;
+  border: 2px solid #8FA998;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #8FA998;
+}
+
+  .my-btn{
+    background-color: #8FA998; 
+  }
+  .my-btn:hover{
+    background-color: #6c8174;
+  }

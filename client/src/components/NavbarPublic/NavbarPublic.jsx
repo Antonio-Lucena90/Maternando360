@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link, NavLink, useNavigate } from 'react-router';
 import './NavbarPublic.css';
-import logo from '../../assets/images/logo.png'
+import logo from '../../assets/images/logonegro.png'
 
 export const NavbarPublic = () => {
   const navigate = useNavigate();

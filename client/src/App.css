@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+body{
+  font-family: 'Playfair Display', serif;
+}
+
 main{
   background-color: #FDFBF7;
 }
@@ -6,10 +12,7 @@ main{
 .main-public{
   min-height: calc(100vh - 116px);
 }
-.footer-public{
-  height: 60px;
-  background-color: #D4896B;
-}
+
 
 .error-msg{
   color:red;
@@ -21,7 +24,7 @@ main{
 }
 
 .footer{
-  height: 60px;
-  background-color: #D4896B;
+  height: 100px;
+  background-color: #8FA998;
 }
 

@@ -1,0 +1,32 @@
+.row{
+  justify-content: center;
+  align-items: center;
+}
+.col1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  padding: 1rem;
+  img{
+    width: 20px;
+  }
+  .footer-p{
+    margin-block-start: 1rem;
+    font-size: 1.2rem;
+  }
+}
+.col2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  img{
+    width: 30px;
+  }
+  .footer-p{
+    margin-block-start: 1rem;
+    font-size: 1.2rem;
+  }
+}

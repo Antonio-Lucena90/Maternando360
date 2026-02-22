@@ -5,7 +5,7 @@ import { fetchData } from '../../helpers/axiosHelper'
 export const AuthContextProvider = ({children}) => {
  const [user, setUser] = useState()
  const [token, setToken] = useState();
- const [workshops, setWorkshops] = useState(); 
+ const [workshops, setWorkshops] = useState([]); 
 
 
   useEffect(()=>{

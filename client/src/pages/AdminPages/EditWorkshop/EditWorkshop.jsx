@@ -22,17 +22,14 @@ const EditWorkshop = () => {
 
   const onSubmit = async()=>{
       try {
-        let res = await fetchData(`workshop/editWorkshop/${selectedWorkshop.workshop_id}`, 'PUT', editWorkshop, token);
-        console.log(res);
-        setWorkshops((workshops)=>{
-          return workshops.map((elem)=>{
-            if(elem.workshop_id === selectedWorkshop.workshop_id){
-              return {...elem, editWorkshop};
-            }else{
-              return elem;
-            }
-          })
-        });
+        const newData = {
+          ...selectedWorkshop, ...editWorkshop
+        };
+        let result = await fetchData(`workshop/editWorkshop/${selectedWorkshop.workshop_id}`, 'PUT', newData, token);
+        setWorkshops(prev => prev.map(e => e.workshop_id === result.workshop_id 
+        ? result : e 
+        ));
+        navigate('/admin/allWorkshops')
       } catch (error) {
         console.log(error);
       }

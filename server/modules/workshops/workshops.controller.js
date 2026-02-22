@@ -23,11 +23,22 @@ class workshopController {
   }
 
   editWorkshop = async(req, res) => {
-    const {id} = req.params
+    
+    const {workshop_id} = req.params
     const {workshop_name, city, duration, workshop_start_date, workshop_end_date, description} = req. body;
     try {
-      const result = await workshopsDal.editWorkshop([workshop_name, city, duration, workshop_start_date, workshop_end_date, description, id]);
-      res.status(200).json({message: 'ok'});
+      const result = await workshopsDal.editWorkshop([workshop_name,description, city, duration, workshop_start_date, workshop_end_date, workshop_id]);
+      res.status(200).json({message: 'ok', result});
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
+
+  deleteWorkshop = async (req, res) => {
+    const {workshop_id} = req.params;
+    try {
+      let result = await workshopsDal.deleteWorkshop([workshop_id]);
+      res.status(200).json({message:'ok'});
     } catch (error) {
       res.status(500).json(error);
     }

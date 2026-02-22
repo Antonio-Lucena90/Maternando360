@@ -8,5 +8,6 @@ const router = express.Router();
 router.post('/createWorkshop', verifyToken, workshopsController.createWorkshop );
 router.get('/allWorkshops', workshopsController.allWorkshops );
 router.put('/editWorkshop/:workshop_id', verifyToken, workshopsController.editWorkshop );
+router.delete('/deleteWorkshop/:workshop_id', verifyToken, workshopsController.deleteWorkshop);
 
 export default router;

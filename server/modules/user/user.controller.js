@@ -2,6 +2,7 @@ import { compareString } from '../../utils/bcryptUtils.js';
 import { generateToken } from '../../utils/tokenUtils.js';
 import userDal from './user.dal.js'
 import bcrypt from 'bcrypt';
+/* import axios from 'axios';  */
 
 class UserController {
   register = async (req, res)=>{
@@ -74,14 +75,30 @@ class UserController {
     }
   }
 
-  newsletter = async (req, res) => {
+  /* newsletter = async (req, res) => {
     const {email} = req.body;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     try {
-      await userDal.newsletter([email]);
-      res.status(200).json({message:'ok'})
+      const response = await axios( `https://api.beehiiv.com/v2/publications/${process.env.BEEHIIV_PUBLICATION_ID}/subscriptions`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${process.env.BEEHIIV_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            send_welcome_email: true,
+            reactivate_existing: false, 
+          })
+        })
+        if(!response.ok){
+          throw new Error('Beehiiv error')
+        }
+      res.status(200).json({message:'Te hemos enviado un mail de confirmación'})
     } catch (error) {
       res.status(500).json(error)
     }
-  }
+  } */
 }
 export default new UserController(); 

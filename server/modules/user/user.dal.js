@@ -46,15 +46,6 @@ class UserDal{
       throw error;
     }
   }
-
-  newsletter = async (values) => {
-    try {
-      let sql = 'INSERT INTO newsletter_subscriber (email) VALUES (?)'
-      let result = await executeQuery(sql, values);
-    } catch (error) {
-      throw error;
-    }
-  }
 }
 
 export default new UserDal();

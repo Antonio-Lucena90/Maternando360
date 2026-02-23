@@ -1,13 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import { fetchData } from '../../../helpers/axiosHelper';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
 import './allWorkshops.css';
 import { useNavigate } from 'react-router';
 
 const AllWorkshops = () => {
-  const {token} = useContext(AuthContext); 
+  const { token } = useContext(AuthContext);
   const [allWorkshops, setAllWorkshops] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,7 +23,6 @@ const AllWorkshops = () => {
     fetchWorkshops();
   }, []);
 
-
   const deleteWorkshop = async (workshop_id) => {
     try {
       let res = await fetchData(
@@ -32,11 +32,18 @@ const AllWorkshops = () => {
         token,
       );
       console.log(res);
-      setAllWorkshops(allWorkshops.filter(e=> e.workshop_id !== workshop_id))
+      setAllWorkshops(
+        allWorkshops.filter((e) => e.workshop_id !== workshop_id),
+      );
+      setShowModal(false);
     } catch (error) {
       console.log(error);
     }
   };
+
+  const handleClose = () => {
+    setShowModal(false)
+  }
 
   return (
     <>
@@ -49,7 +56,7 @@ const AllWorkshops = () => {
                   <div key={elem.workshop_id} className="div-map">
                     <h2>Nombre: {elem.workshop_name}</h2>
                     <p>Duración: {elem.duration}</p>
-                    <p>Ciudad: {elem.city}</p>
+                    <p>Lugar: {elem.city}</p>
                     <p>Fecha de inicio: {elem.workshop_start_date}</p>
                     <p>Fecha final: {elem.workshop_end_date}</p>
                     <p>Descripción: {elem.description}</p>
@@ -62,8 +69,35 @@ const AllWorkshops = () => {
                       >
                         Editar
                       </Button>
-                      <Button className="my-btn" onClick={()=>deleteWorkshop(elem.workshop_id)}>Eliminar</Button>
+                      <Button
+                        className="my-btn"
+                        onClick={() => setShowModal(true)}
+                      >
+                        Eliminar
+                      </Button>
                     </div>
+                    <div>
+              <Modal
+                show={showModal}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+              >
+                <Modal.Header closeButton className="modal-header">
+                  <Modal.Title>¿Estás seguro que quieres eliminar este Taller?</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="modal-body">
+                </Modal.Body>
+                <Modal.Footer className="modal-footer">
+                  <Button className="my-btn" onClick={handleClose}>
+                    Cancelar
+                  </Button>
+                  <Button className="my-btn" onClick={()=>deleteWorkshop(elem.workshop_id)}>
+                    Eliminar
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            </div>
                   </div>
                 );
               })}

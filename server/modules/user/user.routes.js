@@ -10,6 +10,6 @@ router.post('/login', userController.login);
 router.get('/oneUser', verifyToken, userController.oneUser);
 router.put('/editUser', verifyToken, userController.editUser);
 router.put('/deleteUser', verifyToken, userController.deleteUserLogic);
-router.post('/newsletter', userController.newsletter);
+/* router.post('/newsletter', userController.newsletter); */
 
 export default router;

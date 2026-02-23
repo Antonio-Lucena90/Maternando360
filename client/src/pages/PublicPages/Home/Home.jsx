@@ -9,11 +9,19 @@ import whatsappIcon from '../../../assets/icons/whatsapp.svg'
 
 const Home = () => {
 
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(() =>{
+    const subscribed = localStorage.getItem('newsletter_subscribed');
+    if(subscribed === null){
+      return true; 
+    }else{
+      return false;
+    }; 
+  });
   const [inputEmail, setInputEmail] = useState('');
   const [valErrors, setValErrors] = useState();
+  const [accepted, setAccepted] = useState();
   const [workshops, setWorkshops] = useState([]);
-
+  
   const handleClose = () => {
     setShowModal(false); 
   }
@@ -26,9 +34,13 @@ const Home = () => {
     try {
       newsletterSchema.parse({email: inputEmail});
       let res = await fetchData('user/newsletter', 'POST', {email: inputEmail});
-      console.log(res);
-      setInputEmail('');
-      setShowModal(false);
+      if(res){
+        localStorage.setItem('newsletter_subscribed', 'true');
+        setInputEmail('');
+        setShowModal(false);
+      }else{
+        setValErrors({email: res.message})
+      }
     } catch (error) {
       if(error instanceof ZodError){
         const fieldsErrors = {};
@@ -131,13 +143,22 @@ const Home = () => {
               onChange={handleChange}
               value={inputEmail}
                />
+               <label>
+                <input 
+                  type="checkbox" 
+                  checked={accepted} 
+                  onChange={(e)=>setAccepted(e.target.checked)} />
+                  Acepto recibir mails y la política de privacidad
+               </label>
+
+              
                {valErrors?.email && <p className='error-msg'>{valErrors.email}</p>}
           </Modal.Body>
           <Modal.Footer className='modal-footer'>
             <Button className='my-btn' onClick={handleClose}>
               Cancelar
             </Button>
-            <Button className='my-btn' onClick={onSubmit}>Suscribirse</Button>
+            <Button disabled={!accepted} className='my-btn' onClick={onSubmit}>Suscribirse</Button>
           </Modal.Footer>
         </Modal>
       </div>

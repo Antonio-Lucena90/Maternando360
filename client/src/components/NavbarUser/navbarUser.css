@@ -1,31 +1,74 @@
-.nav-simbol{
+
+
+.navbar {
+  background-color: #8FA998;
+  color: #4A403A;
+}
+
+.navbar img {
+  width: 150px;
+}
+
+
+.nav-simbol {
   border-radius: 50%;
   height: 60px;
   width: 60px;
-  background-color: brown;
+  background-color: #D4896B;
   font-size: 2rem;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-inline-end: .5rem;
   cursor: pointer;
+  color: white;
 }
 
-.navbar{
-  background-color: #8FA998;
-  color:#4A403A;
 
-  img{
-    width: 150px;
+.navbar .my-btn {
+  background-color: #D4896B;
+  border: #D4896B;
+}
+
+.navbar .my-btn:hover {
+  background-color: #ac6c53;
+}
+
+
+.navbar .nav-link {
+  color: #4A403A;
+  font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+  color: #2f2a27;
+}
+
+
+@media (max-width: 991px) {
+
+  .navbar img {
+    width: 120px;
   }
 
-  .my-btn{
-    background-color: #D4896B;
-    border: #D4896B; 
+  .navbar-collapse {
+    background-color: #8FA998;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
   }
-  .my-btn:hover{
-    background-color: #ac6c53;
+
+  .navbar .nav-link {
+    padding: 0.6rem 0;
+    text-align: center;
   }
-  
+
+  .nav-simbol {
+    height: 50px;
+    width: 50px;
+    font-size: 1.5rem;
+  }
+
+  .navbar .my-btn {
+    width: 100%;
+  }
 }

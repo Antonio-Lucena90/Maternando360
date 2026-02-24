@@ -60,3 +60,119 @@
     text-align: center;
   }
 }
+
+@media (max-width: 992px) {
+
+  .ppal-div {
+    width: 95%;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    padding: 1.5rem;
+  }
+
+  .btn-div {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .btn-div button {
+    padding: 0.7rem 1.2rem;
+  }
+
+  .info-div {
+    width: 80%;
+    padding: 1.8rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .ppal-div {
+    width: 95%;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    padding: 1.2rem;
+  }
+
+  .ppal-div h2 {
+    font-size: 1.4rem;
+  }
+
+  .ppal-div p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .btn-div {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .btn-div button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .info-div {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .info-div h3 {
+    font-size: 1.3rem;
+  }
+
+  .info-div h4 {
+    font-size: 1.1rem;
+  }
+
+  .info-div p,
+  .info-div ul {
+    font-size: 0.95rem;
+    text-align: justify;
+  }
+
+  .info-div .p-p {
+    text-align: center;
+    font-style: italic;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .ppal-div {
+    padding: 1rem;
+  }
+
+  .ppal-div h2 {
+    font-size: 1.2rem;
+  }
+
+  .btn-div button {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .info-div {
+    padding: 1.2rem;
+    border-width: 1.5px;
+  }
+
+  .info-div h3 {
+    font-size: 1.2rem;
+  }
+
+  .info-div h4 {
+    font-size: 1rem;
+  }
+
+  .info-div p,
+  .info-div ul {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}

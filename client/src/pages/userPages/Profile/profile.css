@@ -1,14 +1,74 @@
-.profile-box{
+.profile-box {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 3rem;
 }
 
-  .my-btn-profile{
-    border: #8FA998;
-    background-color: #8FA998; 
+.my-btn-profile {
+  border: #8FA998;
+  background-color: #8FA998;
+  color: white;
+}
+
+.my-btn-profile:hover {
+  background-color: #6c8174;
+}
+
+
+@media (max-width: 992px) {
+
+  .profile-box {
+    padding: 2rem;
   }
-  .my-btn-profile:hover{
-    background-color: #6c8174;
+
+  .profile-box h2 {
+    font-size: 1.6rem;
   }
+
+  .profile-box p {
+    font-size: 0.95rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .profile-box {
+    padding: 1.5rem;
+  }
+
+  .profile-box hr {
+    margin: 1rem 0;
+  }
+
+  .profile-box p {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .my-btn-profile {
+    width: 100%;
+  }
+
+  .profile-box .d-flex {
+    flex-direction: column;
+    gap: 0.8rem !important;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .profile-box {
+    padding: 1rem;
+  }
+
+  .profile-box h2 {
+    font-size: 1.3rem;
+  }
+
+  .profile-box p {
+    font-size: 0.9rem;
+  }
+}

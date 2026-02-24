@@ -82,3 +82,124 @@
     padding: 2rem;
   }
 }
+
+
+@media (max-width: 992px) {
+
+  .title {
+    padding: 2rem;
+  }
+
+  .title h2 {
+    font-size: 1.8rem;
+  }
+
+  .title h3 {
+    font-size: 1.1rem;
+  }
+
+  .ppal-div {
+    padding: 2rem;
+    gap: 2.5rem;
+  }
+
+  .ppal-div .my-container {
+    width: 85%;
+    padding: 1.8rem;
+  }
+
+  .ppal-div table th,
+  .ppal-div table td {
+    padding: 0.6rem;
+    font-size: 0.95rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .title {
+    padding: 1.5rem;
+  }
+
+  .title h2 {
+    font-size: 1.5rem;
+  }
+
+  .title h3 {
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  .ppal-div {
+    padding: 1.2rem;
+  }
+
+  .ppal-div .my-container {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .ppal-div .my-container h3 {
+    font-size: 1.2rem;
+  }
+
+  .ppal-div button {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+
+  .ppal-div table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .ppal-div table th,
+  .ppal-div table td {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .ppal-div p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: justify;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .title {
+    padding: 1rem;
+  }
+
+  .title h2 {
+    font-size: 1.3rem;
+  }
+
+  .title h3 {
+    font-size: 0.95rem;
+  }
+
+  .ppal-div .my-container {
+    padding: 1.2rem;
+  }
+
+  .ppal-div .my-container h3 {
+    font-size: 1.1rem;
+  }
+
+  .ppal-div table th,
+  .ppal-div table td {
+    font-size: 0.85rem;
+  }
+
+  .ppal-div button {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+}

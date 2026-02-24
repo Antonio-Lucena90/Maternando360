@@ -89,10 +89,10 @@ const Home = () => {
             <div className='div-ppal-workshops'>
               {comingWorkshopsSort.map((elem,idx)=>{
                 return(
-                  <div key={idx} className='div-map'>
-                    <p>{elem.workshop_name}</p>
-                    <p>Lugar: {elem.city}</p>
-                    <p>Fecha: {elem.workshop_start_date.split('-').reverse().join('-')}</p>
+                  <div key={idx} className='card-workshop'>
+                    <p className='card-title'>{elem.workshop_name}</p>
+                    <p className='card-info'><strong>Lugar:</strong> {elem.city}</p>
+                    <p className='card-info'><strong>Fecha:</strong> {elem.workshop_start_date.split('-').reverse().join('-')}</p>
                   </div>  
                 )
               })}

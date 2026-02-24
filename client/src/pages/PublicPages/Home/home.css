@@ -55,22 +55,132 @@
    background-color: #b1745c;
 }
 
-.div-ppal-workshops{
-   display: flex;
+.div-ppal-workshops {
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   padding: 2rem;
 }
 
-.div-map{
-  width: 40%;
+.card-workshop {
+  background-color: #FDFBF7; 
+  border-radius: 15px;
+  padding: 1.8rem;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 8px 20px #D4896B;
+  transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 3px solid #D4896B;
-  box-shadow: 0 0 15px #D4896B;
   gap: 0.8rem;
-  padding: 2rem;
-  border-radius: 20px;
+}
+
+.card-workshop:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4A403A;
+}
+
+.card-info {
+  font-size: 0.95rem;
+  color: #6C757D;
+  margin: 0.3rem 0;
+}
+
+
+
+@media (max-width: 992px) {
+
+  .title {
+    padding: 2rem;
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+.card-workshop {
+    width: 220px;
+    padding: 1.5rem;
+  }
+  .mail {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .title {
+    padding: 1.5rem;
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 1.4rem;
+  }
+
+  p {
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .mail {
+    width: 100%;
+    padding: 12px;
+  }
+ .div-ppal-workshops {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .card-workshop {
+    width: 80%;
+  }
+
+  .mail div {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mail img {
+    width: 28px;
+    height: 28px;
+  }
+
+
+  .modal-body p {
+    font-size: 0.95rem;
+  }
+
+  .input-newsletter {
+    font-size: 14px;
+  }
+}
+
+/* Movil */
+@media (max-width: 480px) {
+
+  .title {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .my-btn {
+    width: 100%;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }

@@ -28,7 +28,7 @@ const Profile = () => {
     <>
       <Container>
         <Row className="profile-box">
-          <Col xs={4} className="p-4">
+          <Col xs={12} md={6} lg={4} className="p-4">
             <h2>Tu Perfil</h2>
             <hr />
             <p>Nombre: {user.name}</p>
@@ -46,7 +46,7 @@ const Profile = () => {
       </Container>
       <Container>
         <Row className='d-flex justify-content-center p-4'>
-          <Col xs={4}>
+          <Col xs={12} md={6} lg={4}>
             {!showFormCourse ? <Button onClick={()=>setShowFormCourse(true)}>Añadir Curso</Button> : <FormCourse setShowFormCourse={setShowFormCourse}/>}
           </Col>
         </Row>

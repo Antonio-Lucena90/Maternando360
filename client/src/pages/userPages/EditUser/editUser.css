@@ -1,0 +1,100 @@
+
+
+.edit-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.edit-form-wrapper form {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  border: 2px solid #8FA998;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.edit-form-wrapper label {
+  font-weight: 500;
+  color: #4A403A;
+}
+
+.edit-form-wrapper .form-control {
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+}
+
+.edit-form-wrapper .form-control:focus {
+  border-color: #8FA998;
+  box-shadow: 0 0 0 3px rgba(143, 169, 152, 0.3);
+}
+
+
+.edit-form-wrapper button {
+  background-color: #8FA998;
+  border: #8FA998;
+  border-radius: 20px;
+  padding: 0.6rem 1.4rem;
+}
+
+.edit-form-wrapper button:hover {
+  background-color: #6c8174;
+}
+
+
+.edit-form-wrapper button:last-child {
+  background-color: #D4896B;
+  border: #D4896B;
+}
+
+.edit-form-wrapper button:last-child:hover {
+  background-color: #ac6c53;
+}
+
+
+@media (max-width: 992px) {
+
+  .edit-form-wrapper form {
+    padding: 2rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .edit-form-wrapper {
+    padding: 1rem;
+  }
+
+  .edit-form-wrapper form {
+    padding: 1.5rem;
+  }
+
+  .edit-form-wrapper .d-flex {
+    flex-direction: column;
+    gap: 0.8rem !important;
+  }
+
+  .edit-form-wrapper button {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .edit-form-wrapper form {
+    padding: 1.2rem;
+  }
+
+  .edit-form-wrapper label {
+    font-size: 0.9rem;
+  }
+
+  .edit-form-wrapper .form-control {
+    font-size: 0.9rem;
+  }
+}

@@ -4,6 +4,7 @@ import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import { editSchema } from '../../../schemas/EditSchema';
 import { fetchData } from '../../../helpers/axiosHelper';
 import { useNavigate } from 'react-router';
+import './editUser.css'
 
 const EditUser = () => {
   const { user, setUser, token} = useContext(AuthContext)
@@ -34,7 +35,7 @@ const EditUser = () => {
     <>
       <Container>
         <Row className='d-flex justify-content-center align-items-center p-5'>
-          <Col xs={4}>
+          <Col xs={12} md={6} lg={4} className='edit-form-wrapper'>
             <Form>
               <Form.Group className="mb-3">
                 <Form.Label>Nombre</Form.Label>

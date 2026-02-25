@@ -99,8 +99,8 @@ const Home = () => {
             </div>
           </Col>
           <Col className='d-flex flex-column justify-content-center align-items-center gap-4'>
-            <h2>Contacta con Nosotros</h2>
-            <p>Si tiene alguna pregunta, no dude en contactar con nosotros a través de nuestro Email</p>
+            <h2>Reserve su Cita o contacta con Nosotros</h2>
+            <p>Para reservar su Cita o consultar alguna duda, contáctenos</p>
             <div>
               <a href='mailto:lucenacalderon90@outlook.es' className='mail'>
                 Contacte con nosotros

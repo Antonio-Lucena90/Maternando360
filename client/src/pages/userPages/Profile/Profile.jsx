@@ -3,12 +3,10 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import './profile.css';
 import { useNavigate } from 'react-router';
-import { FormCourse } from '../../../components/FormCourse/FormCourse';
 import { DeleteModal } from '../../../components/DeleteModal/DeleteModal';
 import { fetchData } from '../../../helpers/axiosHelper';
 
 const Profile = () => {
-  const [showFormCourse, setShowFormCourse] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const navigate = useNavigate();
   const { user, token, logOut } = useContext(AuthContext);
@@ -43,14 +41,7 @@ const Profile = () => {
             {showDeleteModal &&<DeleteModal setShowDeleteModal={setShowDeleteModal} deleteProfile={deleteProfile}/>}
           </Col>
         </Row>
-      </Container>
-      <Container>
-        <Row className='d-flex justify-content-center p-4'>
-          <Col xs={12} md={6} lg={4}>
-            {!showFormCourse ? <Button onClick={()=>setShowFormCourse(true)}>Añadir Curso</Button> : <FormCourse setShowFormCourse={setShowFormCourse}/>}
-          </Col>
-        </Row>
-      </Container>
+      </Container>   
     </>
   );
 };

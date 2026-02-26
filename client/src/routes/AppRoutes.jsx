@@ -22,6 +22,9 @@ import { UserLayout } from '../layouts/UserLayout';
 const AllUsersPage = lazy(()=>import('../pages/userPages/AllUsersPage/AllUsersPage'))
 const Profile = lazy(()=>import('../pages/userPages/Profile/Profile'))
 const EditUser = lazy(()=>import('../pages/userPages/EditUser/EditUser'))
+const UserCourses = lazy(()=>import('../pages/userPages/UserCourses/UserCourses'))
+const UserWorkshops = lazy(()=>import('../pages/userPages/UserWorkshops/UserWorkshops'))
+const FetchAppointment = lazy(()=>import('../pages/userPages/FetchAppointment/FetchAppointment'))
 
 
 
@@ -63,6 +66,9 @@ export const AppRoutes = () => {
               <Route path='/userPage' element={<AllUsersPage/>}/>
               <Route path='/profile' element={<Profile/>}/>
               <Route path='/editUser' element={<EditUser/>}/>
+              <Route path='/userCourses' element={<UserCourses/>}/>
+              <Route path='/userWorkshops' element={<UserWorkshops/>}/>
+              <Route path='/fetchAppointment' element={<FetchAppointment/>}/>
             </Route>
           </Route>
 

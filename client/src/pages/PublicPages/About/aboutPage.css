@@ -1,76 +1,39 @@
-.about{
-        background-color: #ffffff;
-        border-radius: 1rem;
-        padding: 2.5rem;
-        border: 2px solid #8FA998;
-        margin-block-start: 7rem;
-        text-align: center;
+h2{
+  text-align: center;
+  padding: 3rem;
 }
 
-.my-row{
+.my-col{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-block-end: 3rem;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-@media (max-width: 992px) {
-
-  .about {
-    padding: 2rem;
-    margin-block-start: 5rem;
-  }
-
-  .about h2 {
-    font-size: 1.6rem;
-  }
-
-  .about p {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
+.about{
+  background-color: #ffffff;
+  width: 50%;
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 2px solid #8FA998;
+  text-align: center;
 }
+
+.about:nth-child(odd){
+  align-self: flex-start;
+}
+
+.about:nth-child(even){
+  align-self: flex-end;
+}
+
 
 
 @media (max-width: 768px) {
-
-  .my-row {
-    margin-block-end: 2rem;
-  }
-
   .about {
-    padding: 1.5rem;
-    margin-block-start: 3.5rem;
-    border-radius: 0.8rem;
-  }
-
-  .about h2 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-  }
-
-  .about p {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    text-align: justify; 
+    width: 100%;
+    align-self: center 
   }
 }
 
 
-@media (max-width: 480px) {
 
-  .about {
-    padding: 1.2rem;
-    margin-block-start: 2.5rem;
-    border-width: 1.5px;
-  }
-
-  .about h2 {
-    font-size: 1.2rem;
-  }
-
-  .about p {
-    font-size: 0.9rem;
-    line-height: 1.65;
-  }
-}

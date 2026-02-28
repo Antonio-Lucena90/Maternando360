@@ -14,10 +14,7 @@ const AllUsersPage = () => {
             <Col xs={12} md={6} lg={4}>
               <h2>Mis Citas</h2>
             </Col>
-            <Col>
-              <h2>Mis Cursos</h2>
-            </Col>
-            <Col>
+            <Col xs={12} md={6} lg={4}>
               <h2>Mis Talleres</h2>
             </Col>
           </Row>

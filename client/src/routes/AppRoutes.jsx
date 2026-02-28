@@ -9,7 +9,7 @@ const Home = lazy(()=>import('../pages/PublicPages/Home/Home'))
 const About = lazy(()=>import('../pages/PublicPages/About/AboutPage'))
 const Accompaniment = lazy(()=>import('../pages/PublicPages/Services/Accompaniment/Accompaniment'))
 const Dream = lazy(()=>import('../pages/PublicPages/Services/Dream/Dream'))
-const Courses = lazy(()=>import('../pages/PublicPages/Training/Courses/Courses'))
+/* const Courses = lazy(()=>import('../pages/PublicPages/Training/Courses/Courses')) */
 const Workshops = lazy(()=>import('../pages/PublicPages/Training/Workshops/Workshops'))
 const Rates = lazy(()=>import('../pages/PublicPages/Rates/Rates'))
 const LoginPage = lazy(()=>import('../pages/PublicPages/AuthPage/Login/LoginPage'))
@@ -25,6 +25,7 @@ const EditUser = lazy(()=>import('../pages/userPages/EditUser/EditUser'))
 const UserCourses = lazy(()=>import('../pages/userPages/UserCourses/UserCourses'))
 const UserWorkshops = lazy(()=>import('../pages/userPages/UserWorkshops/UserWorkshops'))
 const FetchAppointment = lazy(()=>import('../pages/userPages/FetchAppointment/FetchAppointment'))
+const WorkshopReser = lazy(()=>import('../pages/userPages/WorkshopReser/WorkshopReser'))
 
 
 
@@ -53,7 +54,7 @@ export const AppRoutes = () => {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/accompaniment" element={<Accompaniment />} />
               <Route path="/dream" element={<Dream />} />
-              <Route path="/courses" element={<Courses />} />
+              {/* <Route path="/courses" element={<Courses />} /> */}
               <Route path="/workshops" element={<Workshops />} />
               <Route path="/rates" element={<Rates currentInfo={currentInfo} setCurrentInfo={setCurrentInfo}/>} />
             </Route>
@@ -69,6 +70,7 @@ export const AppRoutes = () => {
               <Route path='/userCourses' element={<UserCourses/>}/>
               <Route path='/userWorkshops' element={<UserWorkshops/>}/>
               <Route path='/fetchAppointment' element={<FetchAppointment/>}/>
+              <Route path='/workshopReser' element={<WorkshopReser/>}/>
             </Route>
           </Route>
 

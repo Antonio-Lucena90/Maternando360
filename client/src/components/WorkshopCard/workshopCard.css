@@ -1,0 +1,26 @@
+.card-body{
+  background-color:  #F5EFE6;
+}
+
+.card-title{
+  text-align: center;
+  margin-block-end: 1.5rem;
+}
+
+.card-text{
+  display: flex;
+  flex-direction: column;
+  gap:1.5rem;
+  align-items: center;
+}
+
+.my-btn{
+  background-color: #8FA998;
+  border: #8FA998;
+  display: flex;
+  justify-content: end;
+}
+
+.my-btn:hover{
+  background-color: #74897b;
+}

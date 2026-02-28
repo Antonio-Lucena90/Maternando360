@@ -22,9 +22,12 @@ export const NavbarUser = () => {
       <Nav className="me-auto text-center text-lg-start">
         <Nav.Link as={NavLink} to="/userPage">Tu Muro</Nav.Link>
         <Nav.Link as={NavLink} to="/profile">Perfil</Nav.Link>
-        <Nav.Link as={NavLink} to="/userCourses">Mis Cursos</Nav.Link>
+        {/* <Nav.Link as={NavLink} to="/userCourses">Mis Cursos</Nav.Link> */}
         <Nav.Link as={NavLink} to="/userWorkshops">Mis Talleres</Nav.Link>
-        <Button className='my-btn' onClick={()=>navigate('/fetchAppointment')}>Pedir Cita</Button>
+        <div className='d-flex gap-3'>
+          <Button className='my-btn' onClick={()=>navigate('/fetchAppointment')}>Pedir Cita</Button>
+          <Button className='my-btn' onClick={()=>navigate('/workshopReser')}>Reservar plaza para Taller</Button>
+        </div>
       </Nav>
 
       <div className="d-flex flex-column flex-lg-row align-items-center gap-3 mt-3 mt-lg-0">

@@ -47,11 +47,31 @@ class UserDal{
     }
   }
 
-  workshopRegistration = async(values) => {
+  isUserRegistered = async (values) =>{
     try {
+      let sql = 'SELECT * FROM workshop_user WHERE user_id = ? AND workshop_id = ? LIMIT 1'
+      const result = await executeQuery(sql, values);
+      return result; 
+    } catch (error) {
+      throw error
+    }
+  }
+
+  workshopRegistration = async(values) => {
+    try {     
       let sql = 'INSERT INTO workshop_user (user_id, workshop_id) VALUES (?,?)'
       const result = await executeQuery(sql, values);
       return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  fetchWorkshop = async(values) =>{
+    try {
+      let sql = 'SELECT w.* FROM workshop w INNER JOIN workshop_user wu ON w.workshop_id = wu.workshop_id WHERE wu.user_id = ?'
+      const result = await executeQuery(sql, values);
+      return result; 
     } catch (error) {
       throw error;
     }

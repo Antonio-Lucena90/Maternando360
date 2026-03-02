@@ -12,5 +12,6 @@ router.put('/editUser', verifyToken, userController.editUser);
 router.put('/deleteUser', verifyToken, userController.deleteUserLogic);
 router.post('/newsletter', userController.newsletter); 
 router.post('/workshopRegistration/:user_id/:workshop_id', verifyToken, userController.workshopRegistration); 
+router.get('/fetchWorkshop/:user_id', verifyToken, userController.fetchWorkshop); 
 
 export default router;

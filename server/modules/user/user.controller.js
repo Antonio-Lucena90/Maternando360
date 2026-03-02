@@ -106,10 +106,25 @@ class UserController {
     const {user_id} = req
     const {workshop_id} = req.params
     try {
+      const registered = await userDal.isUserRegistered([user_id, workshop_id]);
+      if(registered.length > 0){
+        res.status(401).json({message: 'Ya estás inscrito en ese taller'})
+      }else{
       const result = await userDal.workshopRegistration([user_id, workshop_id])
-      res.status(200).json({message:'Inscripción correcta', result});
+      res.status(200).json({message:'Inscripción correcta al taller', result});
+      } 
     } catch (error) {
       res.status(500).json(error);
+    }
+  }
+
+  fetchWorkshop = async (req, res) =>{
+    const {user_id} = req;
+    try {
+      const result = await userDal.fetchWorkshop([user_id]);
+      res.status(200).json({message: 'ok', result});
+    } catch (error) {
+      res.status(500).json(error)
     }
   }
 }

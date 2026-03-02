@@ -7,6 +7,7 @@ import { fetchData } from '../../../helpers/axiosHelper';
 const WorkshopReser = () => {
   const { workshops, user, token } = useContext(AuthContext);
   const [selectedWorkshop, setSelectedWorkshop] = useState(workshops);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const date = new Date();
   date.setDate(date.getDate() + 7) 
@@ -24,11 +25,16 @@ const WorkshopReser = () => {
     try {
       const res = await fetchData(`user/workshopRegistration/${user.user_id}/${workshop_id}`, 'POST', null, token);
       console.log(res);
-      setSelectedWorkshop(null);
+      setErrorMsg(res.data.message);
     } catch (error) {
       console.log(error);
-      
+      setErrorMsg(error.response.data.message);
     }
+  }
+
+  const closeModal = () =>{
+    setSelectedWorkshop(null);
+    setErrorMsg('');
   }
 
   return (
@@ -53,7 +59,7 @@ const WorkshopReser = () => {
       {selectedWorkshop && (
         <Modal
           show={selectedWorkshop.workshop_id}
-          onHide={() => setSelectedWorkshop(null)}
+          onHide={closeModal}
           centered
           backdrop={false}
           keyboard={false}
@@ -68,9 +74,9 @@ const WorkshopReser = () => {
               {selectedWorkshop?.city}?
             </p>
           </Modal.Body>
-
           <Modal.Footer className="background-card">
-            <Button className="my-btn-modal" onClick={() => setSelectedWorkshop(null)}>
+          <p className='error-msg'>{errorMsg}</p>
+            <Button className="my-btn-modal" onClick={closeModal}>
               Cancelar
             </Button>
 

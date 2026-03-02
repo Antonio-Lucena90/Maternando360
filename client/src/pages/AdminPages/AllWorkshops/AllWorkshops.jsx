@@ -54,7 +54,7 @@ const AllWorkshops = () => {
               {allWorkshops?.map((elem) => {
                 return (
                   <div key={elem.workshop_id} className="div-map">
-                    <h2>Nombre: {elem.workshop_name}</h2>
+                    <h2>{elem.workshop_name}</h2>
                     <p>Duración: {elem.duration}</p>
                     <p>Lugar: {elem.city}</p>
                     <p>Fecha de inicio: {elem.workshop_start_date}</p>

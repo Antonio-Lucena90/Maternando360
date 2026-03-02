@@ -14,13 +14,28 @@
   align-items: center;
 }
 
-.my-btn{
+.my-btn-card{
   background-color: #8FA998;
   border: #8FA998;
   display: flex;
   justify-content: end;
 }
 
-.my-btn:hover{
+.my-btn-card:hover{
   background-color: #74897b;
+}
+.my-btn-modal{
+  background-color: #D4896B;
+  border: #D4896B;
+  display: flex;
+  justify-content: end;
+}
+
+.my-btn-modal:hover{
+  background-color: #ac6c53;
+}
+
+.background-card{
+  background-color: #8FA998;
+  color: white;
 }

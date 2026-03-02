@@ -101,5 +101,16 @@ class UserController {
       res.status(500).json(error)
     }
   } 
+
+  workshopRegistration = async(req, res) => {
+    const {user_id} = req
+    const {workshop_id} = req.params
+    try {
+      const result = await userDal.workshopRegistration([user_id, workshop_id])
+      res.status(200).json({message:'Inscripción correcta', result});
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
 }
 export default new UserController(); 

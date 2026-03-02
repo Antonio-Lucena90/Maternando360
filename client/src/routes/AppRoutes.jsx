@@ -11,6 +11,7 @@ const Accompaniment = lazy(()=>import('../pages/PublicPages/Services/Accompanime
 const Dream = lazy(()=>import('../pages/PublicPages/Services/Dream/Dream'))
 /* const Courses = lazy(()=>import('../pages/PublicPages/Training/Courses/Courses')) */
 const Workshops = lazy(()=>import('../pages/PublicPages/Training/Workshops/Workshops'))
+const AllWorkshopsPublic = lazy(()=>import('../pages/PublicPages/allWorkshopsPubli/AllWorkshopsPublic'))
 const Rates = lazy(()=>import('../pages/PublicPages/Rates/Rates'))
 const LoginPage = lazy(()=>import('../pages/PublicPages/AuthPage/Login/LoginPage'))
 const RegisterPage = lazy(()=>import('../pages/PublicPages/AuthPage/Register/RegisterPage'))
@@ -56,6 +57,7 @@ export const AppRoutes = () => {
               <Route path="/dream" element={<Dream />} />
               {/* <Route path="/courses" element={<Courses />} /> */}
               <Route path="/workshops" element={<Workshops />} />
+              <Route path="/allWorkshopsPublic" element={<AllWorkshopsPublic />} />
               <Route path="/rates" element={<Rates currentInfo={currentInfo} setCurrentInfo={setCurrentInfo}/>} />
             </Route>
           </Route>

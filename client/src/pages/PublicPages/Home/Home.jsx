@@ -6,6 +6,7 @@ import { ZodError } from 'zod';
 import { fetchData } from '../../../helpers/axiosHelper';
 import { newsletterSchema } from '../../../schemas/NewsletterSchema';
 import whatsappIcon from '../../../assets/icons/whatsapp.svg'
+import {useNavigate} from 'react-router'
 
 const Home = () => {
 
@@ -21,6 +22,7 @@ const Home = () => {
   const [valErrors, setValErrors] = useState();
   const [accepted, setAccepted] = useState();
   const [workshops, setWorkshops] = useState([]);
+  const navigate = useNavigate()
   
   const handleClose = () => {
     setShowModal(false); 
@@ -69,13 +71,11 @@ const Home = () => {
 
 
   const today = new Date();
-  const comingWorkshops = workshops.filter(e => {
-    return new Date(e.workshop_start_date) >= today
-  });
+  const comingWorkshops = workshops
+    .filter(e => new Date(e.workshop_start_date) >= today)
+    .sort((a,b) => new Date(a.workshop_start_date) - new Date(b.workshop_start_date))
+    .slice(0,6);
 
-  const comingWorkshopsSort = comingWorkshops.sort((a,b)=>{
-    return new Date(a.workshop_start_date) - new Date(b.workshop_start_date);
-  }); 
   
   return (
     <>
@@ -87,7 +87,7 @@ const Home = () => {
           <Col className='d-flex flex-column justify-content-center align-items-center'>
             <h2>Próximos Talleres</h2>
             <div className='div-ppal-workshops'>
-              {comingWorkshopsSort.map((elem,idx)=>{
+              {comingWorkshops.map((elem,idx)=>{
                 return(
                   <div key={idx} className='card-workshop'>
                     <p className='card-title'>{elem.workshop_name}</p>
@@ -96,6 +96,9 @@ const Home = () => {
                   </div>  
                 )
               })}
+            </div>
+            <div>
+              <Button className='my-btn' onClick={()=>navigate('/allworkshopsPublic')}>Ver más</Button>
             </div>
           </Col>
           <Col className='d-flex flex-column justify-content-center align-items-center gap-4'>
@@ -106,7 +109,7 @@ const Home = () => {
                 Contacte con nosotros
               </a>
             </div>
-            <div className='d-flex flex-column justify-content-center align-items-center'>
+            <div className='d-flex flex-column align-items-center'>
               <h2>Únete a nuestra Comunidad de Whatsapp</h2>
               <p>Información y contacto directo a través de esta Comunidad</p>
               <a href="https://chat.whatsapp.com/Foq253iM84W75fgawRMuuv?mode=gi_t" 

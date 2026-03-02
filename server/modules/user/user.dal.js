@@ -46,6 +46,16 @@ class UserDal{
       throw error;
     }
   }
+
+  workshopRegistration = async(values) => {
+    try {
+      let sql = 'INSERT INTO workshop_user (user_id, workshop_id) VALUES (?,?)'
+      const result = await executeQuery(sql, values);
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default new UserDal();

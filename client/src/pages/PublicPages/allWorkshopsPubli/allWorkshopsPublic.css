@@ -1,0 +1,74 @@
+.div-ppal-workshops {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card-workshop {
+  background-color: #FDFBF7; 
+  border-radius: 15px;
+  padding: 1.8rem;
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+  box-shadow: 0 8px 20px #D4896B;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.card-workshop:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4A403A;
+}
+
+.card-info {
+  font-size: 0.95rem;
+  color: #6C757D;
+  margin: 0.3rem 0;
+}
+
+@media (max-width: 992px) {
+
+
+  .div-ppal-workshops {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+.card-workshop {
+    width: 220px;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+ .div-ppal-workshops {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .card-workshop {
+    width: 100%;
+  }
+
+}
+
+/* Movil */
+@media (max-width: 480px) {
+
+
+   .div-ppal-workshops {
+    grid-template-columns: 1fr;
+  }
+
+}

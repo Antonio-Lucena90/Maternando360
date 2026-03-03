@@ -24,7 +24,6 @@ const AllUsersPage = lazy(()=>import('../pages/userPages/AllUsersPage/AllUsersPa
 const Profile = lazy(()=>import('../pages/userPages/Profile/Profile'))
 const EditUser = lazy(()=>import('../pages/userPages/EditUser/EditUser'))
 const UserCourses = lazy(()=>import('../pages/userPages/UserCourses/UserCourses'))
-const UserWorkshops = lazy(()=>import('../pages/userPages/UserWorkshops/UserWorkshops'))
 const FetchAppointment = lazy(()=>import('../pages/userPages/FetchAppointment/FetchAppointment'))
 const WorkshopReser = lazy(()=>import('../pages/userPages/WorkshopReser/WorkshopReser'))
 
@@ -70,7 +69,6 @@ export const AppRoutes = () => {
               <Route path='/profile' element={<Profile/>}/>
               <Route path='/editUser' element={<EditUser/>}/>
               <Route path='/userCourses' element={<UserCourses/>}/>
-              <Route path='/userWorkshops' element={<UserWorkshops/>}/>
               <Route path='/fetchAppointment' element={<FetchAppointment/>}/>
               <Route path='/workshopReser' element={<WorkshopReser/>}/>
             </Route>

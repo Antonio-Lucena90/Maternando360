@@ -105,7 +105,7 @@ const Home = () => {
             <h2>Reserva tu Cita o contacta con Nosotros</h2>
             <p>Para reservar tu Cita o pedir información, contáctanos</p>
             <div>
-              <a href='mailto:lucenacalderon90@outlook.es' className='mail'>
+              <a href='mailto:maternando360@gmail.com' className='mail'>
                 Contacte con nosotros
               </a>
             </div>

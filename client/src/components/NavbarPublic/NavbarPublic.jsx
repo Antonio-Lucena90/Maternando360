@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { Link, NavLink, useNavigate } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import './NavbarPublic.css';
 import logo from '../../assets/images/logonegro.png'
 
 export const NavbarPublic = () => {
-  const navigate = useNavigate();
+ /*  const navigate = useNavigate(); */
 
   return (
     <Navbar expand="lg" className="navbar">
@@ -29,7 +29,7 @@ export const NavbarPublic = () => {
             Regulación y Sueño
           </NavDropdown.Item>
         </NavDropdown>
-
+{/* 
         <NavDropdown title="Formación" id="formacion-dropdown">
           <NavDropdown.Item as={NavLink} to="/workshops">
             Talleres
@@ -37,19 +37,19 @@ export const NavbarPublic = () => {
           <NavDropdown.Item as={NavLink} to="/courses">
             Cursos
           </NavDropdown.Item>
-        </NavDropdown>
+        </NavDropdown> */}
 
         <Nav.Link as={NavLink} to="/rates">Tarifas</Nav.Link>
       </Nav>
 
-      <div className="d-flex flex-column flex-lg-row gap-2 mt-3 mt-lg-0">
+     {/*  <div className="d-flex flex-column flex-lg-row gap-2 mt-3 mt-lg-0">
         <Button className="my-btn" onClick={() => navigate('/login')}>
           Iniciar Sesión
         </Button>
         <Button className="my-btn" onClick={() => navigate('/register')}>
           Registro
         </Button>
-      </div>
+      </div> */}
     </Navbar.Collapse>
   </Container>
 </Navbar>

@@ -77,6 +77,7 @@ const Home = () => {
     .sort((a,b) => new Date(a.workshop_start_date) - new Date(b.workshop_start_date))
     .slice(0,6); */
 
+    const comingWorkshops = workshops.slice(0,2);
   
   return (
     <>
@@ -88,12 +89,12 @@ const Home = () => {
           <Col className='d-flex flex-column justify-content-center align-items-center'>
             <h2>Próximos Talleres</h2>
             <div className='div-ppal-workshops'>
-              {workshops.map((elem,idx)=>{
+              {comingWorkshops.map((elem,idx)=>{
                 return(
                   <div key={idx} className='card-workshop'>
                     <p className='card-title'>{elem.workshop_name}</p>
                     <p className='card-info'><strong>Lugar:</strong> {elem.city}</p>
-                    <p className='card-info'><strong>Fecha:</strong> {elem.workshop_start_date.split('-').reverse().join('-')}</p>
+                    <p className='card-info'><strong>Fecha:</strong> {elem.workshop_start_date}</p>
                   </div>  
                 )
               })}

@@ -1,12 +1,13 @@
 
 import { Container, Row, Col, Modal, Button } from 'react-bootstrap';
 import './home.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ZodError } from 'zod';
 import { fetchData } from '../../../helpers/axiosHelper';
 import { newsletterSchema } from '../../../schemas/NewsletterSchema';
 import whatsappIcon from '../../../assets/icons/whatsapp.svg'
 import {useNavigate} from 'react-router'
+import { workshops } from '../../../data/Workshops';
 
 const Home = () => {
 
@@ -21,7 +22,7 @@ const Home = () => {
   const [inputEmail, setInputEmail] = useState('');
   const [valErrors, setValErrors] = useState();
   const [accepted, setAccepted] = useState();
-  const [workshops, setWorkshops] = useState([]);
+/*   const [myWorkshops, setMyWorkshops] = useState([]); */
   const navigate = useNavigate()
   
   const handleClose = () => {
@@ -57,24 +58,24 @@ const Home = () => {
     }
   }
 
-  useEffect(()=>{
+/*   useEffect(()=>{
     const fetchWorkshops = async () => {
       try {
         let res = await fetchData('workshop/allWorkshops', 'GET');
-        setWorkshops(res.data.result);
+        setMyWorkshops(res.data.result);
       } catch (error) {
         console.log(error); 
       }
     }
     fetchWorkshops();
-  }, []);
+  }, []); */
 
 
-  const today = new Date();
-  const comingWorkshops = workshops
+/*   const today = new Date();
+  const comingWorkshops = myWorkshops
     .filter(e => new Date(e.workshop_start_date) >= today)
     .sort((a,b) => new Date(a.workshop_start_date) - new Date(b.workshop_start_date))
-    .slice(0,6);
+    .slice(0,6); */
 
   
   return (
@@ -87,7 +88,7 @@ const Home = () => {
           <Col className='d-flex flex-column justify-content-center align-items-center'>
             <h2>Próximos Talleres</h2>
             <div className='div-ppal-workshops'>
-              {comingWorkshops.map((elem,idx)=>{
+              {workshops.map((elem,idx)=>{
                 return(
                   <div key={idx} className='card-workshop'>
                     <p className='card-title'>{elem.workshop_name}</p>

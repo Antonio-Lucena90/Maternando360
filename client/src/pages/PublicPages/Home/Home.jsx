@@ -93,8 +93,11 @@ const Home = () => {
                 return(
                   <div key={idx} className='card-workshop'>
                     <p className='card-title'>{elem.workshop_name}</p>
+                    <p className='card-info'><strong>Descripción:</strong> {elem.description}</p>
+                    <p className='card-info'><strong>Duración:</strong> {elem.duration}</p>
                     <p className='card-info'><strong>Lugar:</strong> {elem.city}</p>
                     <p className='card-info'><strong>Fecha:</strong> {elem.workshop_start_date}</p>
+                    <p><strong>Precio:</strong> {elem.price}</p>
                   </div>  
                 )
               })}
@@ -107,7 +110,7 @@ const Home = () => {
             <h2>Reserva tu Cita o contacta con Nosotros</h2>
             <p>Para reservar tu Cita o pedir información, contáctanos</p>
             <div>
-              <a href='mailto:maternando360@gmail.com' className='mail'>
+              <a href='mailto:info.maternando360@gmail.com' className='mail'>
                 Contacte con nosotros
               </a>
             </div>

@@ -12,7 +12,7 @@ const Accompaniment = () => {
         <div>
           <h2>Acompañamiento a familias con hijos de 0 a 12 años</h2>
           <p>
-            Acompaño a bebes, niños y familias en las diferentes etapas del
+            Acompaño a bebés, niños y familias en las diferentes etapas del
             desarrollo infantil, desde una mirada global, respetuosa y basada en
             evidencia, acompañando en el desarrollo infantil, el descanso, la
             regulación emocional y sensorial, así como en dificultades de
@@ -36,19 +36,19 @@ const Accompaniment = () => {
           <div className='info-div'>
             <h3>Áreas de acompañamiento:</h3>
             <ul>
-              <li>Orientación sobre desarrollo infantil</li>
-              <li>Alimentación en la infancia</li>
-              <li>Apoyo en la autonomía, adaptado a la etapa de desarrollo </li>
-              <li>Regulación sensorial y emocional </li>
+              <li>Orientación sobre desarrollo infantil.</li>
+              <li>Alimentación en la infancia.</li>
+              <li>Apoyo en la autonomía, adaptado a la etapa de desarrollo. </li>
+              <li>Regulación sensorial y emocional.</li>
               <li>
                 Acompañamiento a familias en momentos de duda, cambio o
                 dificultad{' '}
               </li>
-              <li>TEA</li>
-              <li>TDAH / TDH </li>
-              <li>Dificultades de atención y concentración</li>
-              <li>Dificultades en funciones ejecutivas</li>
-              <li>Dificultades de escritura (grafomotricidad, disgrafía) </li>
+              <li>TEA.</li>
+              <li>TDAH / TDH. </li>
+              <li>Dificultades de atención y concentración.</li>
+              <li>Dificultades en funciones ejecutivas.</li>
+              <li>Dificultades de escritura (grafomotricidad, disgrafía). </li>
               <li>
                 Dificultades en el entorno escolar (organización, conducta,
                 regulación emocional)
@@ -98,11 +98,11 @@ const Accompaniment = () => {
             <h3>Incluye:</h3>
             <h4>Valoración inicial integral</h4>
             <ul>
-              <li>Entrevista familiar </li>
-              <li>Observación del niño/a </li>
-              <li>Perfil sensorial </li>
-              <li>Análisis de rutinas (hogar y escuela) </li>
-              <li>Detección de fortalezas y necesidades </li>
+              <li>Entrevista familiar. </li>
+              <li>Observación del niño/a. </li>
+              <li>Perfil sensorial. </li>
+              <li>Análisis de rutinas (hogar y escuela). </li>
+              <li>Detección de fortalezas y necesidades. </li>
             </ul>
             <h4>Intervención individualizada, trabajo en:</h4>
             <ul>

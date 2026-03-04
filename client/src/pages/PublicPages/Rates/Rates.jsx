@@ -59,7 +59,7 @@ const Rates = ({ currentInfo, setCurrentInfo }) => {
             </Col>
             <Col md={6} className='d-flex justify-content-center align-items-center mb-4'>
               <div className="my-container">
-                <h3>Pack de Seguimiento Online</h3>
+                <h3>Pack de seguimiento online</h3>
                 <button
                   onClick={() => setCurrentInfo(currentInfo === 2 ? null : 2)}
                 >
@@ -121,7 +121,7 @@ const Rates = ({ currentInfo, setCurrentInfo }) => {
             </Col>
             <Col md={6} className='d-flex justify-content-center align-items-center mb-4'>
               <div className="my-container">
-                <h3>Acompañamiento Individual Descanso y Sueño</h3>
+                <h3>Acompañamiento individual descanso y sueño</h3>
                 <button
                   onClick={() => setCurrentInfo(currentInfo === 4 ? null : 4)}
                 >
@@ -164,7 +164,7 @@ const Rates = ({ currentInfo, setCurrentInfo }) => {
             </Col>
             <Col md={6} className='d-flex justify-content-center align-items-center mb-4'>
               <div className="my-container">
-                <h3>Acompañamiento Fulltime Descanso y Sueño</h3>
+                <h3>Acompañamiento fulltime descanso y sueño</h3>
                 <button
                   onClick={() => setCurrentInfo(currentInfo === 5 ? null : 5)}
                 >

@@ -1,6 +1,7 @@
 import cIcon from '../../assets/icons/c-circle.svg'
 import instagramIcon from '../../assets/icons/instagram.svg'
 import whatsappIcon from '../../assets/icons/whatsapp.svg'
+import gitIcon from '../../assets/icons/github.svg'
 import './footer.css'
 import {Container, Row, Col} from 'react-bootstrap'
 
@@ -26,6 +27,15 @@ export const Footer = () => {
           <img src={whatsappIcon} alt="" />
           </a>
       </Col>
+      </Row>
+      <Row>
+        <Col className='col2'>
+          <p><img src={cIcon} alt="" /> 2026 Maternando360. Web desarrollada por Antonio Lucena.</p>
+          <a href="https://github.com/Antonio-Lucena90?tab=repositories" className='d-flex'>
+          <p>Más en: </p>
+          <img src={gitIcon} alt="" className='mb-4' />
+          </a>
+        </Col>
       </Row>
     </Container>
     </>

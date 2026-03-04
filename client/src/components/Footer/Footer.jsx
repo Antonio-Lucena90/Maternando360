@@ -20,8 +20,7 @@ export const Footer = () => {
             rel='noopener noreferrer'>
             <img src={instagramIcon} alt="" />
           </a>
-          <a href="https://chat.whatsapp.com/Foq253iM84W75fgawRMuuv?mode=gi_t" 
-                className='mail' 
+          <a href="https://chat.whatsapp.com/Foq253iM84W75fgawRMuuv?mode=gi_t"  
                 target='_blank'
                 rel='noopener noreferrer'>
           <img src={whatsappIcon} alt="" />

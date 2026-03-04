@@ -17,7 +17,7 @@ const Rates = ({ currentInfo, setCurrentInfo }) => {
           <Row>
             <Col md={6} className='d-flex justify-content-center align-items-center mb-4'>
               <div className="my-container">
-                <h3>Asesoramiento Familiar Bebés 0-3años</h3>
+                <h3>Asesoramiento Familiar (Bebés 0-3 años)</h3>
                 <button
                   onClick={() => setCurrentInfo(currentInfo === 1 ? null : 1)}
                 >

@@ -7,6 +7,18 @@
   text-align: center;
 }
 
+.mail{
+  border: 1px solid #D4896B;
+  background-color: #D4896B;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+}
+.mail:hover{
+   background-color: #b1745c;
+}
+
 .ppal-div{
   display: flex;
   justify-content: center;

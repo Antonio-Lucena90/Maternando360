@@ -39,7 +39,7 @@ export const NavbarPublic = () => {
           </NavDropdown.Item>
         </NavDropdown> */}
 
-        <Nav.Link as={NavLink} to="/rates">Tarifas</Nav.Link>
+        <Nav.Link as={NavLink} to="/rates">Asesoramiento gratuito</Nav.Link>
       </Nav>
 
      {/*  <div className="d-flex flex-column flex-lg-row gap-2 mt-3 mt-lg-0">

@@ -27,7 +27,7 @@ const Rates = () => {
                 rel="noopener noreferrer"
               >
                 <div className="d-flex gap-3">
-                  <img src={whatsappIcon} alt="" />
+                  <img src={whatsappIcon} alt="" className='imgWhatsapp'/>
                   <p className="mt-3">Agenda tu cita</p>
                 </div>
               </a>

@@ -11,11 +11,41 @@ h2{
 
 .about{
   background-color: #ffffff;
-  width: 50%;
+  width: 70%;
   border-radius: 1rem;
   padding: 2rem;
   border: 2px solid #8FA998;
   text-align: center;
+  display: flex;
+  align-items: center;
+  gap:2rem;
+}
+.about2{
+  background-color: #ffffff;
+  width: 70%;
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 2px solid #8FA998;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:2rem;
+  img{
+  width: 350px;
+  height: auto;
+  border-radius: 10px;
+  }
+}
+
+.about-text{
+  flex: 1;
+}
+
+img{
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
 }
 
 .about:nth-child(odd){
@@ -25,14 +55,60 @@ h2{
 .about:nth-child(even){
   align-self: flex-end;
 }
+ 
 
 
+@media (max-width: 992px){
 
-@media (max-width: 768px) {
-  .about {
-    width: 100%;
-    align-self: center 
+  .about,
+  .about2{
+    width: 90%;
   }
+
+  .about img{
+    width: 200px;
+  }
+
+  .about2 img{
+    width: 280px;
+  }
+
+}
+
+@media (max-width: 768px){
+
+  .about,
+  .about2{
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    align-self: center;
+  }
+
+  .about img,
+  .about2 img{
+    width: 100%;
+    max-width: 300px;
+  }
+
+}
+
+@media (max-width: 480px){
+
+  h2{
+    padding: 2rem 1rem;
+  }
+
+  .about,
+  .about2{
+    padding: 1.5rem;
+  }
+
+  .about img,
+  .about2 img{
+    max-width: 250px;
+  }
+
 }
 
 

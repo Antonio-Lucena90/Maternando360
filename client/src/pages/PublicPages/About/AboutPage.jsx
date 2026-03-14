@@ -1,4 +1,7 @@
 import { Col, Container, Row } from 'react-bootstrap';
+import fotoProfil from '../../../assets/images/perfil .jpeg'
+import foto1 from '../../../assets/images/foto1.jpeg'
+import foto3 from '../../../assets/images/foto3.jpeg'
 import './aboutPage.css'
 
 const AboutPage = () => {
@@ -9,11 +12,14 @@ const AboutPage = () => {
           <h2>¿Quién soy?</h2>
           <Col xs={10} className='my-col'>    
               <div className='about'>
-                <p>
-                  Detrás de Maternando360 está Belén, terapeuta
-                  ocupacional especializada en infancia, desarrollo infantil e
-                  integración sensorial. Pero sobre todo, soy mamá de mellizos.
-                </p>
+                <div>
+                  <p>
+                    Detrás de Maternando360 está Belén, terapeuta
+                    ocupacional especializada en infancia, desarrollo infantil e
+                    integración sensorial. Pero sobre todo, soy mamá de mellizos.
+                  </p>
+                </div>
+                <img src={fotoProfil} alt="" />
               </div>
               <div className='about'>
                 <p>
@@ -29,15 +35,18 @@ const AboutPage = () => {
                   familias.
                 </p>
               </div>
-              <div className='about'>
+              <div className='about2'>
                   <h3>Así nace Maternando360.</h3>
-                <p>
-                  Un espacio para acompañar a la
-                  mujer y a su familia en su ma/paternidad, donde acompaño a
-                  familias con hijos de 0 a 12 años a comprender qué está ocurriendo
-                  en cada etapa del desarrollo. Como dice la psiquiatra Marian Rojas
-                  Estapé, "comprender es aliviar".
-                </p>
+                <div>
+                  <p>
+                    Un espacio para acompañar a la
+                    mujer y a su familia en su ma/paternidad, donde acompaño a
+                    familias con hijos de 0 a 12 años a comprender qué está ocurriendo
+                    en cada etapa del desarrollo. Como dice la psiquiatra Marian Rojas
+                    Estapé, "comprender es aliviar".
+                  </p>
+                </div>
+                <img src={foto1} alt="" />
               </div> 
               <div className='about'>
                 <p>
@@ -52,14 +61,17 @@ const AboutPage = () => {
                   familia.
                 </p>
               </div>
-              <div className='about'>
-                <p>
-                  Mi objetivo es que entiendas las necesidades de tu hijo/a
-                  y que te sientas acompañada, empoderada y tranquila en tu manera
-                  de criar. La crianza no es perfecta, es consciente. Y cuando hay
-                  comprensión, hay calma. Y la calma genera equilibrio y bienestar
-                  familiar a todos los niveles.
-                </p>
+              <div className='about2'>
+                <div>
+                  <p>
+                    Mi objetivo es que entiendas las necesidades de tu hijo/a
+                    y que te sientas acompañada, empoderada y tranquila en tu manera
+                    de criar. La crianza no es perfecta, es consciente. Y cuando hay
+                    comprensión, hay calma. Y la calma genera equilibrio y bienestar
+                    familiar a todos los niveles.
+                  </p>
+                </div>
+                <img src={foto3} alt="" />
               </div>
           </Col>
         </Row>

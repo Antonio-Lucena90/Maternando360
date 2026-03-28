@@ -5,7 +5,7 @@ import './NavbarPublic.css';
 import logo from '../../assets/images/logonegro.png'
 
 export const NavbarPublic = () => {
- /*  const navigate = useNavigate(); */
+  /* const navigate = useNavigate();  */
 
   return (
     <Navbar expand="lg" className="navbar">
@@ -42,14 +42,14 @@ export const NavbarPublic = () => {
         <Nav.Link as={NavLink} to="/rates">Asesoramiento gratuito</Nav.Link>
       </Nav>
 
-     {/*  <div className="d-flex flex-column flex-lg-row gap-2 mt-3 mt-lg-0">
+{/*     <div className="d-flex flex-column flex-lg-row gap-2 mt-3 mt-lg-0">
         <Button className="my-btn" onClick={() => navigate('/login')}>
           Iniciar Sesión
         </Button>
         <Button className="my-btn" onClick={() => navigate('/register')}>
           Registro
         </Button>
-      </div> */}
+      </div> */} 
     </Navbar.Collapse>
   </Container>
 </Navbar>

@@ -10,7 +10,7 @@ export const workshops = [
     price: '50€'
   }, */ 
 
-  {
+/*   {
     id: 3,
     workshop_name: 'Taller de Sueño, Descanso y regulación. Desde el enfoque de la Integración Sensorial. 1ª edición.',
     description:'El sueño infantil no es igual para todos los bebés, porque ningún sistema nervioso es igual. En este curso aprenderás a leer el perfil sensorial único de tu hijo y a crear un entorno y una rutina que funcionen para él. Un enfoque basado en Integración Sensorial y neurodesarrollo, diseñado para acompañar sin forzar.',
@@ -19,7 +19,7 @@ export const workshops = [
     workshop_start_date: '25-04-2026',
     workshop_end_date: '',
     price: '50€'
-  },
+  }, */
 
     {
     id: 2,

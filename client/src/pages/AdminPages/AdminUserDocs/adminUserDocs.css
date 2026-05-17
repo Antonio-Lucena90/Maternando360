@@ -1,0 +1,169 @@
+.aud-container {
+  padding: 1.25rem 0.75rem 3rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.btn-aud-back {
+  background: none;
+  border: none;
+  color: #8FA998;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.btn-aud-back:hover { color: #6c8174; }
+
+.aud-container h2 {
+  color: #4A403A;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 0.1rem;
+}
+
+.aud-subtitle {
+  color: #D4896B;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.aud-upload-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f5f0ea;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.btn-aud-upload {
+  background-color: #8FA998;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.btn-aud-upload:hover { background-color: #6c8174; }
+.btn-aud-upload:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.aud-error { color: #dc3545; font-size: 0.9rem; margin-bottom: 0.75rem; }
+.aud-success { color: #4a7c59; font-size: 0.9rem; margin-bottom: 0.75rem; }
+
+.aud-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.aud-badge-admin {
+  background-color: #d4896b22;
+  color: #D4896B;
+  border: 1px solid #D4896B;
+}
+
+.aud-badge-user {
+  background-color: #8fa99822;
+  color: #4a7c59;
+  border: 1px solid #8FA998;
+}
+
+.aud-empty {
+  color: #6C757D;
+  font-style: italic;
+  padding: 1rem 0;
+}
+
+.aud-table-wrapper {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #edf2f7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.aud-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.aud-table thead { background-color: #8FA998; }
+
+.aud-table thead th {
+  padding: 0.85rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: left;
+  color: white;
+}
+
+.aud-table tbody tr {
+  background-color: #FDFBF7;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.aud-table tbody tr:last-child { border-bottom: none; }
+.aud-table tbody tr:hover { background-color: #f5f0ea; }
+
+.aud-table td {
+  padding: 0.75rem 1rem;
+  color: #4A403A;
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+.btn-aud-download {
+  background: transparent;
+  border: 1.5px solid #8FA998;
+  color: #8FA998;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-aud-download:hover {
+  background-color: #8FA998;
+  color: white;
+}
+
+.btn-aud-delete {
+  background: transparent;
+  border: 1.5px solid #dc3545;
+  color: #dc3545;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-aud-delete:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+@media (min-width: 640px) {
+  .aud-container {
+    margin: 2rem auto;
+    padding: 0 1.5rem 3rem;
+  }
+
+  .aud-container h2 { font-size: 1.75rem; }
+}

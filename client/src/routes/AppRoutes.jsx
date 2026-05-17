@@ -9,7 +9,6 @@ const Home = lazy(()=>import('../pages/PublicPages/Home/Home'))
 const About = lazy(()=>import('../pages/PublicPages/About/AboutPage'))
 const Accompaniment = lazy(()=>import('../pages/PublicPages/Services/Accompaniment/Accompaniment'))
 const Dream = lazy(()=>import('../pages/PublicPages/Services/Dream/Dream'))
-/* const Courses = lazy(()=>import('../pages/PublicPages/Training/Courses/Courses')) */
 const Workshops = lazy(()=>import('../pages/PublicPages/Training/Workshops/Workshops'))
 const AllWorkshopsPublic = lazy(()=>import('../pages/PublicPages/allWorkshopsPubli/AllWorkshopsPublic'))
 const Rates = lazy(()=>import('../pages/PublicPages/Rates/Rates'))
@@ -26,6 +25,9 @@ const EditUser = lazy(()=>import('../pages/userPages/EditUser/EditUser'))
 const UserCourses = lazy(()=>import('../pages/userPages/UserCourses/UserCourses'))
 const FetchAppointment = lazy(()=>import('../pages/userPages/FetchAppointment/FetchAppointment'))
 const WorkshopReser = lazy(()=>import('../pages/userPages/WorkshopReser/WorkshopReser'))
+const Cart = lazy(()=>import('../pages/userPages/Cart/Cart'))
+const Docus = lazy(()=>import('../pages/userPages/Docus/Docus'))
+const DreamRegister = lazy(()=>import('../pages/userPages/DreamRegister/DreamRegister'))
 
 
 
@@ -36,11 +38,18 @@ const AllUsersRegistered = lazy(()=>import('../pages/AdminPages/AllUsersRegister
 const CreateWorkshops = lazy(()=>import('../pages/AdminPages/CreateWorkshops/CreateWorkshops'))
 const AllWorkshops = lazy(()=>import('../pages/AdminPages/AllWorkshops/AllWorkshops'))
 const EditWorkshop = lazy(()=>import('../pages/AdminPages/EditWorkshop/EditWorkshop'))
+const AdminUserSleepRecords = lazy(()=>import('../pages/AdminPages/AdminUserSleepRecords/AdminUserSleepRecords'))
+const AdminDocs = lazy(()=>import('../pages/AdminPages/AdminDocs/AdminDocs'))
+const AdminUserDocs = lazy(()=>import('../pages/AdminPages/AdminUserDocs/AdminUserDocs'))
+const AdminInviteCodes = lazy(()=>import('../pages/AdminPages/AdminInviteCodes/AdminInviteCodes'))
 
 export const AppRoutes = () => {
  const {user} = useContext(AuthContext);
  const [currentInfo, setCurrentInfo] = useState(false);
-  
+
+
+
+
   return (
     <BrowserRouter>
       <Suspense fallback={<h2>Cargando...</h2>}>
@@ -71,6 +80,9 @@ export const AppRoutes = () => {
               <Route path='/userCourses' element={<UserCourses/>}/>
               <Route path='/fetchAppointment' element={<FetchAppointment/>}/>
               <Route path='/workshopReser' element={<WorkshopReser/>}/>
+              <Route path='/cart' element={<Cart/>}/>
+              <Route path='/docus' element={<Docus/>}/>
+              <Route path='/dreamRegister' element={<DreamRegister/>}/>
             </Route>
           </Route>
 
@@ -82,6 +94,10 @@ export const AppRoutes = () => {
                 <Route path='/admin/createWorkshops' element={<CreateWorkshops/>}/>
                 <Route path='/admin/allWorkshops' element={<AllWorkshops/>}/>
                 <Route path='/admin/editWorkshops/:id' element={<EditWorkshop/>}/>
+                <Route path='/admin/userRecords/:user_id' element={<AdminUserSleepRecords/>}/>
+                <Route path='/admin/documents' element={<AdminDocs/>}/>
+                <Route path='/admin/userDocs/:user_id' element={<AdminUserDocs/>}/>
+                <Route path='/admin/inviteCodes' element={<AdminInviteCodes/>}/>
               </Route>
             </Route>
 

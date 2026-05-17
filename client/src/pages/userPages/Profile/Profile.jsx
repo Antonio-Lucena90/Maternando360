@@ -32,8 +32,7 @@ const Profile = () => {
             <p>Nombre: {user.name}</p>
             <p>Apellidos: {user.last_name}</p>
             <p>Email: {user.email}</p>
-            <p>Teléfono: {user.phone}</p>
-            <p>Fecha de Nacimiento: {user.birth_date.split('-').reverse().join('-')}</p>
+            {user.baby_name && <p>Nombre del bebé: {user.baby_name}</p>}
             <div className='d-flex gap-2'>
               <Button className="my-btn-profile" onClick={()=>navigate('/editUser')}>Editar</Button>
               <Button className="my-btn-profile" onClick={()=>setShowDeleteModal(true)}>Eliminar Cuenta</Button>

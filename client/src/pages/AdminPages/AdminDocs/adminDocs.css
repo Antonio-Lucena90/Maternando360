@@ -1,0 +1,136 @@
+.adocs-container {
+  padding: 1.25rem 1rem 3rem;
+}
+
+.adocs-container h2 {
+  color: #4A403A;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.adocs-subtitle {
+  color: #6C757D;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.adocs-upload-box {
+  background-color: #FDFBF7;
+  border: 2px dashed #8FA998;
+  border-radius: 14px;
+  padding: 1.25rem 1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.adocs-upload-box input[type="file"] {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  color: #4A403A;
+  font-size: 0.95rem;
+}
+
+.adocs-error { color: #dc3545; font-size: 0.9rem; margin-bottom: 0.75rem; }
+.adocs-success { color: #6c8174; font-weight: 500; font-size: 0.9rem; margin-bottom: 0.75rem; }
+.adocs-empty { color: #6C757D; font-style: italic; padding: 1rem 0; font-size: 0.95rem; }
+
+.adocs-table-wrapper {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #edf2f7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.adocs-table { width: 100%; border-collapse: collapse; }
+
+.adocs-table thead { background-color: #8FA998; }
+
+.adocs-table thead th {
+  padding: 0.85rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: left;
+  color: white;
+}
+
+.adocs-table tbody tr {
+  background-color: #FDFBF7;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.adocs-table tbody tr:last-child { border-bottom: none; }
+
+.adocs-table tbody tr:hover { background-color: #f5f0ea; }
+
+.adocs-table td {
+  padding: 0.75rem 1rem;
+  color: #4A403A;
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+.adocs-actions { display: flex; gap: 0.5rem; }
+
+.btn-adocs-primary {
+  background-color: #8FA998;
+  border: none;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+  min-height: 48px;
+}
+
+.btn-adocs-primary:hover:not(:disabled) { background-color: #6c8174; }
+.btn-adocs-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-adocs-download {
+  background: transparent;
+  border: 1.5px solid #8FA998;
+  color: #8FA998;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 40px;
+}
+
+.btn-adocs-download:hover { background-color: #8FA998; color: white; }
+
+.btn-adocs-delete {
+  background: transparent;
+  border: 1.5px solid #D4896B;
+  color: #D4896B;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 40px;
+}
+
+.btn-adocs-delete:hover { background-color: #D4896B; color: white; }
+
+@media (min-width: 640px) {
+  .adocs-container { max-width: 860px; margin: 2rem auto; padding: 0 1.5rem 3rem; }
+  .adocs-container h2 { font-size: 1.75rem; }
+
+  .adocs-upload-box { flex-direction: row; align-items: center; padding: 1.5rem; }
+  .adocs-upload-box input[type="file"] { flex: 1; }
+  .btn-adocs-primary { width: auto; white-space: nowrap; padding: 0.55rem 1.25rem; min-height: auto; }
+
+  .adocs-actions { justify-content: flex-start; }
+}

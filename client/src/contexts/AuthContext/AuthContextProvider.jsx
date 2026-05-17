@@ -5,8 +5,10 @@ import { fetchData } from '../../helpers/axiosHelper'
 export const AuthContextProvider = ({children}) => {
  const [user, setUser] = useState()
  const [token, setToken] = useState();
- const [workshops, setWorkshops] = useState([]); 
+ const [workshops, setWorkshops] = useState([]);
+ const [cart, setCart] = useState([]); 
 
+    
 
   useEffect(()=>{
     const tokenLS = localStorage.getItem('token')
@@ -43,6 +45,7 @@ export const AuthContextProvider = ({children}) => {
     localStorage.removeItem('token')
   }
 
+
   return (
     <AuthContext.Provider value={{
                             user, 
@@ -51,7 +54,9 @@ export const AuthContextProvider = ({children}) => {
                             token, 
                             setToken,
                             workshops,
-                            setWorkshops}}>
+                            setWorkshops,
+                            cart,
+                            setCart}}>
       {children}
     </AuthContext.Provider>
   )

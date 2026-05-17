@@ -3,11 +3,13 @@ import { Container, Row, Col, Modal, Button } from 'react-bootstrap';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import { WorkshopCard } from '../../../components/WorkshopCard/WorkshopCard';
 import { fetchData } from '../../../helpers/axiosHelper';
+import { useNavigate } from 'react-router';
 
 const WorkshopReser = () => {
-  const { workshops, user, token } = useContext(AuthContext);
+  const { workshops, user, token, setCart, cart } = useContext(AuthContext);
   const [selectedWorkshop, setSelectedWorkshop] = useState(workshops);
   const [errorMsg, setErrorMsg] = useState('');
+  const navigate = useNavigate();
 
   const date = new Date();
   date.setDate(date.getDate() + 7) 
@@ -21,7 +23,7 @@ const WorkshopReser = () => {
     return new Date(a.workshop_start_date) - new Date (b.workshop_start_date);
   })
 
-  const onSubmit = async(workshop_id)=>{
+/*   const onSubmit = async(workshop_id)=>{
     try {
       const res = await fetchData(`user/workshopRegistration/${user.user_id}/${workshop_id}`, 'POST', null, token);
       console.log(res);
@@ -30,12 +32,17 @@ const WorkshopReser = () => {
       console.log(error);
       setErrorMsg(error.response.data.message);
     }
-  }
+  } */
 
   const closeModal = () =>{
     setSelectedWorkshop(null);
     setErrorMsg('');
   }
+
+  const addWorkshop = (w) =>{
+      setCart([...cart, w]);
+      navigate('/cart')
+    }
 
   return (
     <>
@@ -48,7 +55,6 @@ const WorkshopReser = () => {
                     <div key={elem.workshop_id}>
                       <WorkshopCard 
                           workshops={elem} 
-                          onSubmit={onSubmit}
                           setSelectedWorkshop={setSelectedWorkshop}
 
                         />
@@ -80,7 +86,7 @@ const WorkshopReser = () => {
               Cancelar
             </Button>
 
-            <Button className="my-btn-modal" onClick={()=>onSubmit(selectedWorkshop.workshop_id)}>Aceptar</Button>
+            <Button className="my-btn-modal" onClick={()=>addWorkshop(selectedWorkshop)}>Aceptar</Button>
           </Modal.Footer>
         </Modal>
       )}

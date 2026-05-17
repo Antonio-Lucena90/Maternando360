@@ -1,0 +1,286 @@
+.asr-container {
+  padding: 1.25rem 0.75rem 3rem;
+}
+
+.btn-asr-back {
+  background: none;
+  border: none;
+  color: #8FA998;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.btn-asr-back:hover {
+  color: #6c8174;
+}
+
+.asr-container h2 {
+  color: #4A403A;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 0.1rem;
+}
+
+.asr-subtitle {
+  color: #D4896B;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.asr-hint {
+  color: #6C757D;
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
+}
+
+/* Calendario */
+.asr-calendar-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid #edf2f7;
+}
+
+.asr-calendar-wrapper .rbc-calendar {
+  background-color: #FDFBF7;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.asr-calendar-wrapper .rbc-toolbar {
+  background-color: #8FA998;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.asr-calendar-wrapper .rbc-toolbar .rbc-btn-group {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.asr-calendar-wrapper .rbc-toolbar-label {
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+  flex: 1;
+  text-align: center;
+}
+
+.asr-calendar-wrapper .rbc-toolbar button {
+  color: white;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 0.45rem 0.85rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  min-width: 44px;
+  min-height: 44px;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.asr-calendar-wrapper .rbc-toolbar button:hover,
+.asr-calendar-wrapper .rbc-toolbar button.rbc-active {
+  background-color: #6c8174;
+  border-color: #6c8174;
+}
+
+.asr-calendar-wrapper .rbc-today {
+  background-color: #fef3ec !important;
+}
+
+.asr-calendar-wrapper .rbc-event {
+  background-color: #D4896B !important;
+  border: none !important;
+  border-radius: 4px;
+  font-size: 0.65rem;
+}
+
+/* Panel de día */
+.asr-day-panel {
+  margin-top: 1.25rem;
+  background-color: #FDFBF7;
+  border: 1px solid #edf2f7;
+  border-radius: 14px;
+  padding: 1.1rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.asr-day-title {
+  color: #4A403A;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.9rem;
+  text-transform: capitalize;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: baseline;
+}
+
+.asr-total {
+  color: #8FA998;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.asr-empty {
+  color: #6C757D;
+  font-size: 0.9rem;
+}
+
+.asr-record-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.asr-record-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background-color: #f5f0ea;
+  border-radius: 10px;
+  padding: 0.85rem 0.9rem;
+}
+
+.asr-record-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.asr-record-time {
+  color: #4A403A;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.asr-record-duration {
+  color: #8FA998;
+  font-size: 0.88rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.asr-user-comment {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: #4A403A;
+  font-style: italic;
+  background-color: #efe9e1;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+}
+
+.asr-comment-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-style: normal;
+  color: #8FA998;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.asr-reply-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.asr-reply-input {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #4A403A;
+  background-color: white;
+  resize: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.asr-reply-input:focus {
+  outline: none;
+  border-color: #8FA998;
+  box-shadow: 0 0 0 3px rgba(143, 169, 152, 0.15);
+}
+
+.btn-asr-reply {
+  align-self: flex-end;
+  background-color: #8FA998;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-asr-reply:hover {
+  background-color: #6c8174;
+}
+
+.btn-asr-reply:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.asr-reply-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  align-self: flex-end;
+}
+
+.asr-reply-saved {
+  color: #8FA998;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .asr-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem 3rem;
+  }
+
+  .asr-container h2 {
+    font-size: 1.75rem;
+  }
+
+  .asr-day-title {
+    flex-wrap: nowrap;
+  }
+
+  .asr-calendar-wrapper .rbc-toolbar button {
+    min-width: auto;
+    min-height: auto;
+    padding: 0.4rem 0.85rem;
+  }
+}

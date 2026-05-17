@@ -5,8 +5,22 @@
   color: #4A403A;
 }
 
-.navbar img {
+.img {
   width: 150px;
+}
+
+.img2{
+  width: 30px !important;
+}
+
+.cesta{
+  display: flex;
+  gap: 1rem;
+  border: 1px solid black;
+  padding: .6rem;
+  border-radius: 10px;
+  background-color: #a5bcad;
+  box-shadow: 0 0 10px;
 }
 
 
@@ -42,6 +56,18 @@
 
 .navbar .nav-link:hover {
   color: #2f2a27;
+}
+
+.mail{
+  border: 1px solid #D4896B;
+  background-color: #D4896B;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+}
+.mail:hover{
+   background-color: #b1745c;
 }
 
 

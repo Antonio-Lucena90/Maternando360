@@ -9,14 +9,16 @@ export const registerSchema = z.object({
               .min(3, 'Apellidos muy cortos')
               .max(70, 'Apellidos debe de ser menor de 70 caracteres')
               .regex(/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/, 'Los apellidos no pueden contener números ni caracteres especiales'),
-    phone: z.string()
-                .regex(/^\d{7,15}$/, 'Solo introducir números'),
     email: z.email('Email no válido'),
     password: z
               .string()
               .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/, 'Contraseña no segura'),
     confirm_password: z
+              .string(),
+    invite_code: z
               .string()
+              .min(1, 'El código de invitación es obligatorio'),
+    baby_name: z.string().max(100).optional()
 
 })
 .refine((data) => data.password === data.confirm_password, {

@@ -9,11 +9,11 @@ import { fetchData } from '../../../../helpers/axiosHelper';
 const initialValue = {
   name:'',
   last_name:'',
-  phone:'',
-  birth_date:'',
   email:'',
   password:'',
-  confirm_password:''
+  confirm_password:'',
+  invite_code:'',
+  baby_name:''
 }
 
 const RegisterPage = () => {
@@ -45,10 +45,13 @@ const RegisterPage = () => {
         setValErrors(fieldsErrors) 
       }else{
         setValErrors({});
-        if(error.response.data.errno === 1062){
-          setFecthError('El Email ya existe')
+        const msg = error.response?.data?.message;
+        if(msg === 'El email ya está registrado'){
+          setFecthError('El Email ya existe');
+        }else if(msg === 'Código de invitación no válido o ya utilizado'){
+          setFecthError('El código de invitación no es válido o ya fue usado');
         }else{
-        setFecthError('Ups, hay un error');
+          setFecthError('Ups, hay un error');
         }
       }
     }
@@ -79,27 +82,6 @@ const RegisterPage = () => {
             value={register.last_name}
           />
           {valErrors?.last_name && <p className='error-msg'>{valErrors.last_name}</p>}
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicLastName">
-          <Form.Label>Teléfono</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Introduzca su teléfono"
-            onChange={handleChange}
-            name="phone"
-            value={register.phone}
-          />
-          {valErrors?.phone && <p className='error-msg'>{valErrors.phone}</p>}
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicLastName">
-          <Form.Label>Fecha de Nacimiento</Form.Label>
-          <Form.Control
-            type="date"
-            onChange={handleChange}
-            name="birth_date"
-            value={register.birth_date}
-          />
-          {valErrors?.birth_date && <p className='error-msg'>{valErrors.birth_date}</p>}
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
@@ -133,6 +115,27 @@ const RegisterPage = () => {
             value={register.confirm_password}
           />
         {valErrors?.confirm_password && <p className='error-msg'>{valErrors.confirm_password}</p>}
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicBabyName">
+          <Form.Label>Nombre del bebé (opcional)</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Introduzca el nombre del bebé"
+            onChange={handleChange}
+            name="baby_name"
+            value={register.baby_name}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicInviteCode">
+          <Form.Label>Código de invitación</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Introduzca su código de invitación"
+            onChange={handleChange}
+            name="invite_code"
+            value={register.invite_code}
+          />
+          {valErrors?.invite_code && <p className='error-msg'>{valErrors.invite_code}</p>}
         </Form.Group>
         <div className="d-flex gap-3">
           <Button 

@@ -1,30 +1,31 @@
-import mysql from 'mysql2/promise'
-import dotenv from 'dotenv'
+import pkg from 'pg';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
-const dbPool = mysql.createPool({
+const { Pool, types } = pkg;
+
+// Devolver fechas como strings (igual que mysql2's dateStrings: true)
+types.setTypeParser(1082, val => val); // DATE
+types.setTypeParser(1114, val => val); // TIMESTAMP
+types.setTypeParser(1184, val => val); // TIMESTAMPTZ
+
+const dbPool = new Pool({
   host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB_NAME,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  dateStrings: true
-})
+  ssl: { rejectUnauthorized: false }
+});
 
-const executeQuery = async(sql, values=[])=>{
-  let connection;
-  try{
-    connection = await dbPool.getConnection();
-    const [result] = await connection.query(sql, values);
-    return result;
-  }catch(error){
-    console.log(error)
+const executeQuery = async (sql, values = []) => {
+  try {
+    const result = await dbPool.query(sql, values);
+    return result.rows;
+  } catch (error) {
     throw error;
-  }finally{
-    if (connection){
-      connection.release()
-    }
   }
-}
+};
 
 export default executeQuery;

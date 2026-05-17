@@ -1,0 +1,442 @@
+/* ── MOBILE FIRST ─────────────────────────────────────── */
+
+.dream-container {
+  padding: 1.25rem 0.75rem 3rem;
+}
+
+.dream-container h2 {
+  color: #4A403A;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.dream-subtitle {
+  color: #6C757D;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ── Calendario ──────────────────────────────────────────── */
+
+.dream-calendar-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid #edf2f7;
+}
+
+.rbc-calendar {
+  background-color: #FDFBF7;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Barra de navegación */
+.rbc-toolbar {
+  background-color: #8FA998;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.rbc-toolbar .rbc-btn-group {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.rbc-toolbar-label {
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+  flex: 1;
+  text-align: center;
+}
+
+.rbc-toolbar button {
+  color: white;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 0.45rem 0.85rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  min-width: 44px;
+  min-height: 44px;
+  cursor: pointer;
+  transition: background 0.2s;
+  touch-action: manipulation;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rbc-toolbar button:active,
+.rbc-toolbar button:hover,
+.rbc-toolbar button.rbc-active {
+  background-color: #6c8174;
+  border-color: #6c8174;
+}
+
+/* Cabecera de días */
+.rbc-header {
+  background-color: #f5f0ea;
+  color: #4A403A;
+  font-weight: 600;
+  padding: 0.4rem 0;
+  font-size: 0.72rem;
+  text-transform: capitalize;
+}
+
+/* Celdas del mes */
+.rbc-month-row {
+  border-color: #edf2f7;
+  min-height: 52px;
+}
+
+.rbc-day-bg {
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.rbc-day-bg:active,
+.rbc-day-bg:hover {
+  background-color: #f0ebe3;
+}
+
+.rbc-today {
+  background-color: #fef3ec !important;
+}
+
+/* Número de día */
+.rbc-date-cell {
+  color: #4A403A;
+  font-size: 0.78rem;
+  padding: 2px 4px;
+}
+
+.rbc-off-range-bg {
+  background-color: #f8f5f0;
+}
+
+.rbc-off-range .rbc-button-link {
+  color: #bbb;
+}
+
+/* Eventos */
+.rbc-event {
+  background-color: #D4896B !important;
+  border: none !important;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  padding: 1px 3px;
+  line-height: 1.2;
+}
+
+.rbc-event:active,
+.rbc-event:hover {
+  background-color: #b1745c !important;
+}
+
+.rbc-show-more {
+  color: #D4896B;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* ── Panel diario ────────────────────────────────────────── */
+
+.dream-day-panel {
+  margin-top: 1.25rem;
+  background-color: #FDFBF7;
+  border: 1px solid #edf2f7;
+  border-radius: 14px;
+  padding: 1.1rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.dream-day-title {
+  color: #4A403A;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.9rem;
+  text-transform: capitalize;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.dream-total {
+  color: #8FA998;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* ── Lista de registros ──────────────────────────────────── */
+
+.dream-record-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dream-record-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background-color: #f5f0ea;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+}
+
+.dream-record-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.dream-record-time {
+  color: #4A403A;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.dream-admin-reply {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  color: #4A403A;
+  background-color: #e8f0eb;
+  border-left: 3px solid #8FA998;
+  border-radius: 0 6px 6px 0;
+  padding: 0.35rem 0.6rem;
+}
+
+.dream-admin-reply-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8FA998;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+/* ── Formulario ──────────────────────────────────────────── */
+
+.dream-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.dream-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.dream-form-group label {
+  font-size: 0.85rem;
+  color: #4A403A;
+  font-weight: 500;
+}
+
+.dream-form-group input[type="time"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #4A403A;
+  background-color: white;
+  transition: border-color 0.2s;
+  min-height: 48px;
+  touch-action: manipulation;
+}
+
+.dream-form-group input[type="time"]:focus {
+  outline: none;
+  border-color: #D4896B;
+  box-shadow: 0 0 0 3px rgba(212, 137, 107, 0.15);
+}
+
+.dream-comment-input {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #4A403A;
+  background-color: white;
+  resize: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.dream-comment-input:focus {
+  outline: none;
+  border-color: #D4896B;
+  box-shadow: 0 0 0 3px rgba(212, 137, 107, 0.15);
+}
+
+.dream-record-comment {
+  color: #6C757D;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.dream-error {
+  color: #dc3545;
+  font-size: 0.88rem;
+  margin-top: 0.4rem;
+}
+
+/* ── Botones ─────────────────────────────────────────────── */
+
+.btn-dream-primary {
+  background-color: #D4896B;
+  border: none;
+  color: white;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+  min-height: 50px;
+  touch-action: manipulation;
+}
+
+.btn-dream-primary:active,
+.btn-dream-primary:hover {
+  background-color: #b1745c;
+}
+
+.btn-dream-delete {
+  background: transparent;
+  border: 1.5px solid #D4896B;
+  color: #D4896B;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 40px;
+  min-width: 76px;
+  touch-action: manipulation;
+}
+
+.btn-dream-delete:active,
+.btn-dream-delete:hover {
+  background-color: #D4896B;
+  color: white;
+}
+
+/* ── Tablet / Desktop ────────────────────────────────────── */
+
+@media (min-width: 640px) {
+  .dream-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem 3rem;
+  }
+
+  .dream-container h2 {
+    font-size: 1.75rem;
+  }
+
+  .dream-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .rbc-toolbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .rbc-toolbar-label {
+    font-size: 1.1rem;
+  }
+
+  .rbc-toolbar button {
+    padding: 0.4rem 0.85rem;
+    font-size: 1rem;
+    min-width: auto;
+    min-height: auto;
+  }
+
+  .rbc-header {
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+  }
+
+  .rbc-month-row {
+    min-height: unset;
+  }
+
+  .rbc-date-cell {
+    font-size: 0.85rem;
+    padding: 4px 6px;
+  }
+
+  .rbc-event {
+    font-size: 0.78rem;
+    padding: 1px 4px;
+  }
+
+  .dream-day-panel {
+    padding: 1.5rem;
+  }
+
+  .dream-day-title {
+    font-size: 1.1rem;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0;
+  }
+
+  .dream-total {
+    margin-left: 0.5rem;
+  }
+
+  .dream-form {
+    flex-direction: row;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .dream-form-group {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .dream-form-group:has(.dream-comment-input) {
+    flex-basis: 100%;
+  }
+
+  .dream-form-group input[type="time"] {
+    min-height: auto;
+    padding: 0.45rem 0.75rem;
+  }
+
+  .btn-dream-primary {
+    width: auto;
+    min-height: auto;
+    padding: 0.5rem 1.25rem;
+    align-self: flex-end;
+  }
+}

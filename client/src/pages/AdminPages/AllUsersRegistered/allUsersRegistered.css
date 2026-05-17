@@ -1,0 +1,45 @@
+.user-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-block-start: 2rem;
+}
+
+.user-card-email {
+  color: #6C757D;
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.btn-user-records,
+.btn-user-docs {
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+.btn-user-records {
+  background-color: #8FA998;
+  color: white;
+}
+
+.btn-user-records:hover {
+  background-color: #6c8174;
+}
+
+.btn-user-docs {
+  background-color: transparent;
+  color: #8FA998;
+  border: 1.5px solid #8FA998;
+}
+
+.btn-user-docs:hover {
+  background-color: #8FA998;
+  color: white;
+}

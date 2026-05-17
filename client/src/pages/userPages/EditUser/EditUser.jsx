@@ -58,21 +58,12 @@ const EditUser = () => {
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label>Teléfono</Form.Label>
+                <Form.Label>Nombre del bebé</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Introduzca Teléfono"
-                  name="phone"
-                  value={editUser?.phone? editUser?.phone:''}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Fecha de Nacimiento</Form.Label>
-                <Form.Control
-                  type="date"
-                  name="birth_date"
-                  value={editUser?.birth_date? editUser?.birth_date:''}
+                  placeholder="Nombre del bebé"
+                  name="baby_name"
+                  value={editUser?.baby_name || ''}
                   onChange={handleChange}
                 />
               </Form.Group>

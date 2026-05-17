@@ -5,3 +5,26 @@ h1{
 .my-row{
   text-align: center;
 }
+
+.dashboard-Card{
+        background-color: #ffffff;
+        border-radius: 1rem;
+        padding: 2.5rem;
+        border: 1px solid #edf2f7;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        margin-block-start: 7rem;
+        text-align: center;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        img{ 
+          margin-inline-start: 9.4rem;
+        }
+}
+
+
+.img{
+  width: 2rem;
+}

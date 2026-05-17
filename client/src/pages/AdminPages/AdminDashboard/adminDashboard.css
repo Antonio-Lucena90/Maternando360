@@ -9,9 +9,10 @@
         cursor: pointer;
 }
 
-.dashboard-Card:hover{
-  background-color: #d4d3d3
+.dashboard-Card:not(.user-card):hover {
+  background-color: rgb(234, 228, 228);
 }
+
 
 .img{
   width: 2rem;

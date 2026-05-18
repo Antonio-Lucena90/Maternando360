@@ -95,7 +95,7 @@
 
 .docus-table-wrapper {
   border-radius: 14px;
-  overflow: hidden;
+  overflow-x: auto;
   border: 1px solid #edf2f7;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }

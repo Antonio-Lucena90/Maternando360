@@ -125,6 +125,7 @@ function DreamRegister() {
           endAccessor="end"
           style={{ height: 480 }}
           selectable
+          longPressThreshold={10}
           onSelectSlot={handleSelectSlot}
           date={currentDate}
           onNavigate={handleNavigate}

@@ -33,12 +33,20 @@
 
 .aud-upload-box {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.75rem;
   background: #f5f0ea;
   border-radius: 10px;
   padding: 1rem;
   margin-bottom: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .aud-upload-box {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
 }
 
 .btn-aud-upload {
@@ -90,7 +98,7 @@
 
 .aud-table-wrapper {
   border-radius: 14px;
-  overflow: hidden;
+  overflow-x: auto;
   border: 1px solid #edf2f7;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }

@@ -2,6 +2,9 @@
 
 .dream-container {
   padding: 1.25rem 0.75rem 3rem;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .dream-container h2 {
@@ -160,6 +163,8 @@
   border-radius: 14px;
   padding: 1.1rem 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .dream-day-title {
@@ -257,6 +262,8 @@
 
 .dream-form-group input[type="time"] {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 0.75rem;
   border: 1.5px solid #ccc;
   border-radius: 10px;

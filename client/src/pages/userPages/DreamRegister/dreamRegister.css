@@ -254,7 +254,6 @@
   gap: 0.3rem;
   width: 100%;
   min-width: 0;
-  overflow: hidden;
 }
 
 .dream-form-group label {
@@ -264,6 +263,8 @@
 }
 
 .dream-form-group input[type="time"] {
+  -webkit-appearance: none;
+  appearance: none;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;

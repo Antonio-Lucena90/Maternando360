@@ -1,12 +1,13 @@
 import adminDal from "./admin.dal.js";
-import path from 'path';
-import { fileURLToPath } from 'url';
-import fs from 'fs';
+import { v2 as cloudinary } from 'cloudinary';
 import crypto from 'crypto';
 import logger from '../../utils/logger.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 class adminController {
   allUsers = async (req, res) => {
@@ -59,8 +60,7 @@ class adminController {
     try {
       const docs = await adminDal.getUserDocumentById([doc_id, user_id]);
       if (docs.length === 0) return res.status(404).json({ message: 'Documento no encontrado' });
-      const filePath = path.join(__dirname, '../../uploads/documents', docs[0].file_name);
-      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+      await cloudinary.uploader.destroy(docs[0].file_name, { resource_type: 'raw' });
       await adminDal.deleteUserDocument([doc_id, user_id]);
       res.status(200).json({ message: 'Documento eliminado' });
     } catch (error) {
@@ -83,12 +83,10 @@ class adminController {
   downloadUserDocument = async (req, res) => {
     const { user_id, doc_id } = req.params;
     try {
-      console.log('[downloadUserDocument] params:', { doc_id, user_id, types: { doc_id: typeof doc_id, user_id: typeof user_id } });
       const docs = await adminDal.getUserDocumentById([doc_id, user_id]);
-      console.log('[downloadUserDocument] docs found:', docs);
       if (docs.length === 0) return res.status(404).json({ message: 'Documento no encontrado' });
-      const filePath = path.join(__dirname, '../../uploads/documents', docs[0].file_name);
-      res.download(filePath, docs[0].original_name);
+      const url = cloudinary.url(docs[0].file_name, { resource_type: 'raw', secure: true, flags: 'attachment' });
+      res.redirect(url);
     } catch (error) {
       logger.error('downloadUserDocument', error);
       res.status(500).json({ message: 'Error interno del servidor' });
@@ -121,8 +119,8 @@ class adminController {
     try {
       const docs = await adminDal.getAdminDocumentById([doc_id]);
       if (docs.length === 0) return res.status(404).json({ message: 'Documento no encontrado' });
-      const filePath = path.join(__dirname, '../../uploads/documents', docs[0].file_name);
-      res.download(filePath, docs[0].original_name);
+      const url = cloudinary.url(docs[0].file_name, { resource_type: 'raw', secure: true, flags: 'attachment' });
+      res.redirect(url);
     } catch (error) {
       logger.error('downloadAdminDocument', error);
       res.status(500).json({ message: 'Error interno del servidor' });
@@ -134,8 +132,7 @@ class adminController {
     try {
       const docs = await adminDal.getAdminDocumentById([doc_id]);
       if (docs.length === 0) return res.status(404).json({ message: 'Documento no encontrado' });
-      const filePath = path.join(__dirname, '../../uploads/documents', docs[0].file_name);
-      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+      await cloudinary.uploader.destroy(docs[0].file_name, { resource_type: 'raw' });
       await adminDal.deleteAdminDocument([doc_id]);
       res.status(200).json({ message: 'Documento eliminado' });
     } catch (error) {
@@ -143,6 +140,7 @@ class adminController {
       res.status(500).json({ message: 'Error interno del servidor' });
     }
   }
+
   generateInviteCode = async (req, res) => {
     try {
       const code = 'MAT-' + crypto.randomBytes(4).toString('hex').toUpperCase();

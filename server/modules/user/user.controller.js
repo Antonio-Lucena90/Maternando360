@@ -4,16 +4,17 @@ import userDal from './user.dal.js';
 import bcrypt from 'bcrypt';
 import axios from 'axios';
 import dotenv from 'dotenv';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import fs from 'fs';
+import { v2 as cloudinary } from 'cloudinary';
 import { z } from 'zod';
 import logger from '../../utils/logger.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 dotenv.config();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 const registerSchema = z.object({
   name: z.string()
@@ -185,8 +186,8 @@ class UserController {
     try {
       const docs = await userDal.getDocumentById([doc_id, user_id]);
       if (docs.length === 0) return res.status(404).json({ message: 'Documento no encontrado' });
-      const filePath = path.join(__dirname, '../../uploads/documents', docs[0].file_name);
-      res.download(filePath, docs[0].original_name);
+      const url = cloudinary.url(docs[0].file_name, { resource_type: 'raw', secure: true, flags: 'attachment' });
+      res.redirect(url);
     } catch (error) {
       logger.error('downloadDocument', error);
       res.status(500).json({ message: 'Error interno del servidor' });
@@ -243,8 +244,8 @@ class UserController {
     try {
       const docs = await userDal.getAdminDocumentById([doc_id]);
       if (docs.length === 0) return res.status(404).json({ message: 'Documento no encontrado' });
-      const filePath = path.join(__dirname, '../../uploads/documents', docs[0].file_name);
-      res.download(filePath, docs[0].original_name);
+      const url = cloudinary.url(docs[0].file_name, { resource_type: 'raw', secure: true, flags: 'attachment' });
+      res.redirect(url);
     } catch (error) {
       logger.error('downloadAdminDocument', error);
       res.status(500).json({ message: 'Error interno del servidor' });
@@ -257,8 +258,7 @@ class UserController {
     try {
       const docs = await userDal.getDocumentById([doc_id, user_id]);
       if (docs.length === 0) return res.status(404).json({ message: 'Documento no encontrado' });
-      const filePath = path.join(__dirname, '../../uploads/documents', docs[0].file_name);
-      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+      await cloudinary.uploader.destroy(docs[0].file_name, { resource_type: 'raw' });
       await userDal.deleteDocument([doc_id, user_id]);
       res.status(200).json({ message: 'Documento eliminado' });
     } catch (error) {

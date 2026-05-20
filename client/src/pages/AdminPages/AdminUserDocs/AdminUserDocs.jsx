@@ -84,7 +84,13 @@ function AdminUserDocs() {
       link.remove();
       window.URL.revokeObjectURL(url);
     } catch (err) {
-      console.log(err);
+      console.error('[handleDownload] error:', err);
+      if (err.response?.data instanceof Blob) {
+        const text = await err.response.data.text();
+        setError(`Error al descargar: ${text}`);
+      } else {
+        setError(err.response?.data?.message || 'Error al descargar el documento');
+      }
     }
   };
 

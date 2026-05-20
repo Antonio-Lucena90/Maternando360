@@ -83,7 +83,9 @@ class adminController {
   downloadUserDocument = async (req, res) => {
     const { user_id, doc_id } = req.params;
     try {
+      console.log('[downloadUserDocument] params:', { doc_id, user_id, types: { doc_id: typeof doc_id, user_id: typeof user_id } });
       const docs = await adminDal.getUserDocumentById([doc_id, user_id]);
+      console.log('[downloadUserDocument] docs found:', docs);
       if (docs.length === 0) return res.status(404).json({ message: 'Documento no encontrado' });
       const filePath = path.join(__dirname, '../../uploads/documents', docs[0].file_name);
       res.download(filePath, docs[0].original_name);

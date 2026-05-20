@@ -194,7 +194,7 @@ function DreamRegister() {
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 placeholder="Añade algo que quieras compartir"
-                maxLength={200}
+                maxLength={500}
                 rows={2}
               />
             </div>

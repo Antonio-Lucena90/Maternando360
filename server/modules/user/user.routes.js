@@ -15,17 +15,7 @@ router.post('/newsletter', userController.newsletter);
 router.post('/workshopRegistration/:user_id/:workshop_id', verifyToken, userController.workshopRegistration);
 router.get('/fetchWorkshop/:user_id', verifyToken, userController.fetchWorkshop);
 
-router.post('/documents/upload', verifyToken, (req, res, next) => {
-  console.error('[UPLOAD] hit, content-type:', req.headers['content-type'], 'user_id:', req.user_id);
-  upload.single('file')(req, res, (err) => {
-    if (err) {
-      console.error('[UPLOAD] multer error:', err.message, err.constructor.name);
-      return next(err);
-    }
-    console.error('[UPLOAD] multer ok, file:', req.file?.originalname || 'undefined');
-    next();
-  });
-}, userController.uploadDocument);
+router.post('/documents/upload', verifyToken, upload.single('file'), userController.uploadDocument);
 router.get('/documents', verifyToken, userController.getUserDocuments);
 router.get('/documents/:doc_id/download', verifyToken, userController.downloadDocument);
 router.delete('/documents/:doc_id', verifyToken, userController.deleteDocument);

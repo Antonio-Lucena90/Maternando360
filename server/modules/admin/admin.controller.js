@@ -1,5 +1,6 @@
 import adminDal from "./admin.dal.js";
 import { v2 as cloudinary } from 'cloudinary';
+import { uploadToCloudinary } from '../../utils/cloudinaryUpload.js';
 import crypto from 'crypto';
 import logger from '../../utils/logger.js';
 
@@ -47,8 +48,8 @@ class adminController {
     const { user_id } = req.params;
     try {
       if (!req.file) return res.status(400).json({ message: 'No se ha enviado ningún archivo' });
-      console.log('[uploadDocumentForUser] req.file:', req.file);
-      await adminDal.uploadDocumentForUser([user_id, req.file.originalname, req.file.filename]);
+      const result = await uploadToCloudinary(req.file.buffer);
+      await adminDal.uploadDocumentForUser([user_id, req.file.originalname, result.public_id]);
       res.status(200).json({ message: 'Archivo subido correctamente' });
     } catch (error) {
       logger.error('uploadDocumentForUser', error);
@@ -97,7 +98,8 @@ class adminController {
   uploadAdminDocument = async (req, res) => {
     try {
       if (!req.file) return res.status(400).json({ message: 'No se ha enviado ningún archivo' });
-      await adminDal.uploadAdminDocument([req.file.originalname, req.file.filename]);
+      const result = await uploadToCloudinary(req.file.buffer);
+      await adminDal.uploadAdminDocument([req.file.originalname, result.public_id]);
       res.status(200).json({ message: 'Archivo subido correctamente' });
     } catch (error) {
       logger.error('uploadAdminDocument', error);

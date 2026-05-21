@@ -5,6 +5,7 @@ import bcrypt from 'bcrypt';
 import axios from 'axios';
 import dotenv from 'dotenv';
 import { v2 as cloudinary } from 'cloudinary';
+import { uploadToCloudinary } from '../../utils/cloudinaryUpload.js';
 import { z } from 'zod';
 import logger from '../../utils/logger.js';
 
@@ -160,12 +161,11 @@ class UserController {
   uploadDocument = async (req, res) => {
     const { user_id } = req;
     try {
-      console.log('[uploadDocument] req.file:', req.file);
       if (!req.file) return res.status(400).json({ message: 'No se ha enviado ningún archivo' });
-      await userDal.uploadDocument([user_id, req.file.originalname, req.file.filename]);
+      const result = await uploadToCloudinary(req.file.buffer);
+      await userDal.uploadDocument([user_id, req.file.originalname, result.public_id]);
       res.status(200).json({ message: 'Archivo subido correctamente' });
     } catch (error) {
-      console.error('[uploadDocument] error:', error);
       logger.error('uploadDocument', error);
       res.status(500).json({ message: 'Error interno del servidor' });
     }

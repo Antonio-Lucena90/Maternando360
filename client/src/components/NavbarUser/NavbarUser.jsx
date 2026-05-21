@@ -20,11 +20,17 @@ export const NavbarUser = () => {
 
         <Navbar.Collapse id="user-navbar-nav">
           <Nav className="me-auto text-center text-lg-start">
+            <Nav.Link as={NavLink} to="/profile">
+              Perfil
+            </Nav.Link>
             <Nav.Link as={NavLink} to="/userPage">
               Tu Muro
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/profile">
-              Perfil
+            <Nav.Link as={NavLink} to="/Docus">
+              Documentos
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/DreamRegister">
+              Registros de Sueño
             </Nav.Link>
             <div className="d-flex gap-3">
               <a

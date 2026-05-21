@@ -15,7 +15,15 @@ router.post('/newsletter', userController.newsletter);
 router.post('/workshopRegistration/:user_id/:workshop_id', verifyToken, userController.workshopRegistration);
 router.get('/fetchWorkshop/:user_id', verifyToken, userController.fetchWorkshop);
 
-router.post('/documents/upload', verifyToken, upload.single('file'), userController.uploadDocument);
+router.post('/documents/upload', verifyToken, (req, res, next) => {
+  upload.single('file')(req, res, (err) => {
+    if (err) {
+      console.error('[multer user upload error]', err);
+      return res.status(400).json({ message: err.message });
+    }
+    next();
+  });
+}, userController.uploadDocument);
 router.get('/documents', verifyToken, userController.getUserDocuments);
 router.get('/documents/:doc_id/download', verifyToken, userController.downloadDocument);
 router.delete('/documents/:doc_id', verifyToken, userController.deleteDocument);

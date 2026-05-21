@@ -47,6 +47,7 @@ class adminController {
     const { user_id } = req.params;
     try {
       if (!req.file) return res.status(400).json({ message: 'No se ha enviado ningún archivo' });
+      console.log('[uploadDocumentForUser] req.file:', req.file);
       await adminDal.uploadDocumentForUser([user_id, req.file.originalname, req.file.filename]);
       res.status(200).json({ message: 'Archivo subido correctamente' });
     } catch (error) {

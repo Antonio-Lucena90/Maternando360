@@ -160,10 +160,12 @@ class UserController {
   uploadDocument = async (req, res) => {
     const { user_id } = req;
     try {
+      console.log('[uploadDocument] req.file:', req.file);
       if (!req.file) return res.status(400).json({ message: 'No se ha enviado ningún archivo' });
       await userDal.uploadDocument([user_id, req.file.originalname, req.file.filename]);
       res.status(200).json({ message: 'Archivo subido correctamente' });
     } catch (error) {
+      console.error('[uploadDocument] error:', error);
       logger.error('uploadDocument', error);
       res.status(500).json({ message: 'Error interno del servidor' });
     }

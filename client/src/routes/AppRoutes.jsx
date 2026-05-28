@@ -28,6 +28,7 @@ const WorkshopReser = lazy(()=>import('../pages/userPages/WorkshopReser/Workshop
 const Cart = lazy(()=>import('../pages/userPages/Cart/Cart'))
 const Docus = lazy(()=>import('../pages/userPages/Docus/Docus'))
 const DreamRegister = lazy(()=>import('../pages/userPages/DreamRegister/DreamRegister'))
+const Reviews = lazy(()=>import('../pages/userPages/Reviews/Reviews'))
 
 
 
@@ -83,6 +84,7 @@ export const AppRoutes = () => {
               <Route path='/cart' element={<Cart/>}/>
               <Route path='/docus' element={<Docus/>}/>
               <Route path='/dreamRegister' element={<DreamRegister/>}/>
+              <Route path='/reviews' element={<Reviews/>}/>
             </Route>
           </Route>
 

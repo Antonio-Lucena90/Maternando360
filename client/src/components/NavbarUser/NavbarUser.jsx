@@ -32,11 +32,14 @@ export const NavbarUser = () => {
             <Nav.Link as={NavLink} to="/DreamRegister">
               Registros de Sueño
             </Nav.Link>
+            <Nav.Link as={NavLink} to="/reviews">
+              Reseñas
+            </Nav.Link>
             <div className="d-flex gap-3">
               <a
                 href="https://wa.me/34639943410?text=Hola%20,%20quiero%20pedir%20una%20cita%20para%20una%20consulta."
                 target="_blank"
-                className='mail'
+                className="mail"
                 rel="noopener noreferrer"
               >
                 Pedir cita

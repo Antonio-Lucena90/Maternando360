@@ -1,64 +1,75 @@
-
 import { Container, Row, Col, Modal, Button } from 'react-bootstrap';
 import './home.css';
-import { useState } from 'react';
 import { ZodError } from 'zod';
 import { fetchData } from '../../../helpers/axiosHelper';
 import { newsletterSchema } from '../../../schemas/NewsletterSchema';
-import whatsappIcon from '../../../assets/icons/whatsapp.svg'
-import {useNavigate} from 'react-router'
+import whatsappIcon from '../../../assets/icons/whatsapp.svg';
+import { useNavigate } from 'react-router';
 import { workshops } from '../../../data/Workshops';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+const API_URL = import.meta.env.VITE_SERVER_URL;
 
 const Home = () => {
-
-  const [showModal, setShowModal] = useState(() =>{
+  const [showModal, setShowModal] = useState(() => {
     const subscribed = localStorage.getItem('newsletter_subscribed');
-    if(subscribed === null){
-      return true; 
-    }else{
+    if (subscribed === null) {
+      return true;
+    } else {
       return false;
-    }; 
+    }
   });
   const [inputEmail, setInputEmail] = useState('');
   const [valErrors, setValErrors] = useState();
   const [accepted, setAccepted] = useState();
-/*   const [myWorkshops, setMyWorkshops] = useState([]); */
-  const navigate = useNavigate()
-  
+  /*   const [myWorkshops, setMyWorkshops] = useState([]); */
+  const [reviews, setReviews] = useState([]);
+
+  const navigate = useNavigate();
+
   const handleClose = () => {
-    setShowModal(false); 
-  }
+    setShowModal(false);
+  };
 
   const handleChange = (e) => {
-    setInputEmail(e.target.value)
-  }
+    setInputEmail(e.target.value);
+  };
 
   const onSubmit = async () => {
     try {
-      newsletterSchema.parse({email: inputEmail});
-      let res = await fetchData('user/newsletter', 'POST', {email: inputEmail});
-      if(res){
+      newsletterSchema.parse({ email: inputEmail });
+      let res = await fetchData('user/newsletter', 'POST', {
+        email: inputEmail,
+      });
+      if (res) {
         localStorage.setItem('newsletter_subscribed', 'true');
         setInputEmail('');
         setShowModal(false);
-      }else{
-        setValErrors({email: res.message})
+      } else {
+        setValErrors({ email: res.message });
       }
     } catch (error) {
-      if(error instanceof ZodError){
+      if (error instanceof ZodError) {
         const fieldsErrors = {};
-        error.issues.forEach((elem)=>{
+        error.issues.forEach((elem) => {
           fieldsErrors[elem.path[0]] = elem.message;
-        })
+        });
         setValErrors(fieldsErrors);
-      }else{
+      } else {
         console.log(error);
-        ;
       }
     }
-  }
+  };
 
-/*   useEffect(()=>{
+  useEffect(() => {
+    axios
+      .get(`${API_URL}reviews/public`)
+      .then((res) => setReviews(res.data.result))
+      .catch(() => {});
+  }, []);
+
+  /*   useEffect(()=>{
     const fetchWorkshops = async () => {
       try {
         let res = await fetchData('workshop/allWorkshops', 'GET');
@@ -70,60 +81,74 @@ const Home = () => {
     fetchWorkshops();
   }, []); */
 
-
-/*   const today = new Date();
+  /*   const today = new Date();
   const comingWorkshops = myWorkshops
     .filter(e => new Date(e.workshop_start_date) >= today)
     .sort((a,b) => new Date(a.workshop_start_date) - new Date(b.workshop_start_date))
     .slice(0,6); */
 
-    const comingWorkshops = workshops.slice(0,2);
-  
+  const comingWorkshops = workshops.slice(0, 2);
+
   return (
     <>
-      <h1 className="title">
-        MATERNANDO360
-      </h1>
+      <h1 className="title">MATERNANDO360</h1>
       <Container>
         <Row>
-          <Col className='d-flex flex-column justify-content-center align-items-center'>
+          <Col className="d-flex flex-column justify-content-center align-items-center">
             <h2>Próximos Talleres</h2>
-            <div className='div-ppal-workshops'>
-              {comingWorkshops.map((elem,idx)=>{
-                return(
-                  <div key={idx} className='card-workshop'>
-                    <p className='card-title'>{elem.workshop_name}</p>
-                    <p className='card-info'><strong>Descripción:</strong> {elem.description}</p>
-                    <p className='card-info'><strong>Duración:</strong> {elem.duration}</p>
-                    <p className='card-info'><strong>Lugar:</strong> {elem.city}</p>
-                    <p className='card-info'><strong>Fecha:</strong> {elem.workshop_start_date}</p>
-                    <p><strong>Precio:</strong> {elem.price}</p>
-                  </div>  
-                )
+            <div className="div-ppal-workshops">
+              {comingWorkshops.map((elem, idx) => {
+                return (
+                  <div key={idx} className="card-workshop">
+                    <p className="card-title">{elem.workshop_name}</p>
+                    <p className="card-info">
+                      <strong>Descripción:</strong> {elem.description}
+                    </p>
+                    <p className="card-info">
+                      <strong>Duración:</strong> {elem.duration}
+                    </p>
+                    <p className="card-info">
+                      <strong>Lugar:</strong> {elem.city}
+                    </p>
+                    <p className="card-info">
+                      <strong>Fecha:</strong> {elem.workshop_start_date}
+                    </p>
+                    <p>
+                      <strong>Precio:</strong> {elem.price}
+                    </p>
+                  </div>
+                );
               })}
             </div>
             <div>
-              <Button className='my-btn' onClick={()=>navigate('/allworkshopsPublic')}>Ver más</Button>
+              <Button
+                className="my-btn"
+                onClick={() => navigate('/allworkshopsPublic')}
+              >
+                Ver más
+              </Button>
             </div>
           </Col>
-          <Col className='d-flex flex-column justify-content-center align-items-center gap-4'>
+          <Col className="d-flex flex-column justify-content-center align-items-center gap-4">
             <h2>Reserva tu Cita o contacta con Nosotros</h2>
             <p>Para reservar tu Cita o pedir información, contáctanos</p>
             <div>
-              <a href='mailto:info.maternando360@gmail.com' className='mail'>
+              <a href="mailto:info.maternando360@gmail.com" className="mail">
                 Contacte con nosotros
               </a>
             </div>
-            <div className='d-flex flex-column align-items-center'>
+            <div className="d-flex flex-column align-items-center">
               <h2>Únete a nuestra Comunidad de Whatsapp</h2>
               <p>Información y contacto directo a través de esta Comunidad</p>
-              <a href="https://chat.whatsapp.com/Foq253iM84W75fgawRMuuv?mode=gi_t" 
-                className='mail' 
-                target='_blank'
-                rel='noopener noreferrer'>
-                <div className='d-flex gap-3'>
+              <a
+                href="https://chat.whatsapp.com/Foq253iM84W75fgawRMuuv?mode=gi_t"
+                className="mail"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="d-flex gap-3">
                   <img src={whatsappIcon} alt="" />
-                  <p className='mt-3'>Únete a la Comunidad</p>
+                  <p className="mt-3">Únete a la Comunidad</p>
                 </div>
               </a>
             </div>
@@ -137,39 +162,61 @@ const Home = () => {
           backdrop="static"
           keyboard={false}
         >
-          <Modal.Header closeButton className='modal-header'>
+          <Modal.Header closeButton className="modal-header">
             <Modal.Title>¿Quieres mantenerte informado?</Modal.Title>
           </Modal.Header>
-          <Modal.Body className='modal-body'>
-            <p>Suscríbete a nuestra Newsletter para ser la primera en conocer nuevos Talleres, Cursos e información muy valiosa.</p>
+          <Modal.Body className="modal-body">
+            <p>
+              Suscríbete a nuestra Newsletter para ser la primera en conocer
+              nuevos Talleres, Cursos e información muy valiosa.
+            </p>
             <p>Para ello envía tu Email:</p>
-            <input 
+            <input
               type="email"
-              className='input-newsletter'
-              placeholder='Introduce tu Email'
-              name='email'
+              className="input-newsletter"
+              placeholder="Introduce tu Email"
+              name="email"
               onChange={handleChange}
               value={inputEmail}
-               />
-               <label>
-                <input 
-                  type="checkbox" 
-                  checked={accepted} 
-                  onChange={(e)=>setAccepted(e.target.checked)} />
-                  Acepto recibir mails y la política de privacidad
-               </label>
+            />
+            <label>
+              <input
+                type="checkbox"
+                checked={accepted}
+                onChange={(e) => setAccepted(e.target.checked)}
+              />
+              Acepto recibir mails y la política de privacidad
+            </label>
 
-              
-               {valErrors?.email && <p className='error-msg'>{valErrors.email}</p>}
+            {valErrors?.email && <p className="error-msg">{valErrors.email}</p>}
           </Modal.Body>
-          <Modal.Footer className='modal-footer'>
-            <Button className='my-btn' onClick={handleClose}>
+          <Modal.Footer className="modal-footer">
+            <Button className="my-btn" onClick={handleClose}>
               Cancelar
             </Button>
-            <Button disabled={!accepted} className='my-btn' onClick={onSubmit}>Suscribirse</Button>
+            <Button disabled={!accepted} className="my-btn" onClick={onSubmit}>
+              Suscribirse
+            </Button>
           </Modal.Footer>
         </Modal>
       </div>
+      {reviews.length > 0 && (
+        <div className="home-reviews">
+          <h2>Lo que dicen nuestras clientas</h2>
+          <div className="home-reviews-grid">
+            {reviews.map((r) => (
+              <div key={r.review_id} className="home-review-card">
+                <p className="home-review-stars">
+                  {'★'.repeat(r.rating)}
+                  {'☆'.repeat(5 - r.rating)}
+                </p>
+                <p className="home-review-comment">"{r.comment}"</p>
+                <p className="home-review-author">— {r.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </>
   );
 };

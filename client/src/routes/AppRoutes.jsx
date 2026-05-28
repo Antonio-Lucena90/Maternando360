@@ -43,6 +43,8 @@ const AdminUserSleepRecords = lazy(()=>import('../pages/AdminPages/AdminUserSlee
 const AdminDocs = lazy(()=>import('../pages/AdminPages/AdminDocs/AdminDocs'))
 const AdminUserDocs = lazy(()=>import('../pages/AdminPages/AdminUserDocs/AdminUserDocs'))
 const AdminInviteCodes = lazy(()=>import('../pages/AdminPages/AdminInviteCodes/AdminInviteCodes'))
+const AdminReviews = lazy(()=>import('../pages/AdminPages/AdminReviews/AdminReviews'))
+
 
 export const AppRoutes = () => {
  const {user} = useContext(AuthContext);
@@ -100,6 +102,7 @@ export const AppRoutes = () => {
                 <Route path='/admin/documents' element={<AdminDocs/>}/>
                 <Route path='/admin/userDocs/:user_id' element={<AdminUserDocs/>}/>
                 <Route path='/admin/inviteCodes' element={<AdminInviteCodes/>}/>
+                <Route path='/admin/reviews' element={<AdminReviews/>}/>
               </Route>
             </Route>
 

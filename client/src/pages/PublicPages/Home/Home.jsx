@@ -1,8 +1,8 @@
 import { Container, Row, Col, Modal, Button } from 'react-bootstrap';
 import './home.css';
 import { ZodError } from 'zod';
-import { fetchData } from '../../../helpers/axiosHelper';
-import { newsletterSchema } from '../../../schemas/NewsletterSchema';
+/* import { fetchData } from '../../../helpers/axiosHelper';
+import { newsletterSchema } from '../../../schemas/NewsletterSchema'; */
 import whatsappIcon from '../../../assets/icons/whatsapp.svg';
 import { useNavigate } from 'react-router';
 import { workshops } from '../../../data/Workshops';
@@ -12,23 +12,23 @@ import axios from 'axios';
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
 const Home = () => {
-  const [showModal, setShowModal] = useState(() => {
+ /*  const [showModal, setShowModal] = useState(() => {
     const subscribed = localStorage.getItem('newsletter_subscribed');
     if (subscribed === null) {
       return true;
     } else {
       return false;
     }
-  });
-  const [inputEmail, setInputEmail] = useState('');
+  }); */
+/*   const [inputEmail, setInputEmail] = useState('');
   const [valErrors, setValErrors] = useState();
-  const [accepted, setAccepted] = useState();
+  const [accepted, setAccepted] = useState(); */
   /*   const [myWorkshops, setMyWorkshops] = useState([]); */
   const [reviews, setReviews] = useState([]);
 
   const navigate = useNavigate();
 
-  const handleClose = () => {
+ /*  const handleClose = () => {
     setShowModal(false);
   };
 
@@ -60,7 +60,7 @@ const Home = () => {
         console.log(error);
       }
     }
-  };
+  }; */
 
   useEffect(() => {
     axios
@@ -155,7 +155,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-      <div>
+{/*       <div>
         <Modal
           show={showModal}
           onHide={handleClose}
@@ -199,7 +199,7 @@ const Home = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-      </div>
+      </div> */}
       {reviews.length > 0 && (
         <div className="home-reviews">
           <h2>Lo que dicen nuestras clientas</h2>

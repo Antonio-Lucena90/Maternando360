@@ -28,6 +28,9 @@ export const NavbarAdmin = () => {
         <Nav.Link as={NavLink} to="/admin/reviews">
           Reseñas
         </Nav.Link>
+        <Nav.Link as={NavLink} to="/admin/appointments">
+          Establecer Citas
+        </Nav.Link>
       </Nav>
 
       <div className="d-flex flex-column flex-lg-row align-items-center gap-3 mt-3 mt-lg-0">

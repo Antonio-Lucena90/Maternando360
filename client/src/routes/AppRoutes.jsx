@@ -44,6 +44,7 @@ const AdminDocs = lazy(()=>import('../pages/AdminPages/AdminDocs/AdminDocs'))
 const AdminUserDocs = lazy(()=>import('../pages/AdminPages/AdminUserDocs/AdminUserDocs'))
 const AdminInviteCodes = lazy(()=>import('../pages/AdminPages/AdminInviteCodes/AdminInviteCodes'))
 const AdminReviews = lazy(()=>import('../pages/AdminPages/AdminReviews/AdminReviews'))
+const CreateAppointments = lazy(()=>import('../pages/AdminPages/CreateAppointments/CreateAppointments'))
 
 
 export const AppRoutes = () => {
@@ -103,6 +104,7 @@ export const AppRoutes = () => {
                 <Route path='/admin/userDocs/:user_id' element={<AdminUserDocs/>}/>
                 <Route path='/admin/inviteCodes' element={<AdminInviteCodes/>}/>
                 <Route path='/admin/reviews' element={<AdminReviews/>}/>
+                <Route path='/admin/appointments' element={<CreateAppointments/>}/>
               </Route>
             </Route>
 

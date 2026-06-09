@@ -8,6 +8,7 @@ import userRouter from './modules/user/user.routes.js'
 import adminRouter from './modules/admin/admin.routes.js'
 import workshopRouter from './modules/workshops/workshops.routes.js'
 import reviewsRouter from './modules/reviews/reviews.routes.js';
+import appointmentRouter from './modules/appointment/appointment.routes.js';
 import cors from 'cors';
 
 
@@ -27,6 +28,7 @@ app.use('/user', userRouter);
 app.use('/admin', adminRouter); 
 app.use('/workshop', workshopRouter); 
 app.use('/reviews', reviewsRouter); 
+app.use('/appointments', appointmentRouter); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

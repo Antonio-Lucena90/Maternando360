@@ -11,5 +11,12 @@ router.post('/', verifyToken, verifyAdmin, appointmentController.createAppointme
 
 router.get('/user/:user_id', verifyToken, appointmentController.getUserAppointments);
 
+router.get('/', verifyToken, verifyAdmin, appointmentController.getAllAppointments);
+
+router.delete('/:appointment_id', verifyToken, verifyAdmin, appointmentController.deleteAppointment);
+
+router.put('/:appointment_id', verifyToken, verifyAdmin, appointmentController.updateAppointment);
+
+
 
 export default router; 

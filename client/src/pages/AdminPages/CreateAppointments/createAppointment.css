@@ -84,6 +84,113 @@
   background-color: #b1745c;
 }
 
+.appointments-list-admin {
+  margin-top: 3rem;
+  width: 90%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.appointments-list-admin h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.appointment-item {
+  background-color: #fafafa;
+  border: 1px solid #eee;
+  border-left: 4px solid #c9a96e;
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.item-info strong {
+  font-size: 1rem;
+  color: #4A403A;
+}
+
+.item-info span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.item-notes {
+  font-style: italic;
+}
+
+.item-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.btn-edit, .btn-delete, .btn-save, .btn-cancel {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-edit { background-color: #c9a96e; color: white; }
+.btn-edit:hover { background-color: #a8894e; }
+
+.btn-delete { background-color: #e05c5c; color: white; }
+.btn-delete:hover { background-color: #c04444; }
+
+.btn-save { background-color: #5c9e6e; color: white; }
+.btn-save:hover { background-color: #437a54; }
+
+.btn-cancel { background-color: #aaa; color: white; }
+.btn-cancel:hover { background-color: #888; }
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.edit-form input,
+.edit-form textarea {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.edit-form textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+@media (max-width: 480px) {
+  .appointment-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
 @media (max-width: 480px) {
   .create-appointments-container h1 {
     font-size: 1.2rem;

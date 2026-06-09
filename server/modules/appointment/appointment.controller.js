@@ -35,6 +35,40 @@ class AppointmentController {
   }
 }
 
+getAllAppointments = async (req, res) => {
+  try {
+    const result = await appointmentDal.getAllAppointments();
+    res.status(200).json({ message: 'ok', result });
+  } catch (error) {
+    logger.error('getAllAppointments', error);
+    res.status(500).json({ message: 'Error interno del servidor' });
+  }
+}
+
+deleteAppointment = async (req, res) => {
+  try {
+    const { appointment_id } = req.params;
+    await appointmentDal.deleteAppointment([appointment_id]);
+    res.status(200).json({ message: 'Cita eliminada correctamente' });
+  } catch (error) {
+    logger.error('deleteAppointment', error);
+    res.status(500).json({ message: 'Error interno del servidor' });
+  }
+}
+
+updateAppointment = async (req, res) => {
+  try {
+    const { appointment_id } = req.params;
+    const { appointment_date, appointment_time, notes } = req.body;
+    await appointmentDal.updateAppointment([appointment_date, appointment_time, notes, appointment_id]);
+    res.status(200).json({ message: 'Cita actualizada correctamente' });
+  } catch (error) {
+    logger.error('updateAppointment', error);
+    res.status(500).json({ message: 'Error interno del servidor' });
+  }
+}
+
+
 
 }
 

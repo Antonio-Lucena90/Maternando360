@@ -33,6 +33,38 @@ class appointmentDal {
   }
 }
 
+  getAllAppointments = async () => {
+  try {
+    let sql = `SELECT a.appointment_id, a.appointment_date, a.appointment_time, a.notes, 
+               u.name, u.last_name 
+               FROM appointment a 
+               JOIN "user" u ON a.user_id = u.user_id 
+               ORDER BY a.appointment_date, a.appointment_time`;
+    return await executeQuery(sql, []);
+  } catch (error) {
+    throw error;
+  }
+}
+
+deleteAppointment = async (values) => {
+  try {
+    let sql = 'DELETE FROM appointment WHERE appointment_id = $1';
+    return await executeQuery(sql, values);
+  } catch (error) {
+    throw error;
+  }
+}
+
+updateAppointment = async (values) => {
+  try {
+    let sql = 'UPDATE appointment SET appointment_date = $1, appointment_time = $2, notes = $3 WHERE appointment_id = $4';
+    return await executeQuery(sql, values);
+  } catch (error) {
+    throw error;
+  }
+}
+
+
 }
 
 export default new appointmentDal(); 

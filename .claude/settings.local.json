@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(ls \"c:/Users/lucen/Desktop/Formaciones/Bootcamp-Another-Brick-in-the-Code/Clases Santi/MaternandoServer/\")",
-      "Read(//c/Users/lucen/Desktop/Formaciones/Bootcamp-Another-Brick-in-the-Code/Clases Santi/MaternandoServer/**)"
-    ]
-  }
-}

@@ -12,11 +12,11 @@ h1 {
 }
 
 .dashboard-Card {
-  background-color: #ffffff;
-  border-radius: 1rem;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
   padding: 1.5rem 1rem;
-  border: 1px solid #edf2f7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -24,11 +24,18 @@ h1 {
   justify-content: center;
   gap: 0.75rem;
   text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.dashboard-Card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
 .dashboard-Card p {
   margin: 0;
   font-size: 0.9rem;
+  color: var(--color-text-soft);
 }
 
 .dashboard-icon {
@@ -47,40 +54,33 @@ h1 {
 .appointments-section h2 {
   text-align: center;
   margin-bottom: 1.5rem;
-}
-
-.appointments-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  width: 100%;
-  max-width: 800px;
+  font-family: var(--font-heading);
+  color: var(--color-text);
 }
 
 .appointment-card {
-  background: linear-gradient(135deg, #f9f3ea, #fde8c8);
-  border-radius: 1rem;
+  background: linear-gradient(135deg, var(--color-bg), var(--color-bg-soft));
+  border-radius: var(--radius-md);
   height: auto;
   width: 100%;
-  margin-bottom: 1rem;
   padding: 1.5rem;
-  border: 1px solid #edf2f7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-left: 4px solid #c9a96e;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  box-shadow: var(--shadow-sm);
   text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.appointment-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .appointment-card p {
   margin: 0.25rem 0;
   font-size: 0.95rem;
+  color: var(--color-text-soft);
 }
-
-@media (min-width: 640px) {
-  .appointments-list {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
 
 @media (min-width: 640px) {
   .dashboard-grid {

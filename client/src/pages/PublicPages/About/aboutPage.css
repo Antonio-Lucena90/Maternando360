@@ -1,115 +1,101 @@
-h2{
-  text-align: center;
-  padding: 3rem;
-}
-
-.my-col{
+.my-col {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  align-items: center;
+  padding: 1rem 0 3rem;
 }
 
-.about{
-  background-color: #ffffff;
+.about,
+.about2 {
+  background-color: var(--color-white);
   width: 70%;
-  border-radius: 1rem;
+  border-radius: var(--radius-lg);
   padding: 2rem;
-  border: 2px solid #8FA998;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
   text-align: center;
   display: flex;
   align-items: center;
-  gap:2rem;
+  gap: 2rem;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
-.about2{
-  background-color: #ffffff;
-  width: 70%;
-  border-radius: 1rem;
-  padding: 2rem;
-  border: 2px solid #8FA998;
-  text-align: center;
-  display: flex;
+
+.about:hover,
+.about2:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.about2 {
   flex-direction: column;
-  align-items: center;
-  gap:2rem;
-  img{
+}
+
+.about2 img {
   width: 350px;
   height: auto;
-  border-radius: 10px;
-  }
+  border-radius: var(--radius-md);
 }
 
-.about-text{
+.about-text {
   flex: 1;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  line-height: 1.7;
 }
 
-img{
+img {
   width: 250px;
   height: auto;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
 }
 
-.about:nth-child(odd){
+.about:nth-child(odd) {
   align-self: flex-start;
 }
 
-.about:nth-child(even){
+.about:nth-child(even) {
   align-self: flex-end;
 }
- 
 
-
-@media (max-width: 992px){
-
+@media (max-width: 992px) {
   .about,
-  .about2{
+  .about2 {
     width: 90%;
   }
 
-  .about img{
+  .about img {
     width: 200px;
   }
 
-  .about2 img{
+  .about2 img {
     width: 280px;
   }
-
 }
 
-@media (max-width: 768px){
-
+@media (max-width: 768px) {
   .about,
-  .about2{
+  .about2 {
     width: 100%;
     flex-direction: column;
-    text-align: center;
     align-self: center;
   }
 
   .about img,
-  .about2 img{
+  .about2 img {
     width: 100%;
     max-width: 300px;
   }
-
 }
 
-@media (max-width: 480px){
-
-  h2{
-    padding: 2rem 1rem;
-  }
-
+@media (max-width: 480px) {
   .about,
-  .about2{
+  .about2 {
     padding: 1.5rem;
   }
 
   .about img,
-  .about2 img{
+  .about2 img {
     max-width: 250px;
   }
-
 }
-
-
-

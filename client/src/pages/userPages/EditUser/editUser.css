@@ -1,70 +1,74 @@
-
-
 .edit-form-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
 .edit-form-wrapper form {
-  background-color: #ffffff;
+  background-color: var(--color-white);
   padding: 2.5rem;
-  border-radius: 1rem;
-  border: 2px solid #8FA998;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
 }
 
-
 .edit-form-wrapper label {
+  font-family: var(--font-body);
   font-weight: 500;
-  color: #4A403A;
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
 }
 
 .edit-form-wrapper .form-control {
-  border-radius: 8px;
-  padding: 0.6rem 0.8rem;
+  font-family: var(--font-body);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  padding: 0.6rem 0.9rem;
   font-size: 0.95rem;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 .edit-form-wrapper .form-control:focus {
-  border-color: #8FA998;
-  box-shadow: 0 0 0 3px rgba(143, 169, 152, 0.3);
+  border-color: var(--color-sage);
+  box-shadow: 0 0 0 3px rgba(143, 169, 152, 0.2);
+  background-color: var(--color-white);
+  outline: none;
 }
 
-
 .edit-form-wrapper button {
-  background-color: #8FA998;
-  border: #8FA998;
-  border-radius: 20px;
-  padding: 0.6rem 1.4rem;
+  font-family: var(--font-body);
+  background-color: var(--color-sage);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 0.6rem 1.5rem;
+  color: var(--color-white);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
 }
 
 .edit-form-wrapper button:hover {
-  background-color: #6c8174;
+  background-color: var(--color-sage-dark);
+  transform: translateY(-1px);
 }
 
-
 .edit-form-wrapper button:last-child {
-  background-color: #D4896B;
-  border: #D4896B;
+  background-color: var(--color-primary);
 }
 
 .edit-form-wrapper button:last-child:hover {
-  background-color: #ac6c53;
+  background-color: var(--color-primary-dark);
 }
 
-
 @media (max-width: 992px) {
-
   .edit-form-wrapper form {
     padding: 2rem;
   }
 }
 
-
 @media (max-width: 768px) {
-
   .edit-form-wrapper {
     padding: 1rem;
   }
@@ -83,9 +87,7 @@
   }
 }
 
-
 @media (max-width: 480px) {
-
   .edit-form-wrapper form {
     padding: 1.2rem;
   }

@@ -8,14 +8,15 @@
 }
 
 .dream-container h2 {
-  color: #4A403A;
+  font-family: var(--font-heading);
+  color: var(--color-text);
   font-weight: 700;
   font-size: 1.4rem;
   margin-bottom: 0.25rem;
 }
 
 .dream-subtitle {
-  color: #6C757D;
+  color: var(--color-text-soft);
   margin-bottom: 1rem;
   font-size: 0.9rem;
 }
@@ -23,22 +24,21 @@
 /* ── Calendario ──────────────────────────────────────────── */
 
 .dream-calendar-wrapper {
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   overflow-x: hidden;
   max-width: 100%;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  border: 1px solid #edf2f7;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
 }
 
 .rbc-calendar {
-  background-color: #FDFBF7;
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: var(--color-bg);
+  font-family: var(--font-body);
 }
 
-/* Barra de navegación */
 .rbc-toolbar {
-  background-color: #8FA998;
+  background-color: var(--color-sage);
   padding: 0.6rem 0.75rem;
   margin-bottom: 0;
   display: flex;
@@ -55,7 +55,7 @@
 }
 
 .rbc-toolbar-label {
-  color: white;
+  color: var(--color-white);
   font-weight: 600;
   font-size: 0.95rem;
   text-transform: capitalize;
@@ -64,17 +64,17 @@
 }
 
 .rbc-toolbar button {
-  color: white;
+  color: var(--color-white);
   background: transparent;
   border: 1.5px solid rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 0.45rem 0.85rem;
   font-size: 1.1rem;
   line-height: 1;
   min-width: 44px;
   min-height: 44px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background var(--transition);
   touch-action: manipulation;
   display: flex;
   align-items: center;
@@ -84,23 +84,21 @@
 .rbc-toolbar button:active,
 .rbc-toolbar button:hover,
 .rbc-toolbar button.rbc-active {
-  background-color: #6c8174;
-  border-color: #6c8174;
+  background-color: var(--color-sage-dark);
+  border-color: var(--color-sage-dark);
 }
 
-/* Cabecera de días */
 .rbc-header {
-  background-color: #f5f0ea;
-  color: #4A403A;
+  background-color: var(--color-bg-soft);
+  color: var(--color-text);
   font-weight: 600;
   padding: 0.4rem 0;
   font-size: 0.72rem;
   text-transform: capitalize;
 }
 
-/* Celdas del mes */
 .rbc-month-row {
-  border-color: #edf2f7;
+  border-color: var(--color-border);
   min-height: 52px;
 }
 
@@ -111,31 +109,29 @@
 
 .rbc-day-bg:active,
 .rbc-day-bg:hover {
-  background-color: #f0ebe3;
+  background-color: var(--color-bg-soft);
 }
 
 .rbc-today {
   background-color: #fef3ec !important;
 }
 
-/* Número de día */
 .rbc-date-cell {
-  color: #4A403A;
+  color: var(--color-text);
   font-size: 0.78rem;
   padding: 2px 4px;
 }
 
 .rbc-off-range-bg {
-  background-color: #f8f5f0;
+  background-color: var(--color-bg-soft);
 }
 
 .rbc-off-range .rbc-button-link {
-  color: #bbb;
+  color: var(--color-border);
 }
 
-/* Eventos */
 .rbc-event {
-  background-color: #D4896B !important;
+  background-color: var(--color-primary) !important;
   border: none !important;
   border-radius: 4px;
   font-size: 0.65rem;
@@ -145,11 +141,11 @@
 
 .rbc-event:active,
 .rbc-event:hover {
-  background-color: #b1745c !important;
+  background-color: var(--color-primary-dark) !important;
 }
 
 .rbc-show-more {
-  color: #D4896B;
+  color: var(--color-primary);
   font-size: 0.7rem;
   font-weight: 600;
 }
@@ -158,17 +154,17 @@
 
 .dream-day-panel {
   margin-top: 1.25rem;
-  background-color: #FDFBF7;
-  border: 1px solid #edf2f7;
-  border-radius: 14px;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   padding: 1.1rem 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-sm);
   box-sizing: border-box;
   width: 100%;
 }
 
 .dream-day-title {
-  color: #4A403A;
+  color: var(--color-text);
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 0.9rem;
@@ -180,7 +176,7 @@
 }
 
 .dream-total {
-  color: #8FA998;
+  color: var(--color-sage);
   font-size: 0.88rem;
   font-weight: 500;
 }
@@ -201,8 +197,8 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 0.75rem;
-  background-color: #f5f0ea;
-  border-radius: 10px;
+  background-color: var(--color-bg-soft);
+  border-radius: var(--radius-sm);
   padding: 0.75rem 0.9rem;
 }
 
@@ -214,7 +210,7 @@
 }
 
 .dream-record-time {
-  color: #4A403A;
+  color: var(--color-text);
   font-weight: 500;
   font-size: 1rem;
 }
@@ -224,9 +220,9 @@
   align-items: baseline;
   gap: 0.4rem;
   font-size: 0.88rem;
-  color: #4A403A;
+  color: var(--color-text);
   background-color: #e8f0eb;
-  border-left: 3px solid #8FA998;
+  border-left: 3px solid var(--color-sage);
   border-radius: 0 6px 6px 0;
   padding: 0.35rem 0.6rem;
 }
@@ -234,7 +230,7 @@
 .dream-admin-reply-label {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #8FA998;
+  color: var(--color-sage);
   text-transform: uppercase;
   letter-spacing: 0.03em;
   flex-shrink: 0;
@@ -258,7 +254,7 @@
 
 .dream-form-group label {
   font-size: 0.85rem;
-  color: #4A403A;
+  color: var(--color-text-soft);
   font-weight: 500;
 }
 
@@ -269,43 +265,43 @@
   max-width: 100%;
   box-sizing: border-box;
   padding: 0.75rem;
-  border: 1.5px solid #ccc;
-  border-radius: 10px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
   font-size: 1rem;
-  color: #4A403A;
-  background-color: white;
-  transition: border-color 0.2s;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  transition: border-color var(--transition);
   min-height: 48px;
   touch-action: manipulation;
 }
 
 .dream-form-group input[type="time"]:focus {
   outline: none;
-  border-color: #D4896B;
+  border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(212, 137, 107, 0.15);
 }
 
 .dream-comment-input {
   width: 100%;
   padding: 0.65rem 0.75rem;
-  border: 1.5px solid #ccc;
-  border-radius: 10px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
   font-size: 0.95rem;
-  color: #4A403A;
-  background-color: white;
+  color: var(--color-text);
+  background-color: var(--color-white);
   resize: none;
-  font-family: inherit;
-  transition: border-color 0.2s;
+  font-family: var(--font-body);
+  transition: border-color var(--transition);
 }
 
 .dream-comment-input:focus {
   outline: none;
-  border-color: #D4896B;
+  border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(212, 137, 107, 0.15);
 }
 
 .dream-record-comment {
-  color: #6C757D;
+  color: var(--color-text-soft);
   font-size: 0.85rem;
   font-weight: 400;
 }
@@ -319,15 +315,16 @@
 /* ── Botones ─────────────────────────────────────────────── */
 
 .btn-dream-primary {
-  background-color: #D4896B;
+  background-color: var(--color-primary);
   border: none;
-  color: white;
+  color: var(--color-white);
   padding: 0.85rem 1rem;
-  border-radius: 10px;
+  border-radius: var(--radius-pill);
   font-size: 1rem;
   font-weight: 500;
+  font-family: var(--font-body);
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color var(--transition);
   width: 100%;
   min-height: 50px;
   touch-action: manipulation;
@@ -335,19 +332,19 @@
 
 .btn-dream-primary:active,
 .btn-dream-primary:hover {
-  background-color: #b1745c;
+  background-color: var(--color-primary-dark);
 }
 
 .btn-dream-delete {
   background: transparent;
-  border: 1.5px solid #D4896B;
-  color: #D4896B;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
   padding: 0.5rem 0.9rem;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--transition);
   min-height: 40px;
   min-width: 76px;
   touch-action: manipulation;
@@ -355,8 +352,8 @@
 
 .btn-dream-delete:active,
 .btn-dream-delete:hover {
-  background-color: #D4896B;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 /* ── Tablet / Desktop ────────────────────────────────────── */

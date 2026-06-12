@@ -1,83 +1,103 @@
-.ppal-div{
+.ppal-div {
   width: 90%;
+  max-width: 900px;
   text-align: center;
-  background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 1rem;
-  border: 2px solid #8FA998;
-  cursor: pointer;
-  overflow: hidden;
-  margin-inline-start: 4.5rem;
-  margin-block-start: 2rem;
-  color: #4A403A;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  margin: 2rem auto;
+  color: var(--color-text);
+  transition: box-shadow var(--transition);
 }
 
-.btn-div{
+.ppal-div:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-div {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
-  padding: 2rem;
-  button{
-      background-color: #8FA998;
-      border: #8FA998;
-      border-radius: 20px;
-      padding: .8rem;
-      color: white;
-  }
-  button:hover{
-    background-color: #6c8174;
-  }
+  gap: 1rem;
+  padding: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.info-div{
-  width: 60%;
-  background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 2rem;
-  border: 2px solid #8FA998;
-  margin: 2rem auto;
-  color: #4A403A;
-  h3,h4{
-    text-align: center;
-    margin-bottom: 1.2rem;
-  }
-  p, ul{
-    text-align: left;
-    max-width: 700px;
-    margin: 0 auto;
-    margin-bottom: 1.2rem;
-  }
-  ul{
-    list-style-position: inside;
-    padding-left: 0;
-  }
-  li{
-    margin-bottom: 0.5rem;
-  }
+.btn-div button {
+  font-family: var(--font-body);
+  background-color: var(--color-sage);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 0.6rem 1.5rem;
+  color: var(--color-white);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition), transform var(--transition);
+}
 
-  .p-p{
-    text-align: center;
-  }
+.btn-div button:hover {
+  background-color: var(--color-sage-dark);
+  transform: translateY(-1px);
+}
+
+.btn-div button:focus,
+.btn-div button:active {
+  background-color: var(--color-sage-dark);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(143, 169, 152, 0.4);
+}
+
+.info-div {
+  width: 65%;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  margin: 2rem auto;
+  color: var(--color-text);
+}
+
+.info-div h3,
+.info-div h4 {
+  font-family: var(--font-heading);
+  text-align: center;
+  margin-bottom: 1.2rem;
+  color: var(--color-text);
+}
+
+.info-div p,
+.info-div ul {
+  font-family: var(--font-body);
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto 1.2rem;
+  line-height: 1.7;
+  color: var(--color-text-soft);
+}
+
+.info-div ul {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.info-div li {
+  margin-bottom: 0.5rem;
+}
+
+.info-div .p-p {
+  text-align: center;
+  font-style: italic;
 }
 
 @media (max-width: 992px) {
-
   .ppal-div {
     width: 95%;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
     padding: 1.5rem;
-  }
-
-  .btn-div {
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1.5rem;
-  }
-
-  .btn-div button {
-    padding: 0.7rem 1.2rem;
   }
 
   .info-div {
@@ -86,13 +106,8 @@
   }
 }
 
-
 @media (max-width: 768px) {
-
   .ppal-div {
-    width: 95%;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
     padding: 1.2rem;
   }
 
@@ -100,14 +115,9 @@
     font-size: 1.4rem;
   }
 
-  .ppal-div p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
   .btn-div {
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.75rem;
     padding: 1rem;
   }
 
@@ -121,45 +131,19 @@
     padding: 1.5rem;
   }
 
-  .info-div h3 {
-    font-size: 1.3rem;
-  }
-
-  .info-div h4 {
-    font-size: 1.1rem;
-  }
-
   .info-div p,
   .info-div ul {
     font-size: 0.95rem;
-    text-align: justify;
-  }
-
-  .info-div .p-p {
-    text-align: center;
-    font-style: italic;
   }
 }
 
-
 @media (max-width: 480px) {
-
   .ppal-div {
     padding: 1rem;
   }
 
-  .ppal-div h2 {
-    font-size: 1.2rem;
-  }
-
-  .btn-div button {
-    font-size: 0.9rem;
-    padding: 0.7rem;
-  }
-
   .info-div {
     padding: 1.2rem;
-    border-width: 1.5px;
   }
 
   .info-div h3 {
@@ -168,11 +152,5 @@
 
   .info-div h4 {
     font-size: 1rem;
-  }
-
-  .info-div p,
-  .info-div ul {
-    font-size: 0.9rem;
-    line-height: 1.6;
   }
 }

@@ -1,60 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-
-
-body {
-  font-family: 'Playfair Display', serif;
-  color: #4A403A;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background-color: #FDFBF7;
+main, .main-public {
+  background-color: var(--color-bg);
+  min-height: calc(100vh - 116px);
+  padding: 2.5rem 1.5rem;
 }
 
+/* Botón global */
+.my-btn {
+  font-family: var(--font-body);
+  background-color: var(--color-primary) !important;
+  border: none !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 0.55rem 1.75rem !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.4px;
+  transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
 
-main, .main-public {
-  background-color: #FDFBF7;
-  min-height: calc(100vh - 116px); 
-  padding: 2rem 1.5rem;
+.my-btn:hover {
+  background-color: var(--color-primary-dark) !important;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color-sage);
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  color: var(--color-white);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer p, .footer a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+}
+
+.footer img {
+  max-width: 28px;
+  margin: 0 0.4rem;
+}
+
+@media (max-width: 992px) {
+  main, .main-public {
+    padding: 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
   main, .main-public {
     padding: 1rem;
   }
-}
 
-
-.error-msg {
-  color: red;
-  font-size: 0.9rem;
-  margin-top: 0.3rem;
-}
-
-
-.footer {
-  min-height: 100px;
-  background-color: #8FA998;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 2rem;
-  color: #fff;
-  flex-wrap: wrap;
-}
-
-.footer p, .footer a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-.footer img {
-  max-width: 30px;
-  margin: 0 0.5rem;
-}
-
-
-@media (max-width: 768px) {
   .footer {
     flex-direction: column;
     text-align: center;
@@ -62,18 +67,11 @@ main, .main-public {
   }
 
   .footer p {
-    font-size: 0.95rem;
+    font-size: 0.875rem;
   }
 
   .footer img {
-    max-width: 25px;
-    margin: 0.3rem;
-  }
-}
-
-
-@media (max-width: 992px) {
-  main, .main-public {
-    padding: 1.5rem;
+    max-width: 24px;
+    margin: 0.25rem;
   }
 }

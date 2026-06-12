@@ -34,8 +34,9 @@ const AllUsersPage = () => {
   return (
     <Container>
       <h1>
-        Bienvenid@ {user.name} {user.last_name}
-        {user.baby_name && <span> · Bebé: {user.baby_name}</span>}
+        {user.baby_name
+          ? `¿Cómo estáis hoy, ${user.name} y ${user.baby_name}?`
+          : `¿Cómo estás hoy, ${user.name}?`}
       </h1>
         {appointments.length > 0 && (
           <div className="appointments-section">

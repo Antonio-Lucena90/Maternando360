@@ -5,19 +5,38 @@
   padding: 3rem;
 }
 
+.profile-box h2 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+}
+
+.profile-box p {
+  color: var(--color-text-soft);
+}
+
+.profile-box hr {
+  border-color: var(--color-border);
+}
+
 .my-btn-profile {
-  border: #8FA998;
-  background-color: #8FA998;
-  color: white;
+  font-family: var(--font-body);
+  background-color: var(--color-sage);
+  border: none;
+  color: var(--color-white);
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color var(--transition), transform var(--transition);
+  cursor: pointer;
 }
 
 .my-btn-profile:hover {
-  background-color: #6c8174;
+  background-color: var(--color-sage-dark);
+  transform: translateY(-1px);
 }
 
-
 @media (max-width: 992px) {
-
   .profile-box {
     padding: 2rem;
   }
@@ -31,9 +50,7 @@
   }
 }
 
-
 @media (max-width: 768px) {
-
   .profile-box {
     padding: 1.5rem;
   }
@@ -57,9 +74,7 @@
   }
 }
 
-
 @media (max-width: 480px) {
-
   .profile-box {
     padding: 1rem;
   }

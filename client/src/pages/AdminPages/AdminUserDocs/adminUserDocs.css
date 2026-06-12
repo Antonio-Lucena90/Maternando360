@@ -7,25 +7,27 @@
 .btn-aud-back {
   background: none;
   border: none;
-  color: #8FA998;
+  color: var(--color-sage);
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
   padding: 0;
   margin-bottom: 1rem;
+  transition: color var(--transition);
 }
 
-.btn-aud-back:hover { color: #6c8174; }
+.btn-aud-back:hover { color: var(--color-sage-dark); }
 
 .aud-container h2 {
-  color: #4A403A;
+  font-family: var(--font-heading);
+  color: var(--color-text);
   font-weight: 700;
   font-size: 1.4rem;
   margin-bottom: 0.1rem;
 }
 
 .aud-subtitle {
-  color: #D4896B;
+  color: var(--color-primary);
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 1.25rem;
@@ -35,8 +37,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  background: #f5f0ea;
-  border-radius: 10px;
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-sm);
   padding: 1rem;
   margin-bottom: 1.25rem;
 }
@@ -50,57 +52,58 @@
 }
 
 .btn-aud-upload {
-  background-color: #8FA998;
-  color: white;
+  background-color: var(--color-sage);
+  color: var(--color-white);
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: var(--radius-pill);
   font-size: 0.9rem;
   font-weight: 500;
+  font-family: var(--font-body);
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.2s;
+  transition: background-color var(--transition);
 }
 
-.btn-aud-upload:hover { background-color: #6c8174; }
+.btn-aud-upload:hover { background-color: var(--color-sage-dark); }
 .btn-aud-upload:disabled { opacity: 0.6; cursor: not-allowed; }
 
 .aud-error { color: #dc3545; font-size: 0.9rem; margin-bottom: 0.75rem; }
-.aud-success { color: #4a7c59; font-size: 0.9rem; margin-bottom: 0.75rem; }
+.aud-success { color: var(--color-sage-dark); font-size: 0.9rem; margin-bottom: 0.75rem; }
 
 .aud-badge {
   display: inline-block;
   font-size: 0.7rem;
   font-weight: 600;
   padding: 0.15rem 0.5rem;
-  border-radius: 20px;
+  border-radius: var(--radius-pill);
   margin-left: 0.5rem;
   vertical-align: middle;
 }
 
 .aud-badge-admin {
-  background-color: #d4896b22;
-  color: #D4896B;
-  border: 1px solid #D4896B;
+  background-color: rgba(212, 137, 107, 0.13);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
 
 .aud-badge-user {
-  background-color: #8fa99822;
-  color: #4a7c59;
-  border: 1px solid #8FA998;
+  background-color: rgba(143, 169, 152, 0.13);
+  color: var(--color-sage-dark);
+  border: 1px solid var(--color-sage);
 }
 
 .aud-empty {
-  color: #6C757D;
+  color: var(--color-text-soft);
   font-style: italic;
   padding: 1rem 0;
 }
 
 .aud-table-wrapper {
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   overflow-x: auto;
-  border: 1px solid #edf2f7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
 }
 
 .aud-table {
@@ -108,46 +111,47 @@
   border-collapse: collapse;
 }
 
-.aud-table thead { background-color: #8FA998; }
+.aud-table thead { background-color: var(--color-sage); }
 
 .aud-table thead th {
   padding: 0.85rem 1rem;
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.9rem;
   text-align: left;
-  color: white;
+  color: var(--color-white);
 }
 
 .aud-table tbody tr {
-  background-color: #FDFBF7;
-  border-bottom: 1px solid #edf2f7;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .aud-table tbody tr:last-child { border-bottom: none; }
-.aud-table tbody tr:hover { background-color: #f5f0ea; }
+.aud-table tbody tr:hover { background-color: var(--color-bg-soft); }
 
 .aud-table td {
   padding: 0.75rem 1rem;
-  color: #4A403A;
+  color: var(--color-text);
   font-size: 0.9rem;
   vertical-align: middle;
 }
 
 .btn-aud-download {
   background: transparent;
-  border: 1.5px solid #8FA998;
-  color: #8FA998;
+  border: 1.5px solid var(--color-sage);
+  color: var(--color-sage);
   padding: 0.4rem 0.85rem;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--transition);
 }
 
 .btn-aud-download:hover {
-  background-color: #8FA998;
-  color: white;
+  background-color: var(--color-sage);
+  color: var(--color-white);
 }
 
 .btn-aud-delete {
@@ -155,16 +159,16 @@
   border: 1.5px solid #dc3545;
   color: #dc3545;
   padding: 0.4rem 0.85rem;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--transition);
 }
 
 .btn-aud-delete:hover {
   background-color: #dc3545;
-  color: white;
+  color: var(--color-white);
 }
 
 @media (min-width: 640px) {

@@ -7,11 +7,11 @@
 }
 
 .dashboard-Card {
-  background-color: #ffffff;
-  border-radius: 1rem;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
   padding: 1.5rem 1rem;
-  border: 1px solid #edf2f7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -19,15 +19,19 @@
   justify-content: center;
   gap: 0.75rem;
   text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .dashboard-Card p {
   margin: 0;
   font-size: 0.9rem;
+  color: var(--color-text-soft);
 }
 
 .dashboard-Card:hover {
-  background-color: rgb(234, 228, 228);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  background-color: var(--color-white);
 }
 
 .dashboard-icon {

@@ -1,52 +1,78 @@
 .navbar {
-  background-color: #8FA998;
-  color: #4A403A;
+  background-color: var(--color-sage);
+  box-shadow: var(--shadow-sm);
+  padding: 0.5rem 0;
+  --bs-navbar-active-color: var(--color-white);
+  --bs-navbar-hover-color: var(--color-white);
+  --bs-nav-link-hover-color: var(--color-white);
+  --bs-nav-link-color: var(--color-text);
 }
 
 .navbar img {
-  width: 150px;
+  width: 140px;
+  transition: opacity var(--transition);
 }
 
-
-.navbar .my-btn {
-  background-color: #D4896B;
-  border: #D4896B;
+.navbar img:hover {
+  opacity: 0.85;
 }
-
-.navbar .my-btn:hover {
-  background-color: #ac6c53;
-}
-
 
 .navbar .nav-link {
-  color: #4A403A;
+  font-family: var(--font-body);
+  color: var(--color-text);
   font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background-color var(--transition);
 }
 
 .navbar .nav-link:hover {
-  color: #2f2a27;
+  color: var(--color-white);
+  background-color: rgba(255,255,255,0.15);
 }
 
+.nav-link.active {
+  font-weight: 700;
+  color: var(--color-white) !important;
+  background-color: rgba(255,255,255,0.2) !important;
+}
+
+.navbar .nav-link:focus,
+.navbar .nav-link:active,
+.navbar .nav-link:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.navbar p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
 
 @media (max-width: 991px) {
-
   .navbar img {
-    width: 120px;
+    width: 110px;
   }
 
   .navbar-collapse {
-    background-color: #8FA998;
+    background-color: var(--color-sage);
     padding: 1rem;
-    border-radius: 0 0 12px 12px;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    box-shadow: var(--shadow-md);
   }
 
   .navbar .nav-link {
-    padding: 0.6rem 0;
     text-align: center;
+    padding: 0.6rem 0;
   }
 
   .navbar .my-btn {
     width: 100%;
+    margin-top: 0.5rem;
   }
 
   .navbar p {

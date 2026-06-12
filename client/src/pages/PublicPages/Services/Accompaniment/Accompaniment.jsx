@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './accompaniment.css';
-import { Button } from 'react-bootstrap';
+
 import { AccompanimentInfo } from './AccompanimentInfo';
 
 const Accompaniment = () => {
@@ -22,15 +22,15 @@ const Accompaniment = () => {
         </div>
       </div>
       <div className="btn-div">
-        <Button onClick={() => setCurrentInfo(currentInfo === 1 ? null : 1)}>
+        <button onClick={() => setCurrentInfo(currentInfo === 1 ? null : 1)}>
           Áreas de Acompañamiento
-        </Button>
-        <Button onClick={() => setCurrentInfo(currentInfo === 2 ? null : 2)}>
+        </button>
+        <button onClick={() => setCurrentInfo(currentInfo === 2 ? null : 2)}>
           Objetivos
-        </Button>
-        <Button onClick={() => setCurrentInfo(currentInfo === 3 ? null : 3)}>
+        </button>
+        <button onClick={() => setCurrentInfo(currentInfo === 3 ? null : 3)}>
           Incluye
-        </Button>
+        </button>
       </div>
         <AccompanimentInfo currentInfo={currentInfo} id={1}>
           <div className='info-div'>

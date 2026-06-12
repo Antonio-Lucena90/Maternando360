@@ -3,15 +3,15 @@
   font-size: 0.7rem;
   font-weight: 600;
   padding: 0.15rem 0.5rem;
-  border-radius: 20px;
+  border-radius: var(--radius-pill);
   margin-left: 0.5rem;
   vertical-align: middle;
 }
 
 .doc-badge-admin {
-  background-color: #d4896b22;
-  color: #D4896B;
-  border: 1px solid #D4896B;
+  background-color: rgba(212, 137, 107, 0.13);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
 
 /* ── MOBILE FIRST ─────────────────────────────────────── */
@@ -21,7 +21,8 @@
 }
 
 .docus-container h2 {
-  color: #4A403A;
+  font-family: var(--font-heading);
+  color: var(--color-text);
   font-weight: 700;
   font-size: 1.4rem;
   margin-bottom: 1.25rem;
@@ -32,7 +33,7 @@
 }
 
 .docus-admin-title {
-  color: #8FA998;
+  color: var(--color-sage);
   font-weight: 700;
   font-size: 1.05rem;
   margin-bottom: 0.75rem;
@@ -42,9 +43,9 @@
 /* ── Upload ─────────────────────────────────────────────── */
 
 .docus-upload-box {
-  background-color: #FDFBF7;
-  border: 2px dashed #D4896B;
-  border-radius: 14px;
+  background-color: var(--color-bg);
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--radius-md);
   padding: 1.25rem 1rem;
   margin-bottom: 1.25rem;
   display: flex;
@@ -55,16 +56,17 @@
 .docus-upload-box input[type="file"] {
   width: 100%;
   padding: 0.6rem 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: white;
-  color: #4A403A;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-white);
+  color: var(--color-text);
   font-size: 0.95rem;
+  font-family: var(--font-body);
 }
 
 .docus-upload-box input[type="file"]:focus {
   outline: none;
-  border-color: #D4896B;
+  border-color: var(--color-primary);
 }
 
 /* ── Mensajes ────────────────────────────────────────────── */
@@ -76,7 +78,7 @@
 }
 
 .docus-success {
-  color: #6c8174;
+  color: var(--color-sage-dark);
   font-weight: 500;
   font-size: 0.9rem;
   margin-bottom: 0.75rem;
@@ -85,7 +87,7 @@
 /* ── Lista vacía ─────────────────────────────────────────── */
 
 .docus-empty {
-  color: #6C757D;
+  color: var(--color-text-soft);
   font-style: italic;
   padding: 1rem 0;
   font-size: 0.95rem;
@@ -94,10 +96,10 @@
 /* ── Tabla ───────────────────────────────────────────────── */
 
 .docus-table-wrapper {
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   overflow-x: auto;
-  border: 1px solid #edf2f7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
 }
 
 .docus-table {
@@ -106,20 +108,21 @@
 }
 
 .docus-table thead {
-  background-color: #8FA998;
+  background-color: var(--color-sage);
 }
 
 .docus-table thead th {
   padding: 0.85rem 1rem;
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.9rem;
   text-align: left;
-  color: white;
+  color: var(--color-white);
 }
 
 .docus-table tbody tr {
-  background-color: #FDFBF7;
-  border-bottom: 1px solid #edf2f7;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .docus-table tbody tr:last-child {
@@ -127,12 +130,12 @@
 }
 
 .docus-table tbody tr:hover {
-  background-color: #f5f0ea;
+  background-color: var(--color-bg-soft);
 }
 
 .docus-table td {
   padding: 0.75rem 1rem;
-  color: #4A403A;
+  color: var(--color-text);
   font-size: 0.9rem;
   vertical-align: middle;
 }
@@ -147,15 +150,16 @@
 /* ── Botones ─────────────────────────────────────────────── */
 
 .btn-docus-primary {
-  background-color: #D4896B;
+  background-color: var(--color-primary);
   border: none;
-  color: white;
+  color: var(--color-white);
   padding: 0.75rem 1rem;
-  border-radius: 10px;
-  font-size: 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
   font-weight: 500;
+  font-family: var(--font-body);
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color var(--transition);
   width: 100%;
   min-height: 48px;
   touch-action: manipulation;
@@ -163,7 +167,7 @@
 
 .btn-docus-primary:active,
 .btn-docus-primary:hover:not(:disabled) {
-  background-color: #b1745c;
+  background-color: var(--color-primary-dark);
 }
 
 .btn-docus-primary:disabled {
@@ -173,42 +177,42 @@
 
 .btn-docus-download {
   background: transparent;
-  border: 1.5px solid #8FA998;
-  color: #8FA998;
+  border: 1.5px solid var(--color-sage);
+  color: var(--color-sage);
   padding: 0.45rem 0.85rem;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--transition);
   min-height: 40px;
   touch-action: manipulation;
 }
 
 .btn-docus-download:active,
 .btn-docus-download:hover {
-  background-color: #8FA998;
-  color: white;
+  background-color: var(--color-sage);
+  color: var(--color-white);
 }
 
 .btn-docus-delete {
   background: transparent;
-  border: 1.5px solid #D4896B;
-  color: #D4896B;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
   padding: 0.45rem 0.85rem;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--transition);
   min-height: 40px;
   touch-action: manipulation;
 }
 
 .btn-docus-delete:active,
 .btn-docus-delete:hover {
-  background-color: #D4896B;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 /* ── Tablet / Desktop ────────────────────────────────────── */
@@ -241,5 +245,4 @@
     padding: 0.55rem 1.25rem;
     min-height: auto;
   }
-
 }

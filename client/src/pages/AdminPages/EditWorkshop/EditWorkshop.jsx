@@ -83,10 +83,18 @@ const EditWorkshop = () => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicDescription">
             <Form.Label>Descripción</Form.Label>
-            <Form.Control 
-              type="description" 
+            <Form.Control
+              type="description"
               name='description'
               value={editWorkshop?.description ?? selectedWorkshop?.description}
+              onChange={handleChange} />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPrice">
+            <Form.Label>Precio</Form.Label>
+            <Form.Control
+              type="text"
+              name='price'
+              value={editWorkshop?.price ?? selectedWorkshop?.price ?? ''}
               onChange={handleChange} />
           </Form.Group>
           <div className='d-flex gap-3'>

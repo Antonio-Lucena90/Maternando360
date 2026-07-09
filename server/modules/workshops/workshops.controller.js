@@ -4,9 +4,9 @@ class workshopController {
 
     createWorkshop =async (req, res) => {
 
-    const {workshop_name, description, city, duration, workshop_start_date, workshop_end_date} = req.body;
+    const {workshop_name, description, city, duration, workshop_start_date, workshop_end_date, price} = req.body;
     try {
-      const result = await workshopsDal.createWorkshop([workshop_name, description, city, duration, workshop_start_date, workshop_end_date]);
+      const result = await workshopsDal.createWorkshop([workshop_name, description, city, duration, workshop_start_date, workshop_end_date, price]);
       res.status(200).json({message:'ok'})
     } catch (error) {
       res.status(500).json(error);
@@ -25,9 +25,9 @@ class workshopController {
   editWorkshop = async(req, res) => {
     
     const {workshop_id} = req.params
-    const {workshop_name, city, duration, workshop_start_date, workshop_end_date, description} = req. body;
+    const {workshop_name, city, duration, workshop_start_date, workshop_end_date, description, price} = req.body;
     try {
-      const result = await workshopsDal.editWorkshop([workshop_name,description, city, duration, workshop_start_date, workshop_end_date, workshop_id]);
+      const result = await workshopsDal.editWorkshop([workshop_name, description, city, duration, workshop_start_date, workshop_end_date, price, workshop_id]);
       res.status(200).json({message: 'ok', result});
     } catch (error) {
       res.status(500).json(error);

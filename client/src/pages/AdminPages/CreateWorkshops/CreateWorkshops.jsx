@@ -13,7 +13,8 @@ const initialValues = {
   city:'',
   duration:'',
   workshop_start_date:'',
-  workshop_end_date:''
+  workshop_end_date:'',
+  price:''
 }
 
 const CreateWorkshops = () => {
@@ -108,6 +109,16 @@ const CreateWorkshops = () => {
               value={workshop.description}
               onChange={handleChange} />
               {valErrors?.description && <p className='error-msg'>{valErrors.description}</p>}
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicDescription">
+            <Form.Label>Precio</Form.Label>
+            <Form.Control 
+              type="text" 
+              placeholder="Enter price"
+              name='price'
+              value={workshop.price}
+              onChange={handleChange} />
+              {valErrors?.price && <p className='error-msg'>{valErrors.price}</p>}
           </Form.Group>
           <div className='d-flex gap-3'>
             <Button className='my-btn' onClick={()=>navigate('/')}>

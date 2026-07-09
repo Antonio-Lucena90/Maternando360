@@ -57,9 +57,10 @@ const AllWorkshops = () => {
                     <h2>{elem.workshop_name}</h2>
                     <p>Duración: {elem.duration}</p>
                     <p>Lugar: {elem.city}</p>
-                    <p>Fecha de inicio: {elem.workshop_start_date}</p>
-                    <p>Fecha final: {elem.workshop_end_date}</p>
+                    <p>Fecha de inicio: {new Date(elem.workshop_start_date).toLocaleDateString('es-ES')}</p>
+                    <p>Fecha final: {new Date(elem.workshop_end_date).toLocaleDateString('es-ES')}</p>
                     <p>Descripción: {elem.description}</p>
+                    <p>Precio: {elem.price} €</p>
                     <div className="d-flex gap-4">
                       <Button
                         className="my-btn"

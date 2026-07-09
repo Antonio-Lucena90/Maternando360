@@ -111,7 +111,7 @@ const Home = () => {
                       <strong>Lugar:</strong> {elem.city}
                     </p>
                     <p className="card-info">
-                      <strong>Fecha:</strong> {elem.workshop_start_date}
+                      <strong>Fecha:</strong> {elem.workshop_start_date.reverse().split('-').join('/')}
                     </p>
                     <p>
                       <strong>Precio:</strong> {elem.price}

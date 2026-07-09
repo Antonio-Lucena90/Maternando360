@@ -115,7 +115,7 @@ const Home = () => {
                       {new Date(elem.workshop_start_date).toLocaleDateString('es-ES')}
                     </p>
                     <p>
-                      <strong>Precio:</strong> {elem.price}
+                      <strong>Precio:</strong> {elem.price} €
                     </p>
                   </div>
                 );

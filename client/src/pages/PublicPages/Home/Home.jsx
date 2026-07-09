@@ -1,11 +1,11 @@
 import { Container, Row, Col, Modal, Button } from 'react-bootstrap';
 import './home.css';
 import { ZodError } from 'zod';
-/* import { fetchData } from '../../../helpers/axiosHelper';
-import { newsletterSchema } from '../../../schemas/NewsletterSchema'; */
+import { fetchData } from '../../../helpers/axiosHelper';
+/*import { newsletterSchema } from '../../../schemas/NewsletterSchema'; */
 import whatsappIcon from '../../../assets/icons/whatsapp.svg';
 import { useNavigate } from 'react-router';
-import { workshops } from '../../../data/Workshops';
+/* import { workshops } from '../../../data/Workshops'; */
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -23,7 +23,7 @@ const Home = () => {
 /*   const [inputEmail, setInputEmail] = useState('');
   const [valErrors, setValErrors] = useState();
   const [accepted, setAccepted] = useState(); */
-  /*   const [myWorkshops, setMyWorkshops] = useState([]); */
+  const [myWorkshops, setMyWorkshops] = useState([]); 
   const [reviews, setReviews] = useState([]);
 
   const navigate = useNavigate();
@@ -69,7 +69,7 @@ const Home = () => {
       .catch(() => {});
   }, []);
 
-  /*   useEffect(()=>{
+  useEffect(()=>{
     const fetchWorkshops = async () => {
       try {
         let res = await fetchData('workshop/allWorkshops', 'GET');
@@ -79,7 +79,7 @@ const Home = () => {
       }
     }
     fetchWorkshops();
-  }, []); */
+  }, []); 
 
   /*   const today = new Date();
   const comingWorkshops = myWorkshops
@@ -87,7 +87,7 @@ const Home = () => {
     .sort((a,b) => new Date(a.workshop_start_date) - new Date(b.workshop_start_date))
     .slice(0,6); */
 
-  const comingWorkshops = workshops.slice(0, 2);
+  const comingWorkshops = myWorkshops.slice(0, 2);
 
   return (
     <>

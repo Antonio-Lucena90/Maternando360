@@ -57,3 +57,51 @@ h1, h2, h3, h4 {
   font-size: 0.875rem;
   margin-top: 0.3rem;
 }
+
+/* ── Hero reutilizable ───────────────────────────────────── */
+.page-hero {
+  background: linear-gradient(160deg, var(--color-bg-soft) 0%, var(--color-bg) 65%);
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.page-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.page-hero p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--color-text-soft);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+/* ── Separador decorativo ────────────────────────────────── */
+.section-divider {
+  width: 48px;
+  height: 2px;
+  background-color: var(--color-primary);
+  border: none;
+  margin: 0 auto 2.5rem;
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 3.5rem 1.5rem 3rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .page-hero p {
+    font-size: 0.95rem;
+  }
+}

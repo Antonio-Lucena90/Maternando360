@@ -37,7 +37,11 @@ const EditWorkshop = () => {
 
   return (
     <>
-       <div className='my-form-workshops'>
+      <div className="page-hero">
+        <h1>Editar Taller</h1>
+        <p>Modifica los datos del taller seleccionado.</p>
+      </div>
+      <div className='my-form-workshops'>
       <div className='form-my'>
         <Form>
           <h2>Creación de Taller</h2>
@@ -109,7 +113,6 @@ const EditWorkshop = () => {
       </div>
     </div>
     </>
-  )
+  );
 }
-
 export default EditWorkshop

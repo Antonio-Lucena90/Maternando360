@@ -94,39 +94,39 @@ const Home = () => {
       <h1 className="title">MATERNANDO360</h1>
       <Container>
         <Row>
-          <Col className="d-flex flex-column justify-content-center align-items-center">
-            <h2>Próximos Talleres</h2>
-            <div className="div-ppal-workshops">
+          <Col>
+            <h2 className="home-section-title">Próximos Talleres</h2>
+            <div className="home-workshops-list">
               {comingWorkshops.map((elem, idx) => {
+                const date = new Date(elem.workshop_start_date);
+                const day = date.toLocaleDateString('es-ES', { day: '2-digit' });
+                const month = date.toLocaleDateString('es-ES', { month: 'short' });
+                const year = date.toLocaleDateString('es-ES', { year: 'numeric' });
                 return (
-                  <div key={idx} className="card-workshop">
-                    <p className="card-title">{elem.workshop_name}</p>
-                    <p className="card-info">
-                      <strong>Descripción:</strong> {elem.description}
-                    </p>
-                    <p className="card-info">
-                      <strong>Duración:</strong> {elem.duration}
-                    </p>
-                    <p className="card-info">
-                      <strong>Lugar:</strong> {elem.city}
-                    </p>
-                    <p className="card-info">
-                      <strong>Fecha:</strong>
-                      {new Date(elem.workshop_start_date).toLocaleDateString('es-ES')}
-                    </p>
-                    <p>
-                      <strong>Precio:</strong> {elem.price} €
-                    </p>
+                  <div key={idx} className="workshop-row">
+                    <div className="workshop-date">
+                      <span className="workshop-date__day">{day}</span>
+                      <span className="workshop-date__month">{month}</span>
+                      <span className="workshop-date__year">{year}</span>
+                    </div>
+                    <div className="workshop-body">
+                      <h3 className="workshop-name">{elem.workshop_name}</h3>
+                      <p className="workshop-description">{elem.description}</p>
+                      <div className="workshop-meta">
+                        {elem.city && <span>📍 {elem.city}</span>}
+                        {elem.duration && <span>⏱ {elem.duration}</span>}
+                      </div>
+                    </div>
+                    <div className="workshop-price">
+                      <span className="workshop-price__amount">{elem.price} €</span>
+                    </div>
                   </div>
                 );
               })}
             </div>
-            <div>
-              <Button
-                className="my-btn"
-                onClick={() => navigate('/allworkshopsPublic')}
-              >
-                Ver más
+            <div className="d-flex justify-content-center mt-3">
+              <Button className="my-btn" onClick={() => navigate('/allworkshopsPublic')}>
+                Ver todos los talleres
               </Button>
             </div>
           </Col>

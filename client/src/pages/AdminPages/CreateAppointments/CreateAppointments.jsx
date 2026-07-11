@@ -87,8 +87,12 @@ const CreateAppointments = () => {
   };
 
   return (
+    <>
+      <div className="page-hero">
+        <h1>Gestión de Citas</h1>
+        <p>Crea nuevas citas y gestiona las existentes.</p>
+      </div>
     <div className="create-appointments-container">
-      <h1>Crear Cita</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Usuario</label>
@@ -148,6 +152,7 @@ const CreateAppointments = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

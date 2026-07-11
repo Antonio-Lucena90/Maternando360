@@ -43,46 +43,52 @@ const AdminReviews = () => {
   };
 
   return (
-    <div className="admin-reviews-container">
-      <h2>Gestión de reseñas</h2>
-      {error && <p className="admin-reviews-error">{error}</p>}
-      <table className="admin-reviews-table">
-        <thead>
-          <tr>
-            <th>Usuario</th>
-            <th>Valoración</th>
-            <th>Comentario</th>
-            <th>Fecha</th>
-            <th>Estado</th>
-            <th>Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          {reviews.map((r) => (
-            <tr key={r.review_id}>
-              <td>{r.name}</td>
-              <td>{'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}</td>
-              <td>{r.comment}</td>
-              <td>{new Date(r.created_at).toLocaleDateString('es-ES')}</td>
-              <td>
-                <span className={r.is_published ? 'badge-published' : 'badge-pending'}>
-                  {r.is_published ? 'Publicada' : 'Pendiente'}
-                </span>
-              </td>
-              <td>
-                <button
-                  className={r.is_published ? 'btn-unpublish' : 'btn-publish'}
-                  onClick={() => handlePublish(r.review_id, r.is_published)}
-                >
-                  {r.is_published ? 'Ocultar' : 'Publicar'}
-                </button>
-              </td>
+    <>
+      <div className="page-hero">
+        <h1>Gestión de reseñas</h1>
+        <p>Modera y publica las valoraciones de las usuarias.</p>
+      </div>
+
+      <div className="admin-reviews-container">
+        {error && <p className="admin-reviews-error">{error}</p>}
+        <table className="admin-reviews-table">
+          <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Valoración</th>
+              <th>Comentario</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+              <th>Acción</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {reviews.map((r) => (
+              <tr key={r.review_id}>
+                <td>{r.name}</td>
+                <td>{'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}</td>
+                <td>{r.comment}</td>
+                <td>{new Date(r.created_at).toLocaleDateString('es-ES')}</td>
+                <td>
+                  <span className={r.is_published ? 'badge-published' : 'badge-pending'}>
+                    {r.is_published ? 'Publicada' : 'Pendiente'}
+                  </span>
+                </td>
+                <td>
+                  <button
+                    className={r.is_published ? 'btn-unpublish' : 'btn-publish'}
+                    onClick={() => handlePublish(r.review_id, r.is_published)}
+                  >
+                    {r.is_published ? 'Ocultar' : 'Publicar'}
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
-}
+};
 
 export default AdminReviews;

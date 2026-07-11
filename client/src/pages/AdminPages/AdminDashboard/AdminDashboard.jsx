@@ -9,26 +9,33 @@ import { useNavigate } from 'react-router'
 const AdminDashboard = () => {
   const navigate = useNavigate();
   return (
-    <Container>
-      <div className="admin-dashboard-grid">
-        <div className='dashboard-Card' onClick={() => navigate('/admin/allUsers')}>
-          <img src={uploadIcon} className='dashboard-icon' alt="" />
-          <p>Ver todos los Usuarios Registrados</p>
-        </div>
-        <div className='dashboard-Card' onClick={() => navigate('/admin/createWorkshops')}>
-          <img src={uploadIcon2} className='dashboard-icon' alt="" />
-          <p>Crear Nuevo Taller</p>
-        </div>
-        <div className='dashboard-Card' onClick={() => navigate('/admin/documents')}>
-          <img src={docuIcon} className='dashboard-icon' alt="" />
-          <p>Gestionar Documentos</p>
-        </div>
-        <div className='dashboard-Card' onClick={() => navigate('/admin/inviteCodes')}>
-          <img src={calendarIcon} className='dashboard-icon' alt="" />
-          <p>Códigos de Invitación</p>
-        </div>
+    <>
+      <div className="page-hero">
+        <h1>Panel de Administración</h1>
+        <p>Gestiona usuarias, talleres, documentos y más desde aquí.</p>
       </div>
-    </Container>
+
+      <Container>
+        <div className="admin-dashboard-grid">
+          <div className="dashboard-Card" onClick={() => navigate('/admin/allUsers')}>
+            <img src={uploadIcon} className="dashboard-icon" alt="" />
+            <p>Ver todos los Usuarios Registrados</p>
+          </div>
+          <div className="dashboard-Card" onClick={() => navigate('/admin/createWorkshops')}>
+            <img src={uploadIcon2} className="dashboard-icon" alt="" />
+            <p>Crear Nuevo Taller</p>
+          </div>
+          <div className="dashboard-Card" onClick={() => navigate('/admin/documents')}>
+            <img src={docuIcon} className="dashboard-icon" alt="" />
+            <p>Gestionar Documentos</p>
+          </div>
+          <div className="dashboard-Card" onClick={() => navigate('/admin/inviteCodes')}>
+            <img src={calendarIcon} className="dashboard-icon" alt="" />
+            <p>Códigos de Invitación</p>
+          </div>
+        </div>
+      </Container>
+    </>
   )
 }
 

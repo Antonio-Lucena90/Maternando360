@@ -50,6 +50,11 @@ const CreateWorkshops = () => {
 }
   
   return (
+    <>
+      <div className="page-hero">
+        <h1>Crear Taller</h1>
+        <p>Añade un nuevo taller a la oferta de Maternando360.</p>
+      </div>
     <div className='my-form-workshops'>
       <div className='form-my'>
         <Form>
@@ -131,7 +136,7 @@ const CreateWorkshops = () => {
         </Form>
       </div>
     </div>
+    </>
   );
-;
 }
 export default CreateWorkshops;

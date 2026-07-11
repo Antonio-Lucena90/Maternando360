@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { fetchData } from '../../../helpers/axiosHelper';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
-import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
+import { Container, Button, Modal } from 'react-bootstrap';
 import './allWorkshops.css';
 import { useNavigate } from 'react-router';
 
@@ -25,86 +25,57 @@ const AllWorkshops = () => {
 
   const deleteWorkshop = async (workshop_id) => {
     try {
-      let res = await fetchData(
-        `workshop/deleteWorkshop/${workshop_id}`,
-        'DELETE',
-        null,
-        token,
-      );
-      console.log(res);
-      setAllWorkshops(
-        allWorkshops.filter((e) => e.workshop_id !== workshop_id),
-      );
+      await fetchData(`workshop/deleteWorkshop/${workshop_id}`, 'DELETE', null, token);
+      setAllWorkshops(allWorkshops.filter((e) => e.workshop_id !== workshop_id));
       setShowModal(false);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleClose = () => {
-    setShowModal(false)
-  }
-
   return (
     <>
+      <div className="page-hero">
+        <h1>Gestión de Talleres</h1>
+        <p>Crea, edita y elimina los talleres de Maternando360.</p>
+      </div>
+
       <Container>
-        <Row>
-          <Col>
-            <div className="div-ppal">
-              {allWorkshops?.map((elem) => {
-                return (
-                  <div key={elem.workshop_id} className="div-map">
-                    <h2>{elem.workshop_name}</h2>
-                    <p>Duración: {elem.duration}</p>
-                    <p>Lugar: {elem.city}</p>
-                    <p>Fecha de inicio: {new Date(elem.workshop_start_date).toLocaleDateString('es-ES')}</p>
-                    <p>Fecha final: {new Date(elem.workshop_end_date).toLocaleDateString('es-ES')}</p>
-                    <p>Descripción: {elem.description}</p>
-                    <p>Precio: {elem.price} €</p>
-                    <div className="d-flex gap-4">
-                      <Button
-                        className="my-btn"
-                        onClick={() =>
-                          navigate(`/admin/editWorkshops/${elem.workshop_id}`)
-                        }
-                      >
-                        Editar
-                      </Button>
-                      <Button
-                        className="my-btn"
-                        onClick={() => setShowModal(true)}
-                      >
-                        Eliminar
-                      </Button>
-                    </div>
-                    <div>
-              <Modal
-                show={showModal}
-                onHide={handleClose}
-                backdrop="static"
-                keyboard={false}
-              >
-                <Modal.Header closeButton className="modal-header">
-                  <Modal.Title>¿Estás seguro que quieres eliminar este Taller?</Modal.Title>
+        <div className="workshops-admin-list">
+          {allWorkshops?.map((elem) => (
+            <div key={elem.workshop_id} className="workshop-admin-row">
+              <div className="workshop-admin-body">
+                <h3 className="workshop-admin-name">{elem.workshop_name}</h3>
+                <p className="workshop-admin-desc">{elem.description}</p>
+                <div className="workshop-admin-meta">
+                  {elem.city && <span>📍 {elem.city}</span>}
+                  {elem.duration && <span>⏱ {elem.duration}</span>}
+                  <span>📅 {new Date(elem.workshop_start_date).toLocaleDateString('es-ES')}</span>
+                  <span className="workshop-admin-price">{elem.price} €</span>
+                </div>
+              </div>
+              <div className="workshop-admin-actions">
+                <Button className="my-btn" onClick={() => navigate(`/admin/editWorkshops/${elem.workshop_id}`)}>
+                  Editar
+                </Button>
+                <Button className="my-btn my-btn--danger" onClick={() => setShowModal(elem.workshop_id)}>
+                  Eliminar
+                </Button>
+              </div>
+
+              <Modal show={showModal === elem.workshop_id} onHide={() => setShowModal(false)} backdrop="static" keyboard={false}>
+                <Modal.Header closeButton>
+                  <Modal.Title>¿Eliminar este taller?</Modal.Title>
                 </Modal.Header>
-                <Modal.Body className="modal-body">
-                </Modal.Body>
-                <Modal.Footer className="modal-footer">
-                  <Button className="my-btn" onClick={handleClose}>
-                    Cancelar
-                  </Button>
-                  <Button className="my-btn" onClick={()=>deleteWorkshop(elem.workshop_id)}>
-                    Eliminar
-                  </Button>
+                <Modal.Body>Esta acción no se puede deshacer.</Modal.Body>
+                <Modal.Footer>
+                  <Button className="my-btn" onClick={() => setShowModal(false)}>Cancelar</Button>
+                  <Button className="my-btn my-btn--danger" onClick={() => deleteWorkshop(elem.workshop_id)}>Eliminar</Button>
                 </Modal.Footer>
               </Modal>
             </div>
-                  </div>
-                );
-              })}
-            </div>
-          </Col>
-        </Row>
+          ))}
+        </div>
       </Container>
     </>
   );

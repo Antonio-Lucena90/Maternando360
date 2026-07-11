@@ -51,7 +51,7 @@ const AllWorkshopsPublic = () => {
                 <p className="workshop-description">{elem.description}</p>
                 <div className="workshop-meta">
                   {elem.city && <span>📍 {elem.city}</span>}
-                  {elem.duration && <span>⏱ {elem.duration}</span>}
+                  {elem.duration && <span>⏱ {elem.duration} h</span>}
                 </div>
               </div>
               <div className="workshop-price">

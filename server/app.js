@@ -9,7 +9,6 @@ import adminRouter from './modules/admin/admin.routes.js'
 import workshopRouter from './modules/workshops/workshops.routes.js'
 import reviewsRouter from './modules/reviews/reviews.routes.js';
 import appointmentRouter from './modules/appointment/appointment.routes.js';
-import paymentRouter from './modules/payment/payment.routes.js';
 import messageRouter from './modules/message/message.routes.js';
 import cors from 'cors';
 
@@ -20,9 +19,6 @@ const app = express();
 
 app.use(cors())
 app.use(logger('dev'));
-
-// Webhook de Stripe necesita body crudo — debe ir ANTES de express.json()
-app.use('/payment/webhook', express.raw({ type: 'application/json' }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -35,7 +31,6 @@ app.use('/admin', adminRouter);
 app.use('/workshop', workshopRouter); 
 app.use('/reviews', reviewsRouter); 
 app.use('/appointments', appointmentRouter);
-app.use('/payment', paymentRouter);
 app.use('/message', messageRouter);
 
 // catch 404 and forward to error handler

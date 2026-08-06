@@ -2,10 +2,13 @@ import { useEffect, useState, useContext } from 'react';
 import { fetchData } from '../../../helpers/axiosHelper';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import './adminMessages.css';
+import '../../userPages/Messages/messages.css';
 
 const AdminMessages = () => {
   const { token } = useContext(AuthContext);
   const [conversations, setConversations] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
+  const [showUserPicker, setShowUserPicker] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [messages, setMessages] = useState([]);
   const [reply, setReply] = useState('');
@@ -35,10 +38,14 @@ const AdminMessages = () => {
   useEffect(() => {
     const load = async () => {
       try {
-        const res = await fetchData('message/conversations', 'GET', null, token);
-        setConversations(res.data.result ?? []);
+        const [convRes, usersRes] = await Promise.all([
+          fetchData('message/conversations', 'GET', null, token),
+          fetchData('admin/allUsersRegistered', 'GET', null, token),
+        ]);
+        setConversations(convRes.data.result ?? []);
+        setAllUsers(usersRes.data.result ?? []);
       } catch {
-        setError('Error al cargar las conversaciones');
+        setError('Error al cargar los datos');
       }
     };
     load();
@@ -49,6 +56,7 @@ const AdminMessages = () => {
     setReply('');
     setEditingId(null);
     setConfirmDeleteId(null);
+    setShowUserPicker(false);
     setError('');
     await loadMessages(user.user_id);
     loadConversations();
@@ -60,6 +68,7 @@ const AdminMessages = () => {
       await fetchData(`message/reply/${selectedUser.user_id}`, 'POST', { content: reply }, token);
       setReply('');
       await loadMessages(selectedUser.user_id);
+      loadConversations();
     } catch {
       setError('Error al enviar la respuesta');
     }
@@ -94,6 +103,11 @@ const AdminMessages = () => {
     setConfirmDeleteId(null);
   };
 
+  // Usuarios sin conversación previa
+  const usersWithoutConversation = allUsers.filter(
+    (u) => !conversations.find((c) => c.user_id === u.user_id)
+  );
+
   return (
     <div className="admin-messages">
       <div className="page-hero">
@@ -105,7 +119,38 @@ const AdminMessages = () => {
 
         {/* Lista de conversaciones */}
         <div className="conversations-list">
-          {conversations.length === 0 && (
+          <button
+            className="my-btn new-conversation-btn"
+            onClick={() => setShowUserPicker(!showUserPicker)}
+          >
+            + Nueva conversación
+          </button>
+
+          {/* Selector de usuario */}
+          {showUserPicker && (
+            <div className="user-picker">
+              {usersWithoutConversation.length === 0 && (
+                <p className="user-picker__empty">Todas las usuarias ya tienen conversación.</p>
+              )}
+              {usersWithoutConversation.map((u) => (
+                <div
+                  key={u.user_id}
+                  className="user-picker__item"
+                  onClick={() => openConversation(u)}
+                >
+                  <div className="conversation-item__avatar">
+                    {u.name[0].toUpperCase()}{u.last_name[0].toUpperCase()}
+                  </div>
+                  <div className="conversation-item__info">
+                    <span className="conversation-item__name">{u.name} {u.last_name}</span>
+                    <span className="conversation-item__preview">{u.email}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {conversations.length === 0 && !showUserPicker && (
             <p className="conversations-empty">No hay mensajes todavía.</p>
           )}
           {conversations.map((conv) => (
@@ -140,6 +185,9 @@ const AdminMessages = () => {
               </div>
 
               <div className="thread-messages">
+                {messages.length === 0 && (
+                  <p className="thread-empty">Aún no hay mensajes. ¡Empieza la conversación!</p>
+                )}
                 {messages.map((msg) => (
                   <div
                     key={msg.message_id}
@@ -197,12 +245,12 @@ const AdminMessages = () => {
               <div className="thread-reply">
                 <textarea
                   className="messages-textarea"
-                  placeholder="Escribe tu respuesta..."
+                  placeholder="Escribe tu mensaje..."
                   value={reply}
                   onChange={(e) => setReply(e.target.value)}
                   rows={3}
                 />
-                <button className="my-btn" onClick={handleReply}>Responder</button>
+                <button className="my-btn" onClick={handleReply}>Enviar</button>
               </div>
             </>
           )}

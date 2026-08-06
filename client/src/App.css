@@ -24,6 +24,18 @@ main, .main-public {
   box-shadow: var(--shadow-md) !important;
 }
 
+.my-btn--outline {
+  background-color: transparent !important;
+  border: 1.5px solid var(--color-primary) !important;
+  color: var(--color-primary) !important;
+  box-shadow: none !important;
+}
+
+.my-btn--outline:hover {
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+}
+
 /* Footer */
 .footer {
   background-color: var(--color-sage);

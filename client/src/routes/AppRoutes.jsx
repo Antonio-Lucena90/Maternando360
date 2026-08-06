@@ -15,6 +15,8 @@ const Rates = lazy(()=>import('../pages/PublicPages/Rates/Rates'))
 const LoginPage = lazy(()=>import('../pages/PublicPages/AuthPage/Login/LoginPage'))
 const RegisterPage = lazy(()=>import('../pages/PublicPages/AuthPage/Register/RegisterPage'))
 const ErrorPage = lazy(()=>import('../pages/PublicPages/Error/ErrorPage'))
+const PaymentSuccess = lazy(()=>import('../pages/PublicPages/PaymentSuccess/PaymentSuccess'))
+const PaymentCancel = lazy(()=>import('../pages/PublicPages/PaymentCancel/PaymentCancel'))
 
 import { PrivateRoutes } from './PrivateRoutes';
 
@@ -29,6 +31,7 @@ const Cart = lazy(()=>import('../pages/userPages/Cart/Cart'))
 const Docus = lazy(()=>import('../pages/userPages/Docus/Docus'))
 const DreamRegister = lazy(()=>import('../pages/userPages/DreamRegister/DreamRegister'))
 const Reviews = lazy(()=>import('../pages/userPages/Reviews/Reviews'))
+const Messages = lazy(()=>import('../pages/userPages/Messages/Messages'))
 
 
 
@@ -45,6 +48,7 @@ const AdminUserDocs = lazy(()=>import('../pages/AdminPages/AdminUserDocs/AdminUs
 const AdminInviteCodes = lazy(()=>import('../pages/AdminPages/AdminInviteCodes/AdminInviteCodes'))
 const AdminReviews = lazy(()=>import('../pages/AdminPages/AdminReviews/AdminReviews'))
 const CreateAppointments = lazy(()=>import('../pages/AdminPages/CreateAppointments/CreateAppointments'))
+const AdminMessages = lazy(()=>import('../pages/AdminPages/AdminMessages/AdminMessages'))
 
 
 export const AppRoutes = () => {
@@ -71,6 +75,8 @@ export const AppRoutes = () => {
               <Route path="/workshops" element={<Workshops />} />
               <Route path="/allWorkshopsPublic" element={<AllWorkshopsPublic />} />
               <Route path="/rates" element={<Rates currentInfo={currentInfo} setCurrentInfo={setCurrentInfo}/>} />
+              <Route path="/payment-success" element={<PaymentSuccess />} />
+              <Route path="/payment-cancel" element={<PaymentCancel />} />
             </Route>
           </Route>
 
@@ -88,6 +94,7 @@ export const AppRoutes = () => {
               <Route path='/docus' element={<Docus/>}/>
               <Route path='/dreamRegister' element={<DreamRegister/>}/>
               <Route path='/reviews' element={<Reviews/>}/>
+              <Route path='/messages' element={<Messages/>}/>
             </Route>
           </Route>
 
@@ -105,6 +112,7 @@ export const AppRoutes = () => {
                 <Route path='/admin/inviteCodes' element={<AdminInviteCodes/>}/>
                 <Route path='/admin/reviews' element={<AdminReviews/>}/>
                 <Route path='/admin/appointments' element={<CreateAppointments/>}/>
+                <Route path='/admin/messages' element={<AdminMessages/>}/>
               </Route>
             </Route>
 

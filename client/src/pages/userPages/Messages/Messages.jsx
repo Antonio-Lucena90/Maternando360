@@ -24,8 +24,12 @@ const Messages = () => {
   useEffect(() => {
     const load = async () => {
       try {
-        const res = await fetchData('message/my', 'GET', null, token);
-        setMessages(res.data.result ?? []);
+        const [msgsRes] = await Promise.all([
+          fetchData('message/my', 'GET', null, token),
+          fetchData('message/read', 'PUT', null, token),
+        ]);
+        setMessages(msgsRes.data.result ?? []);
+        window.dispatchEvent(new Event('messages-read'));
       } catch {
         setError('Error al cargar los mensajes');
       }
@@ -142,9 +146,15 @@ const Messages = () => {
         <div className="messages-input-area">
           <textarea
             className="messages-textarea"
-            placeholder="Escribe tu mensaje..."
+            placeholder="Escribe tu mensaje... (Enter para enviar, Shift+Enter para salto de línea)"
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSend();
+              }
+            }}
             rows={3}
           />
           <button className="my-btn" onClick={handleSend}>Enviar</button>

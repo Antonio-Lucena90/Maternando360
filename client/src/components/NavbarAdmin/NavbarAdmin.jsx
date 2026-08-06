@@ -1,12 +1,33 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
+import { fetchData } from '../../helpers/axiosHelper';
 import logo from '../../assets/images/logonegro.png'
 
 export const NavbarAdmin = () => {
 
-  const {logOut, user} = useContext(AuthContext)
+  const { logOut, user, token } = useContext(AuthContext);
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  useEffect(() => {
+    if (!token) return;
+    const load = async () => {
+      try {
+        const res = await fetchData('message/admin/unread', 'GET', null, token);
+        setUnreadCount(res.data.count);
+      } catch {
+        // silencioso
+      }
+    };
+    load();
+    const interval = setInterval(load, 60000);
+    window.addEventListener('admin-messages-read', load);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('admin-messages-read', load);
+    };
+  }, [token]);
   return (
 <Navbar expand="lg" className="navbar">
   <Container>
@@ -32,7 +53,7 @@ export const NavbarAdmin = () => {
           Establecer Citas
         </Nav.Link>
         <Nav.Link as={NavLink} to="/admin/messages">
-          Mensajes
+          Mensajes {unreadCount > 0 && <span className="nav-new-badge">{unreadCount}</span>}
         </Nav.Link>
       </Nav>
 

@@ -93,6 +93,35 @@ class MessageDal {
       throw error;
     }
   }
+
+  getUnreadCountForUser = async (values) => {
+    try {
+      let sql = `SELECT COUNT(*) AS count FROM message WHERE user_id = $1 AND sender = 'admin' AND read = FALSE`;
+      let result = await executeQuery(sql, values);
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  getUnreadCountForAdmin = async () => {
+    try {
+      let sql = `SELECT COUNT(*) AS count FROM message WHERE sender = 'user' AND read = FALSE`;
+      let result = await executeQuery(sql, []);
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  markAdminMessagesAsRead = async (values) => {
+    try {
+      let sql = `UPDATE message SET read = TRUE WHERE user_id = $1 AND sender = 'admin'`;
+      await executeQuery(sql, values);
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default new MessageDal();

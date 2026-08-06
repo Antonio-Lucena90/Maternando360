@@ -109,6 +109,35 @@ class MessageController {
       res.status(500).json(error);
     }
   }
+
+  getUnreadCount = async (req, res) => {
+    const user_id = req.user_id;
+    try {
+      const result = await messageDal.getUnreadCountForUser([user_id]);
+      res.status(200).json({ message: 'ok', count: parseInt(result[0].count) });
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
+
+  getAdminUnreadCount = async (req, res) => {
+    try {
+      const result = await messageDal.getUnreadCountForAdmin();
+      res.status(200).json({ message: 'ok', count: parseInt(result[0].count) });
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
+
+  markAsReadByUser = async (req, res) => {
+    const user_id = req.user_id;
+    try {
+      await messageDal.markAdminMessagesAsRead([user_id]);
+      res.status(200).json({ message: 'ok' });
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
 }
 
 export default new MessageController();

@@ -60,6 +60,7 @@ const AdminMessages = () => {
     setError('');
     await loadMessages(user.user_id);
     loadConversations();
+    window.dispatchEvent(new Event('admin-messages-read'));
   };
 
   const handleReply = async () => {
@@ -245,9 +246,15 @@ const AdminMessages = () => {
               <div className="thread-reply">
                 <textarea
                   className="messages-textarea"
-                  placeholder="Escribe tu mensaje..."
+                  placeholder="Escribe tu mensaje... (Enter para enviar, Shift+Enter para salto de línea)"
                   value={reply}
                   onChange={(e) => setReply(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                      e.preventDefault();
+                      handleReply();
+                    }
+                  }}
                   rows={3}
                 />
                 <button className="my-btn" onClick={handleReply}>Enviar</button>

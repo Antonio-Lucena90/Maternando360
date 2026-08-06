@@ -1,13 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
+import { fetchData } from '../../helpers/axiosHelper';
 import './navbarUser.css';
 import logo from '../../assets/images/logonegro.png';
 
 export const NavbarUser = () => {
   const navigate = useNavigate();
-  const { logOut, user } = useContext(AuthContext);
+  const { logOut, user, token } = useContext(AuthContext);
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  useEffect(() => {
+    if (!token) return;
+    const load = async () => {
+      try {
+        const res = await fetchData('message/unread', 'GET', null, token);
+        setUnreadCount(res.data.count);
+      } catch {
+        // silencioso
+      }
+    };
+    load();
+    const interval = setInterval(load, 60000);
+    window.addEventListener('messages-read', load);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('messages-read', load);
+    };
+  }, [token]);
 
   return (
     <Navbar expand="lg" className="navbar">
@@ -36,7 +57,7 @@ export const NavbarUser = () => {
               Reseñas
             </Nav.Link>
             <Nav.Link as={NavLink} to="/messages">
-              Mensajes
+              Mensajes {unreadCount > 0 && <span className="nav-new-badge">{unreadCount}</span>}
             </Nav.Link>
             <div className="d-flex gap-3">
               <a

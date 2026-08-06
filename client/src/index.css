@@ -58,6 +58,29 @@ h1, h2, h3, h4 {
   margin-top: 0.3rem;
 }
 
+/* ── Password toggle ────────────────────────────────────── */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper .form-control {
+  padding-right: 2.5rem;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.65rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  line-height: 1;
+  color: var(--color-text-soft);
+}
+
 /* ── Badge "¡Nuevo!" navbar ─────────────────────────────── */
 .nav-new-badge {
   display: inline-block;

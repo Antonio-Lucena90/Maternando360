@@ -16,7 +16,8 @@ const initialValue = {
 const LoginPage = () => {
   const [login, setLogin] = useState(initialValue);
   const [valErrors, setValErrors] = useState();
-  const [errorMsg, setErrorMsg] = useState('')
+  const [errorMsg, setErrorMsg] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   
   const {setUser, setToken} = useContext(AuthContext);
 
@@ -73,13 +74,18 @@ const LoginPage = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Contraseña</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Introduzca contraseña"
-            onChange={handleChange}
-            name="password"
-            value={login.password}
-          />
+          <div className="password-wrapper">
+            <Form.Control
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Introduzca contraseña"
+              onChange={handleChange}
+              name="password"
+              value={login.password}
+            />
+            <button type="button" className="password-toggle" onClick={() => setShowPassword(!showPassword)}>
+              {showPassword ? '🙈' : '👁️'}
+            </button>
+          </div>
           {valErrors?.password && <p className='error-msg'>{valErrors.password}</p>}
         </Form.Group>
         <p className='error-msg'>{errorMsg}</p>

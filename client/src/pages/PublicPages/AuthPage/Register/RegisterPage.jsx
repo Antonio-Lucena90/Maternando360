@@ -19,7 +19,9 @@ const initialValue = {
 const RegisterPage = () => {
   const [register, setRegister] = useState(initialValue);
   const [valErrors, setValErrors] = useState();
-  const [fecthError, setFecthError] = useState('')
+  const [fecthError, setFecthError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
   const navigate = useNavigate()
   
@@ -96,25 +98,35 @@ const RegisterPage = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Contraseña</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Introduzca contraseña"
-            onChange={handleChange}
-            name="password"
-            value={register.password}
-          />
-        {valErrors?.password && <p className='error-msg'>{valErrors.password}</p>}
+          <div className="password-wrapper">
+            <Form.Control
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Introduzca contraseña"
+              onChange={handleChange}
+              name="password"
+              value={register.password}
+            />
+            <button type="button" className="password-toggle" onClick={() => setShowPassword(!showPassword)}>
+              {showPassword ? '🙈' : '👁️'}
+            </button>
+          </div>
+          {valErrors?.password && <p className='error-msg'>{valErrors.password}</p>}
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
           <Form.Label>Confirme Contraseña</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Introduzca contraseña"
-            onChange={handleChange}
-            name="confirm_password"
-            value={register.confirm_password}
-          />
-        {valErrors?.confirm_password && <p className='error-msg'>{valErrors.confirm_password}</p>}
+          <div className="password-wrapper">
+            <Form.Control
+              type={showConfirm ? 'text' : 'password'}
+              placeholder="Introduzca contraseña"
+              onChange={handleChange}
+              name="confirm_password"
+              value={register.confirm_password}
+            />
+            <button type="button" className="password-toggle" onClick={() => setShowConfirm(!showConfirm)}>
+              {showConfirm ? '🙈' : '👁️'}
+            </button>
+          </div>
+          {valErrors?.confirm_password && <p className='error-msg'>{valErrors.confirm_password}</p>}
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicBabyName">
           <Form.Label>Nombre del bebé (opcional)</Form.Label>

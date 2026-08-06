@@ -15,8 +15,6 @@ const Rates = lazy(()=>import('../pages/PublicPages/Rates/Rates'))
 const LoginPage = lazy(()=>import('../pages/PublicPages/AuthPage/Login/LoginPage'))
 const RegisterPage = lazy(()=>import('../pages/PublicPages/AuthPage/Register/RegisterPage'))
 const ErrorPage = lazy(()=>import('../pages/PublicPages/Error/ErrorPage'))
-const PaymentSuccess = lazy(()=>import('../pages/PublicPages/PaymentSuccess/PaymentSuccess'))
-const PaymentCancel = lazy(()=>import('../pages/PublicPages/PaymentCancel/PaymentCancel'))
 
 import { PrivateRoutes } from './PrivateRoutes';
 
@@ -75,8 +73,6 @@ export const AppRoutes = () => {
               <Route path="/workshops" element={<Workshops />} />
               <Route path="/allWorkshopsPublic" element={<AllWorkshopsPublic />} />
               <Route path="/rates" element={<Rates currentInfo={currentInfo} setCurrentInfo={setCurrentInfo}/>} />
-              <Route path="/payment-success" element={<PaymentSuccess />} />
-              <Route path="/payment-cancel" element={<PaymentCancel />} />
             </Route>
           </Route>
 
